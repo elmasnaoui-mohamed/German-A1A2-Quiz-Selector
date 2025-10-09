@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsch A1/A2 Vorbereitung (B1)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #eef2f5;
+            /* Light subtle blue/gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            width: 100%;
+            max-width: 700px;
+            /* Professional card style */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .option-button {
+            transition: all 0.2s;
+        }
+
+        .option-button:not([disabled]):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Specific state styling for better visual feedback */
+        .correct {
+            background-color: #d1fae5 !important;
+            border-color: #10b981 !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #991b1b !important;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="quiz-container" class="quiz-container bg-white p-8 md:p-12 rounded-2xl">
+        <!-- Header -->
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-2 border-b-2 pb-2 border-gray-100">Deutsch B1
+                Vorbereitung (A1/A2 Review)</h1>
+            <p class="text-gray-500 text-lg">اختر القسم الذي تريد البدء به لتقييم مستواك.</p>
+        </div>
+
+        <!-- Selector Area -->
+        <div id="selector-area">
+            <h2 class="text-2xl font-semibold text-center mb-8 text-gray-700">Wähle dein Fokus (اختر تركيزك)</h2>
+            <div class="space-y-6">
+                <!-- Grammar Selector Button (Theme: Indigo) -->
+                <button onclick="startQuiz('grammar')"
+                    class="w-full p-8 text-xl font-extrabold rounded-xl shadow-lg transition duration-300 text-white bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transform hover:scale-[1.01] option-button">
+                    <span class="block text-3xl mb-1">Grammatik 📚</span>
+                    <span class="text-sm font-light opacity-90">100 Fragen: Fälle (Cases), Zeitformen (Tenses),
+                        Nebensätze (Subordinate Clauses).</span>
+                </button>
+
+                <!-- Vocabulary Selector Button (Theme: Green) -->
+                <button onclick="startQuiz('vocabulary')"
+                    class="w-full p-8 text-xl font-extrabold rounded-xl shadow-lg transition duration-300 text-white bg-green-600 hover:bg-green-700 hover:shadow-xl transform hover:scale-[1.01] option-button">
+                    <span class="block text-3xl mb-1">Wortschatz 💬</span>
+                    <span class="text-sm font-light opacity-90">100 Fragen: Alltagsbegriffe (Daily Terms), Verben,
+                        Synonyme (Synonyms).</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Area (Hidden initially) -->
+        <div id="quiz-area" class="hidden">
+
+            <!-- NEW BACK TO SELECTION BUTTON -->
+            <button onclick="showSelector()"
+                class="text-sm font-semibold text-gray-500 hover:text-indigo-600 transition duration-150 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Zurück zur Auswahl
+            </button>
+
+            <div id="quiz-header" class="mb-8 text-center">
+                <h2 id="quiz-title" class="text-3xl font-extrabold mb-2 text-indigo-600"></h2>
+                <p id="quiz-subtitle" class="text-gray-500"></p>
+            </div>
+            <!-- Question Card -->
+            <div id="question-card" class="p-8 rounded-xl mb-8 border-l-4 border-indigo-400 bg-indigo-50">
+                <p id="question-text" class="text-2xl font-bold text-gray-800 mb-4"></p>
+                <div id="level-tag" class="text-sm font-extrabold px-3 py-1 rounded-full w-fit mb-2"></div>
+            </div>
+
+            <!-- Options -->
+            <div id="options-container" class="space-y-4">
+                <!-- Buttons will be dynamically added here -->
+            </div>
+
+            <!-- Feedback and Next Button -->
+            <div id="feedback-area" class="mt-8">
+                <p id="result-message" class="text-center text-lg font-bold transition-opacity duration-300 opacity-0">
+                </p>
+                <p id="explanation-text"
+                    class="mt-4 p-4 bg-gray-100 border-l-4 border-gray-300 rounded-lg text-sm text-gray-700 hidden shadow-inner">
+                </p>
+                <button id="next-button" onclick="nextQuestion()"
+                    class="mt-6 w-full text-white font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200"
+                    disabled>
+                    Nächste Frage (Next Question)
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Area (Hidden initially) -->
+        <div id="results-area" class="hidden text-center">
+            <h2 class="text-3xl font-extrabold mb-4 text-green-600">Quiz beendet! 🎉</h2>
+            <p class="text-6xl font-extrabold text-gray-900 mb-6">Dein Score: <span id="final-score"
+                    class="text-green-600">0 / 100</span></p>
+            <p id="score-analysis" class="text-xl text-gray-700 mb-10 p-4 bg-gray-50 rounded-lg"></p>
+
+            <div class="space-y-4">
+                <!-- Main Button (Restart Quiz) - Color set dynamically in JS -->
+                <button onclick="showSelector()" id="restart-button"
+                    class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-200 w-full md:w-auto">
+                    Neues Quiz wählen (Choose New Quiz)
+                </button>
+
+                <!-- Secondary Button (Back to Selection) -->
+                <button onclick="showSelector()"
+                    class="text-sm font-semibold text-gray-500 hover:text-indigo-600 transition duration-150 flex items-center justify-center w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Zurück zur Auswahl
+                </button>
+            </div>
+        </div>
+
+        <script>
+            // --- Data Definitions (Same as previous version, ensuring consistency) ---
+            const quizDataGrammar = [
+                { level: 'A1', question: "Ich ... in Berlin.", options: ["wohnt", "wohne", "wohnst", "wohnen"], correctAnswerIndex: 1, topic: "Präsens Konjugation (ich)" },
+                { level: 'A1', question: "Was ist der Artikel für 'Tisch'?", options: ["Die", "Der", "Das", "Ein"], correctAnswerIndex: 1, topic: "Bestimmter Artikel (Maskulin)" },
+                { level: 'A1', question: "Das ist ... Apfel.", options: ["ein", "eine", "einen", "einer"], correctAnswerIndex: 0, topic: "Unbestimmter Artikel (Maskulin)" },
+                { level: 'A1', question: "Du ... sehr schnell.", options: ["läuft", "laufen", "läufst", "laufe"], correctAnswerIndex: 2, topic: "Präsens mit Umlaut (du)" },
+                { level: 'A1', question: "Wir kommen ... Deutschland.", options: ["aus", "von", "in", "mit"], correctAnswerIndex: 0, topic: "Präposition (aus)" },
+                { level: 'A1', question: "Der Mann kauft ... Brot.", options: ["der", "die", "das", "dem"], correctAnswerIndex: 2, topic: "Bestimmter Artikel (Neutrum)" },
+                { level: 'A1', question: "Sie (Singular) ... einen Kaffee.", options: ["trinken", "trinkt", "trinkst", "trinke"], correctAnswerIndex: 1, topic: "Präsens Konjugation (sie/er/es)" },
+                { level: 'A1', question: "Wie alt ... du?", options: ["bist", "bin", "seid", "ist"], correctAnswerIndex: 0, topic: "Sein Konjugation (du)" },
+                { level: 'A1', question: "Ich habe ... Katze.", options: ["ein", "eine", "einen", "kein"], correctAnswerIndex: 1, topic: "Unbestimmter Artikel (Feminin)" },
+                { level: 'A1', question: "Ist das ... Fahrrad?", options: ["dein", "deine", "deinen", "deiner"], correctAnswerIndex: 0, topic: "Possessivartikel (Neutrum)" },
+                { level: 'A1', question: "Wir ... heute Abend Pizza.", options: ["essen", "esst", "isst", "esse"], correctAnswerIndex: 0, topic: "Präsens Konjugation (wir)" },
+                { level: 'A1', question: "Das Kind spielt ... Ball.", options: ["der", "den", "dem", "die"], correctAnswerIndex: 1, topic: "Akkusativ (Maskulin)" },
+                { level: 'A1', question: "Ich habe ... Hunger.", options: ["keine", "nicht", "keinen", "Hunger nicht"], correctAnswerIndex: 2, topic: "Negation (kein/keine Akkusativ)" },
+                { level: 'A1', question: "Möchtest du ... trinken?", options: ["etwas", "nichts", "alles", "immer"], correctAnswerIndex: 0, topic: "Indefinitpronomen" },
+                { level: 'A1', question: "Die Kinder gehen ... Schule.", options: ["in", "nach", "zu", "im"], correctAnswerIndex: 2, topic: "Präposition (zu)" },
+                { level: 'A1', question: "Das Auto steht ... Garage.", options: ["in der", "in die", "auf der", "an der"], correctAnswerIndex: 0, topic: "Lokalpräposition (in Dativ)" },
+                { level: 'A1', question: "Der Stuhl steht ... Tisch.", options: ["auf", "unter", "neben dem", "in dem"], correctAnswerIndex: 2, topic: "Lokalpräpositionen (Dativ)" },
+                { level: 'A1', question: "Ich ... heute ins Kino gehen.", options: ["kann", "können", "könnt", "kannst"], correctAnswerIndex: 0, topic: "Modalverb (können)" },
+                { level: 'A1', question: "Er hat ... Freundin.", options: ["ein", "eine", "einen", "keine"], correctAnswerIndex: 1, topic: "Unbestimmter Artikel (Akkusativ Feminin)" },
+                { level: 'A1', question: "Das Kind gibt ... Mutter einen Kuss.", options: ["seine", "seiner", "sein", "seinen"], correctAnswerIndex: 1, topic: "Dativ (Feminin)" },
+                { level: 'A1', question: "Ich ... krank.", options: ["bin", "bist", "ist", "sind"], correctAnswerIndex: 0, topic: "Sein Konjugation (ich)" },
+                { level: 'A1', question: "Er hat ... Auto.", options: ["ein", "eine", "einen", "keine"], correctAnswerIndex: 0, topic: "Unbestimmter Artikel (Akkusativ Neutrum)" },
+                { level: 'A1', question: "Wir fahren ... Zug.", options: ["mit", "bei", "zu", "auf"], correctAnswerIndex: 0, topic: "Präposition (mit Dativ)" },
+                { level: 'A1', question: "Wir ... am Wochenende fern.", options: ["sehen", "sehe", "siehst", "schauen"], correctAnswerIndex: 0, topic: "Präsens Konjugation (sehen)" },
+                { level: 'A1', question: "Das Geschäft ist ... Sonntag geschlossen.", options: ["am", "um", "im", "in"], correctAnswerIndex: 0, topic: "Zeitpräposition (am)" },
+                { level: 'A1', question: "Kannst du mir ... schicken?", options: ["die E-Mail", "den E-Mail", "der E-Mail", "das E-Mail"], correctAnswerIndex: 0, topic: "Akkusativ (Feminin)" },
+                { level: 'A1', question: "Ich lerne Deutsch, ... ich in Deutschland arbeiten will.", options: ["aber", "oder", "denn", "und"], correctAnswerIndex: 2, topic: "Konnektoren (denn)" },
+                { level: 'A1', question: "Die Kinder spielen ... Park.", options: ["in dem", "im", "am", "zum"], correctAnswerIndex: 1, topic: "Präposition mit Kontraktion (im)" },
+                { level: 'A1', question: "Er muss ... arbeiten.", options: ["viel", "sehr", "gern", "nie"], correctAnswerIndex: 0, topic: "Adverbien" },
+                { level: 'A1', question: "Hast du ... Adresse?", options: ["die", "der", "den", "das"], correctAnswerIndex: 0, topic: "Bestimmter Artikel (Feminin)" },
+                { level: 'A1', question: "Meine Schwester ... zwei Kinder.", options: ["hat", "haben", "hast", "habe"], correctAnswerIndex: 0, topic: "Haben Konjugation (sie)" },
+                { level: 'A1', question: "Das Zimmer ist ... klein.", options: ["zu", "auch", "sehr", "noch"], correctAnswerIndex: 2, topic: "Adverb (sehr)" },
+                { level: 'A1', question: "Ich stehe um 7 Uhr ... .", options: ["aufstehe", "stehe auf", "auf", "steht auf"], correctAnswerIndex: 1, topic: "Trennbare Verben (Satzstellung)" },
+                { level: 'A1', question: "Gehst du ... Kino?", options: ["ins", "im", "zu", "der"], correctAnswerIndex: 0, topic: "Präposition mit Kontraktion (ins)" },
+                { level: 'A1', question: "Ich gebe ... Mann das Buch.", options: ["der", "den", "die", "dem"], correctAnswerIndex: 3, topic: "Dativ (Maskulin)" },
+                { level: 'A1', question: "Wir können ... Spanisch sprechen.", options: ["nicht", "kein", "nein", "nie"], correctAnswerIndex: 0, topic: "Negation (nicht)" },
+                { level: 'A1', question: "Wie ist ... Name?", options: ["ihr", "ihre", "ihren", "ihrer"], correctAnswerIndex: 0, topic: "Possessivartikel (Ihr Maskulin)" },
+                { level: 'A1', question: "Ich habe ... Wasser getrunken.", options: ["ein", "eine", "kein", "keinen"], correctAnswerIndex: 2, topic: "Kein (uncountable Noun)" },
+                { level: 'A1', question: "Kann ich ... helfen?", options: ["du", "dich", "dir", "dein"], correctAnswerIndex: 2, topic: "Personalpronomen (Dativ)" },
+                { level: 'A1', question: "Der Kurs beginnt ... 9 Uhr.", options: ["um", "an", "in", "auf"], correctAnswerIndex: 0, topic: "Temporale Präposition (um)" },
+                { level: 'A1', question: "... kostet das Brot?", options: ["Wie", "Was", "Wer", "Wo"], correctAnswerIndex: 0, topic: "W-Frage (Wie)" },
+                { level: 'A1', question: "Wir gehen ... Opa.", options: ["zum", "zu der", "zu den", "zu"], correctAnswerIndex: 0, topic: "Präposition mit Kontraktion (zum)" },
+                { level: 'A1', question: "Ich ... dich morgen besuchen.", options: ["wolle", "wollen", "will", "willt"], correctAnswerIndex: 2, topic: "Modalverb (wollen)" },
+                { level: 'A1', question: "Das Buch liegt ... Tisch.", options: ["auf dem", "auf den", "auf der", "am"], correctAnswerIndex: 0, topic: "Lokalpräposition (auf Dativ)" },
+                { level: 'A1', question: "Er hilft ... Kindern.", options: ["die", "den", "dem", "das"], correctAnswerIndex: 1, topic: "Dativ (Plural)" },
+                { level: 'A1', question: "Er ruft ... an.", options: ["ich", "mir", "mich", "mein"], correctAnswerIndex: 2, topic: "Personalpronomen (Akkusativ)" },
+                { level: 'A1', question: "Wie geht es ...?", options: ["du", "dich", "dir", "dein"], correctAnswerIndex: 2, topic: "Personalpronomen (Dativ)" },
+                { level: 'A1', question: "Wir ... jetzt gehen.", options: ["müssen", "müsst", "mussen", "müsse"], correctAnswerIndex: 0, topic: "Modalverb (müssen)" },
+                { level: 'A1', question: "... mir bitte helfen!", options: ["Helfen", "Hilf", "Hilfst", "Helft"], correctAnswerIndex: 1, topic: "Imperativ (du)" },
+                { level: 'A1', question: "Ich hänge das Bild ... die Wand.", options: ["an die", "an der", "auf die", "auf der"], correctAnswerIndex: 0, topic: "Wechselpräposition (an Akkusativ)" },
+                { level: 'A2', question: "Gestern ... ich ins Theater gegangen.", options: ["bin", "habe", "war", "hatte"], correctAnswerIndex: 0, topic: "Perfekt (Bewegung: sein)" },
+                { level: 'A2', question: "Das ist der Mann, ... ich das Buch gegeben habe.", options: ["den", "dem", "der", "des"], correctAnswerIndex: 1, topic: "Relativsatz (Dativ)" },
+                { level: 'A2', question: "Obwohl es regnet, ... wir spazieren.", options: ["geht", "gehen", "gehen wir", "wir gehen"], correctAnswerIndex: 2, topic: "Nebensatz (Inversion nach Komma)" },
+                { level: 'A2', question: "Er interessiert sich ... Geschichte.", options: ["für", "an", "um", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sich interessieren)" },
+                { level: 'A2', question: "Der Film, ... ich gesehen habe, war spannend.", options: ["den", "dem", "der", "das"], correctAnswerIndex: 0, topic: "Relativsatz (Akkusativ)" },
+                { level: 'A2', question: "Ich habe ihn angerufen, ... ich seine Hilfe brauchte.", options: ["trotzdem", "weil", "deshalb", "obwohl"], correctAnswerIndex: 1, topic: "Nebensatz (weil)" },
+                { level: 'A2', question: "Sie sind ... den Berg gestiegen.", options: ["auf", "an", "über", "in"], correctAnswerIndex: 0, topic: "Wechselpräposition (Akkusativ: auf)" },
+                { level: 'A2', question: "Ich ... gestern meinen Schlüssel verloren.", options: ["habe", "bin", "hatte", "war"], correctAnswerIndex: 0, topic: "Perfekt (Verlieren: haben)" },
+                { level: 'A2', question: "Diese ... Schuhe sind zu teuer.", options: ["neu", "neue", "neuen", "neuer"], correctAnswerIndex: 2, topic: "Adjektivdeklination (Plural)" },
+                { level: 'A2', question: "Wenn ich Zeit ... , komme ich dich besuchen.", options: ["habe", "hätte", "werde", "bin"], correctAnswerIndex: 0, topic: "Konditionalsatz (Präsens)" },
+                { level: 'A2', question: "Er hat sich bei ... entschuldigt.", options: ["die Lehrerin", "der Lehrerin", "den Lehrerin", "die Lehrerinnen"], correctAnswerIndex: 1, topic: "Dativ (Feminin)" },
+                { level: 'A2', question: "Das ... du nicht tun!", options: ["müsstest", "musst", "muss", "dürfte"], correctAnswerIndex: 1, topic: "Modalverben (müssen)" },
+                { level: 'A2', question: "Sie wartet ... den Bus.", options: ["auf", "nach", "für", "zu"], correctAnswerIndex: 0, topic: "Präpositionalverben (warten auf)" },
+                { level: 'A2', question: "Das ist das Haus, ... im Wald steht.", options: ["das", "der", "die", "den"], correctAnswerIndex: 0, topic: "Relativsatz (Nominativ Neutrum)" },
+                { level: 'A2', question: "Ich ... mir die Haare geschnitten.", options: ["habe", "bin", "wurde", "war"], correctAnswerIndex: 0, topic: "Reflexivverben (Perfekt)" },
+                { level: 'A2', question: "Sie spricht ... als ich.", options: ["schnell", "schneller", "schnellst", "am schnellsten"], correctAnswerIndex: 1, topic: "Komparativ" },
+                { level: 'A2', question: "Wir fahren ans Meer, ... das Wetter gut ist.", options: ["ob", "obwohl", "wenn", "damit"], correctAnswerIndex: 2, topic: "Nebensatz (wenn)" },
+                { level: 'A2', question: "Das Auto ... in der Garage repariert.", options: ["wird", "ist", "hat", "werden"], correctAnswerIndex: 0, topic: "Passiv (Präsens)" },
+                { level: 'A2', question: "Er hat mich ... seiner Party eingeladen.", options: ["auf", "zu", "für", "mit"], correctAnswerIndex: 1, topic: "Präpositionalverben (einladen zu)" },
+                { level: 'A2', question: "Die Frau, ... Auto kaputt ist, wartet hier.", options: ["deren", "dessen", "die", "der"], correctAnswerIndex: 1, topic: "Relativsatz (Genitiv)" },
+                { level: 'A2', question: "Er ... mir, dass er krank war.", options: ["sagt", "sagte", "gesagt", "hat gesagt"], correctAnswerIndex: 1, topic: "Präteritum (sagen)" },
+                { level: 'A2', question: "Ich freue mich ... deinen Besuch.", options: ["auf", "über", "für", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sich freuen auf)" },
+                { level: 'A2', question: "Das ist die ... Lösung.", options: ["best", "beste", "bester", "besten"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Superlativ)" },
+                { level: 'A2', question: "Der Chef hat mich ... Büro gerufen.", options: ["ins", "im", "am", "zum"], correctAnswerIndex: 0, topic: "Wechselpräposition (Akkusativ Kontraktion)" },
+                { level: 'A2', question: "Ich habe viel ... zu tun.", options: ["zu", "von", "mit", "an"], correctAnswerIndex: 0, topic: "Infinitiv mit zu" },
+                { level: 'A2', question: "Man ... hier nicht rauchen.", options: ["darf", "muss", "soll", "will"], correctAnswerIndex: 0, topic: "Modalverben (dürfen)" },
+                { level: 'A2', question: "Dieses T-Shirt ist ... als das andere.", options: ["billig", "billiger", "am billigsten", "billigst"], correctAnswerIndex: 1, topic: "Komparativ" },
+                { level: 'A2', question: "Die Katze liegt ... Sofa.", options: ["auf dem", "auf den", "an dem", "vor"], correctAnswerIndex: 0, topic: "Wechselpräposition (Dativ)" },
+                { level: 'A2', question: "Er hat das Formular selbst ... .", options: ["ausgefüllt", "füllte aus", "ausfüllen", "ausfüllt"], correctAnswerIndex: 0, topic: "Perfekt (Trennbares Verb)" },
+                { level: 'A2', question: "Ich habe keinen Hunger, ... esse ich nichts.", options: ["denn", "weil", "deshalb", "obwohl"], correctAnswerIndex: 2, topic: "Konnektoren (deshalb)" },
+                { level: 'A2', question: "Sie sind ... 2005 verheiratet.", options: ["seit", "ab", "vor", "nach"], correctAnswerIndex: 0, topic: "Temporale Präposition (seit)" },
+                { level: 'A2', question: "Das ist der Junge, ... ich geholfen habe.", options: ["der", "den", "dem", "dessen"], correctAnswerIndex: 2, topic: "Relativsatz (Dativ)" },
+                { level: 'A2', question: "Das ist der ... schönste Tag meines Lebens.", options: ["der", "die", "das", "dem"], correctAnswerIndex: 0, topic: "Superlativ" },
+                { level: 'A2', question: "Er hat ... Buch gekauft.", options: ["ein gut", "ein gutes", "einen guten", "eine gute"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Gemischt Neutrum)" },
+                { level: 'A2', question: "Ich habe keine Zeit, ... ich arbeiten muss.", options: ["deshalb", "trotzdem", "weil", "denn"], correctAnswerIndex: 2, topic: "Nebensatz (weil)" },
+                { level: 'A2', question: "Sie fährt ... ans Meer.", options: ["lieber", "gern", "am liebsten", "gut"], correctAnswerIndex: 0, topic: "Komparativ (gern -> lieber)" },
+                { level: 'A2', question: "Die ... Frau hat mir geholfen.", options: ["alte", "alten", "alt", "alter"], correctAnswerIndex: 0, topic: "Adjektivdeklination (Nominativ Feminin)" },
+                { level: 'A2', question: "Das Licht ... gelöscht.", options: ["wurde", "war", "ist", "hat"], correctAnswerIndex: 0, topic: "Passiv (Präteritum)" },
+                { level: 'A2', question: "Ich bin froh, ... du da bist.", options: ["dass", "ob", "weil", "als"], correctAnswerIndex: 0, topic: "Nebensatz (dass)" },
+                { level: 'A2', question: "Er hat ... versprochen, pünktlich zu kommen.", options: ["mir", "mich", "ich", "meinen"], correctAnswerIndex: 0, topic: "Personalpronomen (Dativ)" },
+                { level: 'A2', question: "Die Leute, ... ich die Tickets gab, waren nett.", options: ["denen", "die", "derer", "den"], correctAnswerIndex: 0, topic: "Relativsatz (Dativ Plural)" },
+                { level: 'A2', question: "Ich frage mich, ... er kommt.", options: ["ob", "dass", "wenn", "weil"], correctAnswerIndex: 0, topic: "Nebensatz (ob)" },
+                { level: 'A2', question: "Das ... Auto ist teuer.", options: ["neu", "neue", "neuen", "neuer"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Schwach Nominativ)" },
+                { level: 'A2', question: "Früher ... sie nicht so viel arbeiten.", options: ["musste", "mussten", "gemusst", "hat gemusst"], correctAnswerIndex: 0, topic: "Präteritum (müssen)" },
+                { level: 'A2', question: "Sie ärgert sich ... ihren Fehler.", options: ["über", "auf", "an", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sich ärgern über)" },
+                { level: 'A2', question: "Ich ... gern in den Urlaub fahren.", options: ["würde", "werde", "will", "wurde"], correctAnswerIndex: 0, topic: "Konjunktiv II (würde)" },
+                { level: 'A2', question: "Das Problem ... jetzt gelöst.", options: ["wird", "ist", "hat", "werde"], correctAnswerIndex: 0, topic: "Passiv (Präsens)" },
+                { level: 'A2', question: "Er singt ... als ich erwartet habe.", options: ["besser", "gut", "am besten", "besten"], correctAnswerIndex: 0, topic: "Komparativ (gut -> besser)" },
+                { level: 'A2', question: "Er ... in München geblieben.", options: ["ist", "hat", "war", "hatte"], correctAnswerIndex: 0, topic: "Perfekt (bleiben)" },
+                { level: 'A2', question: "Das Mädchen, ... du kennst, ist meine Cousine.", options: ["das", "die", "dem", "den"], correctAnswerIndex: 0, topic: "Relativsatz (Akkusativ Neutrum)" },
+                { level: 'A2', question: "... ich Kind war, wohnte ich in Köln.", options: ["Als", "Wenn", "Ob", "Dass"], correctAnswerIndex: 0, topic: "Temporale Nebensätze (als)" },
+                { level: 'A2', question: "Mit ... frischer Milch schmeckt es gut.", options: ["frische", "frischer", "frischen", "frisches"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Stark Dativ)" },
+                { level: 'A2', question: "Die Kinder ... im Garten.", options: ["spielten", "spielen", "gespielt", "spielten"], correctAnswerIndex: 0, topic: "Präteritum (spielen)" },
+                { level: 'A2', question: "Wir sprechen ... das neue Projekt.", options: ["über", "von", "an", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sprechen über)" },
+                { level: 'A2', question: "Ich habe vergessen, dich ... .", options: ["anzurufen", "rufe an", "angerufen", "rufen an"], correctAnswerIndex: 0, topic: "Infinitiv mit zu (Trennbar)" },
+                { level: 'A2', question: "Die Tür ... gestern geschlossen.", options: ["wurde", "war", "ist", "hat"], correctAnswerIndex: 0, topic: "Passiv (Präteritum)" },
+                { level: 'A2', question: "Das ist der ... Berg der Welt.", options: ["höchste", "höher", "hoch", "am höchsten"], correctAnswerIndex: 0, topic: "Superlativ (hoch)" },
+                { level: 'A2', question: "Er hat das machen ... .", options: ["müssen", "gemusst", "musste", "machen müssen"], correctAnswerIndex: 0, topic: "Perfekt mit Modalverb Ersatzinfinitiv" },
+            ];
+
+            const quizDataVocabulary = [
+                { level: 'A1', question: "Wie sagt man 'brother' auf Deutsch?", options: ["Die Schwester", "Der Vater", "Der Bruder", "Die Mutter"], correctAnswerIndex: 2, topic: "Familie" },
+                { level: 'A1', question: "Was ist das Gegenteil von 'lang'?", options: ["kurz", "schwer", "groß", "alt"], correctAnswerIndex: 0, topic: "Gegenteile" },
+                { level: 'A1', question: "Ich koche das Essen in der ... .", options: ["Wohnzimmer", "Küche", "Schlafzimmer", "Bad"], correctAnswerIndex: 1, topic: "Räume" },
+                { level: 'A1', question: "Was trinke ich zum Frühstück?", options: ["Die Butter", "Die Wurst", "Die Milch", "Das Brot"], correctAnswerIndex: 2, topic: "Essen & Trinken" },
+                { level: 'A1', question: "Wie schreibt man die Zahl 24?", options: ["vierzigzwei", "zweiundvierzig", "vierundzwanzig", "vierundzwölf"], correctAnswerIndex: 2, topic: "Zahlen" },
+                { level: 'A1', question: "Das Adjektiv für 'sunny' ist ... .", options: ["regnet", "schnee", "sonnig", "windig"], correctAnswerIndex: 2, topic: "Wetter" },
+                { level: 'A1', question: "Was ist ein Hobby?", options: ["Die Arbeit", "Das Buch", "Lesen", "Die Schule"], correctAnswerIndex: 2, topic: "Hobbys" },
+                { level: 'A1', question: "Ich fahre mit dem ... zur Arbeit.", options: ["Der Hund", "Der Zug", "Die Hand", "Der Tisch"], correctAnswerIndex: 1, topic: "Transport" },
+                { level: 'A1', question: "Wie grüßt man am Abend?", options: ["Guten Morgen", "Gute Nacht", "Guten Abend", "Hallo"], correctAnswerIndex: 2, topic: "Begrüßung" },
+                { level: 'A1', question: "Die Farbe des Himmels ist ... .", options: ["rot", "grün", "blau", "gelb"], correctAnswerIndex: 2, topic: "Farben" },
+                { level: 'A1', question: "Was zieht man an?", options: ["Die Tür", "Die Jacke", "Der Stuhl", "Das Fenster"], correctAnswerIndex: 1, topic: "Kleidung" },
+                { level: 'A1', question: "Das Tier, das bellt, ist der ... .", options: ["Die Katze", "Der Hund", "Der Vogel", "Die Maus"], correctAnswerIndex: 1, topic: "Tiere" },
+                { level: 'A1', question: "Der erste Tag der Woche ist ... .", options: ["Sonntag", "Dienstag", "Montag", "Samstag"], correctAnswerIndex: 2, topic: "Wochentage" },
+                { level: 'A1', question: "Der Monat nach Dezember ist ... .", options: ["Februar", "März", "Januar", "April"], correctAnswerIndex: 2, topic: "Monate" },
+                { level: 'A1', question: "Welche Jahreszeit ist heiß?", options: ["Der Winter", "Der Herbst", "Der Frühling", "Der Sommer"], correctAnswerIndex: 3, topic: "Jahreszeiten" },
+                { level: 'A1', question: "Ich fühle mich ... (happy).", options: ["traurig", "glücklich", "müde", "krank"], correctAnswerIndex: 1, topic: "Gefühle" },
+                { level: 'A1', question: "Mit der ... schreibe ich.", options: ["Das Bein", "Der Fuß", "Die Hand", "Der Kopf"], correctAnswerIndex: 2, topic: "Körperteile" },
+                { level: 'A1', question: "Das Gegenteil von 'rechts' ist ... .", options: ["hinten", "links", "oben", "geradeaus"], correctAnswerIndex: 1, topic: "Richtungen" },
+                { level: 'A1', question: "Ich bin ... , weil ich viel gearbeitet habe.", options: ["fröhlich", "müde", "schnell", "kalt"], correctAnswerIndex: 1, topic: "Zustände" },
+                { level: 'A1', question: "Die Nomenendung für Plural ist oft ... .", options: ["-t", "-e", "-en", "-st"], correctAnswerIndex: 1, topic: "Nomen Plural" },
+                { level: 'A1', question: "Was ist das Gegenteil von 'neu'?", options: ["schön", "alt", "klein", "dünn"], correctAnswerIndex: 1, topic: "Gegenteile" },
+                { level: 'A1', question: "Das Zimmer zum Schlafen ist das ... .", options: ["Wohnzimmer", "Esszimmer", "Schlafzimmer", "Büro"], correctAnswerIndex: 2, topic: "Räume" },
+                { level: 'A1', question: "Was ist das Gegenteil von 'groß'?", options: ["weit", "kurz", "klein", "schön"], correctAnswerIndex: 2, topic: "Gegenteile" },
+                { level: 'A1', question: "Ein 'Ticket' auf Deutsch heißt ... .", options: ["Die Adresse", "Das Telefon", "Die Fahrkarte", "Der Brief"], correctAnswerIndex: 2, topic: "Alltagswörter" },
+                { level: 'A1', question: "Was mache ich am Morgen?", options: ["Abendessen", "Frühstücken", "Schlafen", "Fernsehen"], correctAnswerIndex: 1, topic: "Tagesablauf" },
+                { level: 'A1', question: "Das Substantiv von 'fahren' ist die ... .", options: ["Fahrer", "Fahrt", "Fahrerin", "Fahrstuhl"], correctAnswerIndex: 1, topic: "Nomenbildung" },
+                { level: 'A1', question: "Wie sagt man 'daughter' auf Deutsch?", options: ["Der Sohn", "Die Tochter", "Der Enkel", "Die Tante"], correctAnswerIndex: 1, topic: "Familie" },
+                { level: 'A1', question: "Was ist eine Mahlzeit?", options: ["Die Arbeit", "Das Frühstück", "Das Wetter", "Der Tag"], correctAnswerIndex: 1, topic: "Essen" },
+                { level: 'A1', question: "Das Adjektiv für 'cold' ist ... .", options: ["warm", "heiß", "kalt", "feucht"], correctAnswerIndex: 2, topic: "Adjektive (Wetter)" },
+                { level: 'A1', question: "Die Zahl '0' auf Deutsch heißt ... .", options: ["eins", "zehn", "null", "hundert"], correctAnswerIndex: 2, topic: "Zahlen" },
+                { level: 'A1', question: "Wo kaufe ich Lebensmittel?", options: ["Die Bank", "Der Bahnhof", "Der Supermarkt", "Die Post"], correctAnswerIndex: 2, topic: "Orte" },
+                { level: 'A1', question: "Das Gegenteil von 'unter' ist ... .", options: ["neben", "hinter", "auf", "vor"], correctAnswerIndex: 2, topic: "Präpositionen (Lokal)" },
+                { level: 'A1', question: "Das Verb für 'to understand' ist ... .", options: ["erklären", "verstehen", "hören", "schreiben"], correctAnswerIndex: 1, topic: "Verben" },
+                { level: 'A1', question: "Der Beruf 'teacher (male)' ist ... .", options: ["Die Lehrerin", "Der Koch", "Der Lehrer", "Der Student"], correctAnswerIndex: 2, topic: "Berufe" },
+                { level: 'A1', question: "Das Gegenteil von 'gut' ist ... .", options: ["schlecht", "nett", "schnell", "schön"], correctAnswerIndex: 0, topic: "Gegenteile" },
+                { level: 'A1', question: "Welches Getränk ist oft warm?", options: ["Das Wasser", "Das Bier", "Der Tee", "Die Cola"], correctAnswerIndex: 2, topic: "Getränke" },
+                { level: 'A1', question: "Das Verb für 'to go' ist ... .", options: ["kommen", "sehen", "gehen", "bleiben"], correctAnswerIndex: 2, topic: "Verben" },
+                { level: 'A1', question: "Mit dem ... sitze ich im Büro.", options: ["Der Tisch", "Der Stuhl", "Das Bett", "Die Lampe"], correctAnswerIndex: 1, topic: "Möbel" },
+                { level: 'A1', question: "Was ist das Gegenteil von 'früh'?", options: ["spät", "bald", "jetzt", "morgen"], correctAnswerIndex: 0, topic: "Adverbien (Zeit)" },
+                { level: 'A1', question: "Was mache ich, wenn ich müde bin?", options: ["Tanzen", "Essen", "Schlafen", "Lesen"], correctAnswerIndex: 2, topic: "Aktionen" },
+                { level: 'A1', question: "Die Farbe von Feuer ist oft ... .", options: ["gelb", "blau", "rot", "weiß"], correctAnswerIndex: 2, topic: "Farben" },
+                { level: 'A1', question: "Ich benutze den ... zum Arbeiten.", options: ["Der Koffer", "Der Bleistift", "Der Computer", "Die Zeitung"], correctAnswerIndex: 2, topic: "Objekte" },
+                { level: 'A1', question: "Das Tier, das miaut, ist die ... .", options: ["Der Hund", "Die Katze", "Das Pferd", "Die Ziege"], correctAnswerIndex: 1, topic: "Tiere" },
+                { level: 'A1', question: "Ein Hobby im Wasser ist ... .", options: ["Reiten", "Kochen", "Schwimmen", "Malen"], correctAnswerIndex: 2, topic: "Hobbys" },
+                { level: 'A1', question: "Wie bewege ich mich in der Stadt?", options: ["Der Flug", "Der Bus", "Der Pass", "Das Gepäck"], correctAnswerIndex: 1, topic: "Transport" },
+                { level: 'A1', question: "Es ist nass, wenn es ... .", options: ["schneit", "regnet", "windet", "sonnig ist"], correctAnswerIndex: 1, topic: "Wetter" },
+                { level: 'A1', question: "Das Gegenteil von 'oben' ist ... .", options: ["links", "unten", "hinten", "neben"], correctAnswerIndex: 1, topic: "Richtungen" },
+                { level: 'A1', question: "Die Zeit von 6:00 bis 10:00 ist der ... .", options: ["Der Abend", "Der Mittag", "Der Morgen", "Die Nacht"], correctAnswerIndex: 2, topic: "Tageszeit" },
+                { level: 'A1', question: "Was studiere ich in der Schule?", options: ["Der Sport", "Die Mathematik", "Die Kunst", "Der Hunger"], correctAnswerIndex: 1, topic: "Schulfächer" },
+                { level: 'A1', question: "Die Pluralform von 'Haus' ist ... .", options: ["Hause", "Häusern", "Häuser", "Hausen"], correctAnswerIndex: 2, topic: "Nomen Plural" },
+                { level: 'A2', question: "Das Verb für 'to decide' ist ... .", options: ["erzählen", "fragen", "entscheiden", "versuchen"], correctAnswerIndex: 2, topic: "Verben (Entscheidung)" },
+                { level: 'A2', question: "Was ist ein 'Dokument'?", options: ["Ein Computer", "Ein wichtiges Papier", "Ein Telefonat", "Ein Tisch"], correctAnswerIndex: 1, topic: "Büro/Arbeit" },
+                { level: 'A2', question: "Das Gegenteil von 'teuer' ist ... .", options: ["billig", "schön", "langsam", "voll"], correctAnswerIndex: 0, topic: "Gegenteile (Preise)" },
+                { level: 'A2', question: "Was bedeutet 'einkaufen'?", options: ["Zuhause bleiben", "Schlafen", "Im Laden kaufen", "Sprechen"], correctAnswerIndex: 2, topic: "Trennbares Verb" },
+                { level: 'A2', question: "Wenn mein Kopf weh tut, habe ich ... .", options: ["Fieber", "Husten", "Kopfschmerzen", "Schnupfen"], correctAnswerIndex: 2, topic: "Gesundheit" },
+                { level: 'A2', question: "Was ist ein Synonym für 'Grund'?", options: ["Die Antwort", "Die Lösung", "Die Ursache", "Der Fehler"], correctAnswerIndex: 2, topic: "Nomen (Abstrakt)" },
+                { level: 'A2', question: "Ein anderes Wort für 'wichtig' ist ... .", options: ["unwichtig", "bedeutend", "leicht", "langweilig"], correctAnswerIndex: 1, topic: "Adjektive" },
+                { level: 'A2', question: "Ich muss morgen ... (call back).", options: ["ausfüllen", "zurückrufen", "mitmachen", "anbieten"], correctAnswerIndex: 1, topic: "Trennbares Verb (Kommunikation)" },
+                { level: 'A2', question: "Wenn der Zug geht, dann ... er.", options: ["ankommen", "abfahren", "einsteigen", "umsteigen"], correctAnswerIndex: 1, topic: "Trennbares Verb (Reise)" },
+                { level: 'A2', question: "Wo bewahre ich Geld auf?", options: ["Der Markt", "Das Konto", "Der Pass", "Die Rechnung"], correctAnswerIndex: 1, topic: "Geld/Banken" },
+                { level: 'A2', question: "Was gehört zur Natur?", options: ["Die Straße", "Der Baum", "Die Technologie", "Das Haus"], correctAnswerIndex: 1, topic: "Umwelt" },
+                { level: 'A2', question: "Das Gegenteil von 'interessant' ist ... .", options: ["schwierig", "langweilig", "einfach", "alt"], correctAnswerIndex: 1, topic: "Gegenteile (Adjektive)" },
+                { level: 'A2', question: "Was sammelt man im Leben?", options: ["Die Lösung", "Die Erfahrung", "Die Entscheidung", "Das Gesetz"], correctAnswerIndex: 1, topic: "Nomen (Abstrakt)" },
+                { level: 'A2', question: "Das Verb für 'to move house' ist ... .", options: ["einladen", "umziehen", "bleiben", "verbringen"], correctAnswerIndex: 1, topic: "Verben (Umzug)" },
+                { level: 'A2', question: "Was kaufe ich für eine Flugreise?", options: ["Der Bus", "Der Flug", "Die Bahn", "Das Schiff"], correctAnswerIndex: 1, topic: "Reisen" },
+                { level: 'A2', question: "Wenn man eine hohe Temperatur hat, hat man ... .", options: ["eine Erkältung", "Fieber", "Halsweh", "Bauchschmerzen"], correctAnswerIndex: 1, topic: "Gesundheit" },
+                { level: 'A2', question: "Was bekomme ich für eine Party?", options: ["Der Rat", "Die Einladung", "Die Rechnung", "Das Geld"], correctAnswerIndex: 1, topic: "Nomen (Soziales)" },
+                { level: 'A2', question: "Ein anderes Wort für 'verantwortlich' ist ... .", options: ["geduldig", "fleißig", "zuständig", "mutig"], correctAnswerIndex: 2, topic: "Adjektive" },
+                { level: 'A2', question: "Ich benutze das ... zum Surfen.", options: ["Der Drucker", "Der Bildschirm", "Das Internet", "Die Tastatur"], correctAnswerIndex: 2, topic: "Technologie" },
+                { level: 'A2', question: "Das Gegenteil von 'hell' ist ... .", options: ["dunkel", "nass", "leer", "neu"], correctAnswerIndex: 0, topic: "Gegenteile (Licht)" },
+                { level: 'A2', question: "Was bedeutet 'vorbereiten'?", options: ["Vergessen", "Sammeln", "Fertig machen", "Anrufen"], correctAnswerIndex: 2, topic: "Trennbares Verb (Planung)" },
+                { level: 'A2', question: "Wenn ich viel huste, brauche ich ... .", options: ["eine Besserung", "ein Hustenmittel", "einen Schnupfen", "einen Rat"], correctAnswerIndex: 1, topic: "Gesundheit" },
+                { level: 'A2', question: "Was ist ein Synonym für 'Ergebnis'?", options: ["Die Lösung", "Die Ursache", "Die Entscheidung", "Die Beschwerde"], correctAnswerIndex: 0, topic: "Nomen (Abstrakt)" },
+                { level: 'A2', question: "Was bedeutet 'köstlich'?", options: ["unangenehm", "lecker", "unwichtig", "langsam"], correctAnswerIndex: 1, topic: "Adjektive (Essen)" },
+                { level: 'A2', question: "Wenn ich etwas falsch mache, muss ich mich ... .", options: ["vorschlagen", "mitmachen", "einigen", "beschweren"], correctAnswerIndex: 3, topic: "Verben (Kommunikation)" },
+                { level: 'A2', question: "Was bedeutet 'mitmachen'?", options: ["Teilnehmen", "Absagen", "Zögern", "Warten"], correctAnswerIndex: 0, topic: "Trennbares Verb (Soziales)" },
+                { level: 'A2', question: "Ich zahle mit ... (cash).", options: ["Der Scheck", "Das Konto", "Das Bargeld", "Die Überweisung"], correctAnswerIndex: 2, topic: "Geld/Banken" },
+                { level: 'A2', question: "Das Meer auf Deutsch ist ... .", options: ["Die Wüste", "Der Berg", "Das Meer", "Der Fluss"], correctAnswerIndex: 2, topic: "Umwelt" },
+                { level: 'A2', question: "Das Gegenteil von 'leise' ist ... .", options: ["schnell", "laut", "ruhig", "dünn"], correctAnswerIndex: 1, topic: "Gegenteile (Geräusch)" },
+                { level: 'A2', question: "Ein anderes Wort für 'Wissen' ist ... .", options: ["Der Fehler", "Die Erfahrung", "Die Information", "Die Einladung"], correctAnswerIndex: 2, topic: "Nomen (Abstrakt)" },
+                { level: 'A2', question: "Das Verb für 'to suggest' ist ... .", options: ["entscheiden", "erklären", "vorschlagen", "versprechen"], correctAnswerIndex: 2, topic: "Verben (Vorschlag)" },
+                { level: 'A2', question: "Das Gegenteil von 'trocken' ist ... .", options: ["warm", "nass", "hart", "hell"], correctAnswerIndex: 1, topic: "Gegenteile (Zustand)" },
+                { level: 'A2', question: "Das Verb für 'to recommend' ist ... .", options: ["bestellen", "verkaufen", "empfehlen", "fragen"], correctAnswerIndex: 2, topic: "Verben (Empfehlung)" },
+                { level: 'A2', question: "Was brauche ich, wenn ich ins Ausland reise?", options: ["Die Fahrkarte", "Der Führerschein", "Der Reisepass", "Der Schlüssel"], correctAnswerIndex: 2, topic: "Reisen" },
+                { level: 'A2', question: "Wenn der Hals weh tut, habe ich ... .", options: ["Halsweh", "Kopfweh", "Bauchweh", "Zahnweh"], correctAnswerIndex: 0, topic: "Gesundheit" },
+                { level: 'A2', question: "Was mache ich mit dem Arzt?", options: ["Eine Überweisung", "Einen Termin", "Eine Lösung", "Eine Beschwerde"], correctAnswerIndex: 1, topic: "Gesundheit/Planung" },
+                { level: 'A2', question: "Ein 'Geduldig' Mensch ist ... .", options: ["schnell", "ruhig", "nervös", "mutig"], correctAnswerIndex: 1, topic: "Adjektive (Charakter)" },
+                { level: 'A2', question: "Was ist ein Synonym für 'Kollege'?", options: ["Der Freund", "Der Chef", "Der Mitarbeiter", "Der Lehrer"], correctAnswerIndex: 2, topic: "Büro/Arbeit" },
+                { level: 'A2', question: "Das Gegenteil von 'voll' ist ... .", options: ["offen", "leer", "groß", "alt"], correctAnswerIndex: 1, topic: "Gegenteile (Menge)" },
+                { level: 'A2', question: "Was bedeutet 'ausfüllen'?", options: ["Suchen", "Kaufen", "Formular bearbeiten", "Wegwerfen"], correctAnswerIndex: 2, topic: "Trennbares Verb (Büro)" },
+                { level: 'A2', question: "Wenn der Magen weh tut, habe ich ... .", options: ["Gliederschmerzen", "Bauchschmerzen", "Husten", "Fieber"], correctAnswerIndex: 1, topic: "Gesundheit" },
+                { level: 'A2', question: "Was ist ein 'Gesetz'?", options: ["Eine Regel", "Eine Frage", "Ein Dokument", "Eine Idee"], correctAnswerIndex: 0, topic: "Nomen (Abstrakt)" },
+                { level: 'A2', question: "Ein anderes Wort für 'tapfer' ist ... .", options: ["faul", "mutig", "traurig", "nett"], correctAnswerIndex: 1, topic: "Adjektive" },
+                { level: 'A2', question: "Was bedeutet 'anbieten'?", options: ["Nehmen", "Geben", "Warten", "Hören"], correctAnswerIndex: 1, topic: "Trennbares Verb (Soziales)" },
+                { level: 'A2', question: "Was mache ich mit Geld von Konto A zu Konto B?", options: ["Einzahlen", "Abheben", "Überweisen", "Ausgeben"], correctAnswerIndex: 2, topic: "Geld/Banken" },
+                { level: 'A2', question: "Die Person, die mit mir arbeitet, ist mein ... .", options: ["Der Patient", "Der Lehrer", "Der Kunde", "Der Kollege"], correctAnswerIndex: 3, topic: "Büro/Arbeit" },
+                { level: 'A2', question: "Was ist das Gegenteil von 'ehrlich'?", options: ["freundlich", "falsch", "lügen", "nett"], correctAnswerIndex: 2, topic: "Gegenteile (Charakter)" },
+                { level: 'A2', question: "Der ... zeigt mir das Bild.", options: ["Der Drucker", "Der Bildschirm", "Die Tastatur", "Die Maus"], correctAnswerIndex: 1, topic: "Technologie" },
+                { level: 'A2', question: "Ein 'Meeting' auf Deutsch ist ... .", options: ["Die Besprechung", "Das Telefonat", "Die Pause", "Die Arbeit"], correctAnswerIndex: 0, topic: "Büro/Arbeit" },
+                { level: 'A2', question: "Was ist ein Verb für 'to agree'?", options: ["diskutieren", "einigen", "entscheiden", "ärgern"], correctAnswerIndex: 1, topic: "Verben (Kommunikation)" },
+            ];
+
+            // --- Global State and Elements ---
+            let shuffledQuizData = [];
+            let currentQuizType = '';
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let isAnswered = false;
+            let theme = {};
+
+            const selectorArea = document.getElementById('selector-area');
+            const quizArea = document.getElementById('quiz-area');
+            const resultsArea = document.getElementById('results-area');
+
+            const quizTitle = document.getElementById('quiz-title');
+            const quizSubtitle = document.getElementById('quiz-subtitle');
+            const questionCard = document.getElementById('question-card');
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const nextButton = document.getElementById('next-button');
+            const resultMessage = document.getElementById('result-message');
+            const explanationText = document.getElementById('explanation-text');
+            const levelTag = document.getElementById('level-tag');
+            const finalScore = document.getElementById('final-score');
+            const scoreAnalysis = document.getElementById('score-analysis');
+            const restartButton = document.getElementById('restart-button');
+
+            // --- Utility Functions ---
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            // --- Core Quiz Logic ---
+
+            function showSelector() {
+                quizArea.classList.add('hidden');
+                resultsArea.classList.add('hidden');
+                selectorArea.classList.remove('hidden');
+                document.getElementById('quiz-container').classList.remove('max-w-xl');
+                document.getElementById('quiz-container').classList.add('max-w-700px');
+            }
+
+            function startQuiz(type) {
+                currentQuizType = type;
+                currentQuestionIndex = 0;
+                score = 0;
+                isAnswered = false;
+
+                if (type === 'grammar') {
+                    shuffledQuizData = shuffleArray([...quizDataGrammar]);
+                    theme = {
+                        name: 'Grammatik Test',
+                        subtitle: '100 Fragen: Fälle، أزمنة، وبنية الجملة.',
+                        primary: 'indigo',
+                        secondary: 'purple',
+                        bg: 'indigo-50',
+                        border: 'indigo-400'
+                    };
+                } else if (type === 'vocabulary') {
+                    shuffledQuizData = shuffleArray([...quizDataVocabulary]);
+                    theme = {
+                        name: 'Wortschatz Test',
+                        subtitle: '100 سؤال: مفردات يومية، أفعال، مرادفات.',
+                        primary: 'green',
+                        secondary: 'teal',
+                        bg: 'green-50',
+                        border: 'green-400'
+                    };
+                }
+
+                // Apply Theme and visibility
+                selectorArea.classList.add('hidden');
+                resultsArea.classList.add('hidden');
+                quizArea.classList.remove('hidden');
+
+                // Apply theme colors dynamically
+                quizTitle.textContent = theme.name;
+                quizTitle.className = `text-3xl font-extrabold mb-2 text-${theme.primary}-600`;
+                quizSubtitle.textContent = theme.subtitle;
+                questionCard.className = `p-8 rounded-xl mb-8 border-l-4 border-${theme.border} bg-${theme.bg}`;
+                nextButton.className = `mt-6 w-full text-white font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 bg-${theme.primary}-600 hover:bg-${theme.primary}-700`;
+
+                renderQuestion();
+            }
+
+            function renderQuestion() {
+                const q = shuffledQuizData[currentQuestionIndex];
+                const questionNumber = currentQuestionIndex + 1;
+                const totalQuestions = shuffledQuizData.length;
+
+                optionsContainer.innerHTML = '';
+                resultMessage.textContent = '';
+                resultMessage.classList.add('opacity-0');
+                explanationText.classList.add('hidden');
+                nextButton.disabled = true;
+                isAnswered = false;
+
+                questionText.innerHTML = `<span class="text-sm font-normal text-gray-500 block mb-1">Frage ${questionNumber} von ${totalQuestions}</span>${q.question}`;
+
+                // Dynamic level tag coloring
+                let levelColor = q.level === 'A1' ? theme.secondary : theme.primary;
+                levelTag.textContent = `Level: ${q.level}`;
+                levelTag.className = `text-sm font-extrabold px-3 py-1 rounded-full w-fit mb-2 bg-${levelColor}-200 text-${levelColor}-800`;
+
+                q.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    // Use a clean, modern option button style
+                    button.className = `option-button w-full text-left py-4 px-5 border border-gray-300 rounded-lg text-gray-700 bg-white transition duration-150 shadow-sm hover:bg-gray-50 hover:border-${theme.primary}-400`;
+                    button.onclick = () => checkAnswer(index, button);
+                    optionsContainer.appendChild(button);
+                });
+            }
+
+            function checkAnswer(selectedIndex, selectedButton) {
+                if (isAnswered) return;
+                isAnswered = true;
+
+                const q = shuffledQuizData[currentQuestionIndex];
+                const options = Array.from(optionsContainer.children);
+
+                options.forEach(btn => btn.disabled = true);
+
+                const isCorrect = selectedIndex === q.correctAnswerIndex;
+
+                if (isCorrect) {
+                    score++;
+                    selectedButton.classList.add('correct');
+                    resultMessage.textContent = 'Richtig! (إجابة صحيحة!)';
+                    resultMessage.classList.remove('text-red-600');
+                    resultMessage.classList.add('text-green-600', 'opacity-100');
+                } else {
+                    selectedButton.classList.add('incorrect');
+                    options[q.correctAnswerIndex].classList.add('correct');
+                    resultMessage.textContent = 'Falsch. (إجابة خاطئة.)';
+                    resultMessage.classList.remove('text-green-600');
+                    resultMessage.classList.add('text-red-600', 'opacity-100');
+                }
+
+                explanationText.innerHTML = `Thema (الموضوع): <strong>${q.topic}</strong>`;
+                explanationText.classList.remove('hidden');
+
+                nextButton.disabled = false;
+            }
+
+            function nextQuestion() {
+                if (!isAnswered) return;
+
+                currentQuestionIndex++;
+                if (currentQuestionIndex < shuffledQuizData.length) {
+                    renderQuestion();
+                } else {
+                    showResults();
+                }
+            }
+
+            function showResults() {
+                quizArea.classList.add('hidden');
+                resultsArea.classList.remove('hidden');
+
+                const total = shuffledQuizData.length;
+                const percentage = (score / total) * 100;
+
+                finalScore.textContent = `${score} / ${total}`;
+                finalScore.className = `text-${theme.primary}-600`;
+                resultsArea.querySelector('h2').className = `text-3xl font-extrabold mb-4 text-${theme.primary}-600`;
+
+                let analysisText = '';
+                if (currentQuizType === 'grammar') {
+                    if (percentage >= 90) analysisText = "Hervorragend! (ممتاز!) Deine Grammatik ist sehr stark für B1. Weiter so!";
+                    else if (percentage >= 70) analysisText = "Sehr gut! (جيد جداً!) Du hast solide A1/A2 Grammatikkenntnisse. Konzentriere dich auf die komplexeren Nebensätze.";
+                    else if (percentage >= 50) analysisText = "Gut gemacht. (عمل جيد.) Du hast eine Basis, aber es gibt noch Lücken in Fällen und Perfekt/Präteritum. Wiederhole die Grundlagen!";
+                    else analysisText = "Du brauchst noch mehr Übung (تحتاج المزيد من التدريب) in den grammatischen Strukturen. Beginne mit den A1-Fällen.";
+                } else { // Vocabulary
+                    if (percentage >= 90) analysisText = "Exzellent! (رائع!) Dein Wortschatz ist bereit für B1. Du hast eine sehr breite Basis.";
+                    else if (percentage >= 70) analysisText = "Sehr gut! (جيد جداً!) Du beherrschst die meisten A1/A2 Vokabeln. Fokussiere dich auf Fachthemen wie Banken oder Gesundheit.";
+                    else if (percentage >= 50) analysisText = "Gute Leistung. (أداء جيد.) Arbeite weiter an deinen thematischen Wortfeldern, besonders A2 Vokabular.";
+                    else analysisText = "Hier besteht noch Übungsbedarf (هناك حاجة للمزيد من المراجعة). Konzentriere dich auf die A1-Grundlagen (Familie, Essen, Wohnen).";
+                }
+                scoreAnalysis.textContent = analysisText;
+
+                // Apply theme color to the main restart button
+                restartButton.className = `bg-${theme.primary}-600 hover:bg-${theme.primary}-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-200 w-full md:w-auto`;
+            }
+
+            // Initialize the view to show the selector
+            document.addEventListener('DOMContentLoaded', showSelector);
+        </script>
+
+</body>
+
+</html>
