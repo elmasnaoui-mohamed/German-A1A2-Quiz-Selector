@@ -102,8 +102,8 @@
                 level: "Niveau",
                 topic: "Thema",
                 startQuiz: "Quiz starten (Start Quiz)",
-                next: "Weiter (Next)", // Removed (Enter)
-                showAnswer: "Antwort zeigen (Show Answer)", // Removed (Space)
+                next: "Weiter",
+                showAnswer: "Antwort zeigen",
                 typeAnswer: "Gib die Antwort ein...",
                 correct: "Richtig! ✅",
                 incorrect: "Falsch! ❌",
@@ -114,8 +114,8 @@
                 exportProgress: "Fortschritt exportieren (Export Progress)",
                 leniency: "Tipp-Toleranz",
                 confirmReset: "Sind Sie sicher, dass Sie Ihren gesamten Fortschritt zurücksetzen möchten?",
-                confirmResetBtnText: "Zurücksetzung bestätigen (Confirm Reset)", // New key for button text
-                cancelBtnText: "Abbrechen (Cancel)", // New key for button text
+                confirmResetBtnText: "Zurücksetzung bestätigen (Confirm Reset)",
+                cancelBtnText: "Abbrechen (Cancel)",
                 importSuccess: "Fortschritt erfolgreich importiert.",
                 importFail: "Fehler beim Import. Ungültiges Format.",
                 notDue: "Keine Karten fällig. Gut gemacht!",
@@ -134,14 +134,14 @@
                 appTitle: "منصة تعلم الألمانية-العربية", home: "الصفحة الرئيسية", words: "المفردات", grammar: "القواعد",
                 review: "المراجعة", settings: "الإعدادات", currentLang: "اللغة الحالية", theme: "المظهر",
                 light: "فاتح", dark: "داكن", dueItems: "العناصر المستحقة اليوم", totalItems: "الإجمالي", level: "المستوى", topic: "الموضوع",
-                startQuiz: "بدء الاختبار", next: "التالي", // Removed (Enter)
-                showAnswer: "إظهار الإجابة", // Removed (Space)
+                startQuiz: "بدء الاختبار", next: "التالي",
+                showAnswer: "إظهار الإجابة",
                 typeAnswer: "...أدخل الإجابة",
                 correct: "صحيح! ✅", incorrect: "خطأ! ❌", answerWas: "الإجابة الصحيحة كانت:", progress: "التقدم",
                 resetProgress: "إعادة تعيين التقدم", importProgress: "استيراد التقدم", exportProgress: "تصدير التقدم",
                 leniency: "تسامح في الكتابة", confirmReset: "هل أنت متأكد أنك تريد إعادة تعيين كل تقدمك؟", importSuccess: "تم استيراد التقدم بنجاح.",
-                confirmResetBtnText: "تأكيد الإعادة", // Arabic equivalent for new key
-                cancelBtnText: "إلغاء", // Arabic equivalent for new key
+                confirmResetBtnText: "تأكيد الإعادة",
+                cancelBtnText: "إلغاء",
                 importFail: "فشل الاستيراد. تنسيق غير صالح.", notDue: "لا توجد بطاقات مستحقة. عمل جيد!", sessionComplete: "اكتملت الجلسة.",
                 welcome: "مرحبًا! اختر فئة لتبدأ.", prepB1: "استعد لمستوى B1!", totalLearned: "الوحدات المتعلمة", attempts: "المحاولات",
                 correctCount: "الصحيح", streak: "سلسلة النجاح", filterLevel: "تصفية حسب المستوى", filterType: "تصفية حسب نوع السؤال",
@@ -165,7 +165,9 @@
 
         // Base seed data for generating 200 unique grammar items
         const baseGrammarSeeds = [
-            { "topic": "Nominativ", "rule_de": "Wer/Was?", "rule_ar": "من/ماذا؟", "question": "___ ist das dein Hund?", "answer": "Ist", "explanation_de": "Ja/Nein Frage beginnt mit dem Verb.", "explanation_ar": "سؤال نعم/لا يبدأ بالفعل.", "distractors": ["Was", "Wo", "Wann"], "tags": ["kasus"] },
+            // Question changed from "___ ist das dein Hund?" to "___ das dein Hund?" 
+            // to clearly indicate the verb is the missing part of the sentence.
+            { "topic": "Nominativ", "rule_de": "Wer/Was?", "rule_ar": "من/ماذا؟", "question": "___ das dein Hund?", "answer": "Ist", "explanation_de": "Ja/Nein Frage beginnt mit dem Verb an Position 1.", "explanation_ar": "سؤال نعم/لا يبدأ بالفعل في الموضع الأول.", "distractors": ["Was", "Wo", "Wann"], "tags": ["kasus"] },
             { "topic": "Verben", "rule_de": "Konjugation", "rule_ar": "تصريف", "question": "Wir ___ heute Abend Pizza.", "answer": "machen", "explanation_de": "Konjugation für 'wir'.", "explanation_ar": "تصريف لـ 'نحن'.", "distractors": ["machst", "macht", "mache"], "tags": ["verben"] },
             { "topic": "Dativ", "rule_de": "Wem? (Person)", "rule_ar": "لمن؟ (شخص)", "question": "Ich gebe ___ Mann das Buch.", "answer": "dem", "explanation_de": "Dativ maskulin Artikel.", "explanation_ar": "أداة النصب المذكر.", "distractors": ["der", "den", "des"], "tags": ["kasus"] },
             { "topic": "Präposition", "rule_de": "Mit Akkusativ", "rule_ar": "مع حالة النصب", "question": "Wir fahren ___ die Stadt.", "answer": "durch", "explanation_de": "'durch' mit Akkusativ.", "explanation_ar": "'durch' مع حالة النصب.", "distractors": ["bei", "mit", "von"], "tags": ["präpositionen"] },
@@ -173,7 +175,7 @@
             { "topic": "Modalverben", "rule_de": "Müssen, dürfen, können...", "rule_ar": "الأفعال المساعدة", "question": "Du ___ mir helfen.", "answer": "musst", "explanation_de": "Konjugation von 'müssen'.", "explanation_ar": "تصريف 'müssen'.", "distractors": ["kannst", "darfst", "willst"], "tags": ["verben"] },
             { "topic": "Adjektive", "rule_de": "Adjektivdeklination", "rule_ar": "تصريف الصفات", "question": "Ich habe einen ___ Hund gesehen.", "answer": "großen", "explanation_de": "Akkusativ maskulin, schwache Deklination.", "explanation_ar": "نصب مذكر, تصريف ضعيف.", "distractors": ["groß", "große", "großes"], "tags": ["adjektive"] },
             { "topic": "Temporale Nebensätze", "rule_de": "Wenn, als, während...", "rule_ar": "جمل زمنية فرعية", "question": "___ ich klein war, spielte ich oft.", "answer": "Als", "explanation_de": "'Als' für einmalige Handlung in der Vergangenheit.", "explanation_ar": "'Als' للحدث الوحيد في الماضي.", "distractors": ["Wenn", "Während", "Bevor"], "tags": ["nebensätze"] },
-            { "topic": "Possessivpronomen", "rule_de": "Mein, dein, sein...", "rule_ar": "ضمائر الملكية", "question": "Ist das ___ Auto?", "answer": "dein", "explanation_de": "Nominativ Singular maskulin.", "explanation_ar": "رفع مفرد مذكر.", "distractors": ["deine", "deinem", "deinen"], "tags": ["pronomen"] },
+            { "topic": "Possessivpronomen", "rule_de": "Mein, dein, sein...", "rule_ar": "ضمائر الملكية", "question": "Ist das ___ Auto?", "answer": "dein", "explanation_de": "Nominativ Singular neutral.", "explanation_ar": "رفع مفرد مذكر.", "distractors": ["deine", "deinem", "deinen"], "tags": ["pronomen"] },
             { "topic": "Reflexive Verben", "rule_de": "sich + Akkusativ/Dativ", "rule_ar": "أفعال انعكاسية", "question": "Ich ziehe ___ an.", "answer": "mich", "explanation_de": "sich anziehen + Akkusativ.", "explanation_ar": "sich anziehen + حالة النصب.", "distractors": ["mir", "dich", "dir"], "tags": ["verben"] },
         ];
 
@@ -185,12 +187,13 @@
                 const level = i <= 100 ? "A1" : "A2";
                 words.push({
                     "id": `w-${level}-${String(i).padStart(3, '0')}`,
-                    "de": seed.de, // Cleaned up: Removed [${i}]
-                    "ar": seed.ar, // Cleaned up: Removed [${i}]
+                    "de": seed.de,
+                    "ar": seed.ar,
                     "pos": seed.pos,
                     "gender": seed.gender,
                     "example_de": seed.example_de,
                     "example_ar": seed.example_ar,
+                    // Ensure quiz structure is consistent for distractor retrieval
                     "quiz": { "types": ["mcq"], "distractors_de": seed.distractors_de },
                     "tags": [...seed.tags, `item-${i}`],
                     "level": level
@@ -201,6 +204,7 @@
 
         // Function to generate unique grammar items
         const generateUniqueGrammar = (count = 200) => {
+            // FIX: Initialize grammar as a local array instead of relying on a global variable
             const grammar = [];
             for (let i = 1; i <= count; i++) {
                 const seed = baseGrammarSeeds[(i - 1) % baseGrammarSeeds.length];
@@ -210,23 +214,24 @@
                     "topic": seed.topic,
                     "rule_de": seed.rule_de,
                     "rule_ar": seed.rule_ar,
-                    "question": seed.question, // Cleaned up: Removed unique gap content
+                    "question": seed.question,
                     "answer": seed.answer,
                     "type": "mcq",
-                    "explanation_de": seed.explanation_de, // Cleaned up: Removed unique index
-                    "explanation_ar": seed.explanation_ar, // Cleaned up: Removed unique index
+                    "explanation_de": seed.explanation_de,
+                    "explanation_ar": seed.explanation_ar,
+                    // Use 'distractors' for grammar items
                     "distractors": seed.distractors,
                     "level": level,
                     "tags": [...seed.tags, `item-${i}`]
                 });
             }
-            return grammar;
+            return grammar; // Return the local array
         };
 
         // All data combined, ensuring all quiz items are set to "mcq" for consistency
         const ALL_QUIZ_ITEMS = {
-            words: generateUniqueWords(200), // Now 200 unique items
-            grammar: generateUniqueGrammar(200) // Now 200 unique items
+            words: generateUniqueWords(200),
+            grammar: generateUniqueGrammar(200)
         };
 
         const APP_STORAGE_KEY = 'bilingualStudyProgress';
@@ -237,7 +242,7 @@
             lang: localStorage.getItem('lang') || 'de',
             theme: localStorage.getItem('theme') || 'light',
             route: localStorage.getItem('route') || '/',
-            leniency: false, // Leniency is not needed for MCQ, so we disable it
+            leniency: false,
             srsProgress: {},
             currentQuiz: {
                 category: null,
@@ -247,10 +252,10 @@
                 showAnswer: false,
                 sessionComplete: false,
                 userAnswer: '',
-                levelFilter: 'all',
-                typeFilter: 'all' // Type filter is now more conceptual (Word/Grammar type), but the UI is always MCQ
+                levelFilter: localStorage.getItem('levelFilter') || 'all', // Load filter from storage
+                typeFilter: 'all'
             },
-            isConfirmingReset: false, // NEW: State for confirmation modal
+            isConfirmingReset: false, // State for confirmation modal
         };
 
         // --- SRS LOGIC ---
@@ -294,6 +299,7 @@
             localStorage.setItem('theme', state.theme);
             localStorage.setItem('leniency', state.leniency);
             localStorage.setItem('route', state.route);
+            localStorage.setItem('levelFilter', state.currentQuiz.levelFilter); // Persist filter setting
             localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(state.srsProgress));
             applyTheme();
             applyDirection();
@@ -308,8 +314,6 @@
                     console.error("Error parsing stored progress:", e);
                 }
             }
-            // Read and discard leniency setting since we are now always MCQ
-            // state.leniency = localStorage.getItem('leniency') === 'true';
             applyTheme();
             applyDirection();
         }
@@ -323,7 +327,7 @@
 
         function applyDirection() {
             document.body.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-            document.body.lang = state.lang === 'ar' ? 'ar' : 'de';
+            document.body.lang = state.lang === 'ar' ? 'ar' : 'de'; // Set lang attribute for better a11y/rendering
         }
 
         function displayToast(message, duration = 3000) {
@@ -334,7 +338,7 @@
 
             // Update RTL position
             toast.className = toast.className.replace(/left-4|right-4/g, '').trim();
-            toast.classList.add(state.lang === 'ar' ? 'left-4' : 'right-4');
+            toast.classList.add('fixed', 'bottom-4', state.lang === 'ar' ? 'left-4' : 'right-4', 'bg-blue-600', 'text-white', 'px-4', 'py-3', 'rounded-lg', 'shadow-xl', 'transition-opacity', 'duration-300', 'z-50');
 
             setTimeout(() => {
                 toast.style.opacity = '0';
@@ -361,9 +365,10 @@
 
         function navigate(newRoute) {
             if (state.route === '/review' || state.route.startsWith('/quiz') || state.route === '/words' || state.route === '/grammar') {
-                // Reset quiz state when leaving a quiz view
+                // Reset quiz session state when leaving a quiz view
                 state.currentQuiz = {
-                    category: null, items: [], currentIndex: 0, feedback: null, showAnswer: false, sessionComplete: false, userAnswer: '', levelFilter: 'all', typeFilter: 'all'
+                    category: null, items: [], currentIndex: 0, feedback: null, showAnswer: false, sessionComplete: false, userAnswer: '',
+                    levelFilter: state.currentQuiz.levelFilter || 'all', typeFilter: 'all' // Preserve filter setting
                 };
             }
             state.isConfirmingReset = false; // Reset confirmation state on navigation
@@ -561,7 +566,7 @@
                 sessionComplete: false,
                 userAnswer: '',
                 levelFilter: state.currentQuiz.levelFilter || 'all',
-                typeFilter: state.currentQuiz.typeFilter || 'all'
+                typeFilter: 'all'
             };
         }
 
@@ -571,14 +576,13 @@
 
         /**
          * Checks the user's selected answer against the correct one.
-         * Note: This function is simplified for the new MCQ-only format.
          * @param {string} userAnswer The selected option text.
          */
         function checkAnswer(userAnswer) {
             if (state.currentQuiz.feedback || state.currentQuiz.sessionComplete) return;
 
             const item = getCurrentQuizItem();
-            // In the selection-only mode, the correct answer is always the German term (item.de) or the grammar answer (item.answer)
+            // The correct answer is always the German term (item.de) or the grammar answer (item.answer)
             const correctAnswer = item.answer || item.de;
 
             // Comparison is now strict string matching
@@ -635,7 +639,11 @@
 
             const isWords = item.id.startsWith('w-');
             const itemSrs = state.srsProgress[item.id] || SRS.initial;
+            // Use item.answer for grammar (gap-fill) and item.de for words (translation)
             const correctAnswer = item.answer || item.de;
+
+            // Consolidate distractor retrieval
+            // Words use item.quiz?.distractors_de, Grammar uses item.distractors
             const distractors = item.quiz?.distractors_de || item.distractors || [];
             const itemTopic = isWords ? (item.pos || t.words) : (item.topic || t.grammar);
 
@@ -774,13 +782,17 @@
             const filteredItems = rawItems
                 .filter(item => state.currentQuiz.levelFilter === 'all' || item.level === state.currentQuiz.levelFilter);
 
-            // If quiz not started, or filters changed, restart session
+            // Get the level of the first item in the current session (if any)
             const currentItemLevel = state.currentQuiz.items[0]?.level;
 
+            // If quiz not started, or category changed, or the filter setting has changed, restart session
             if (state.currentQuiz.category !== category || state.currentQuiz.items.length === 0 || currentItemLevel !== state.currentQuiz.levelFilter) {
                 // Check if there are any items to quiz before attempting setup
                 if (filteredItems.length === 0) {
-                    return createElement('div', 'p-6 text-center text-gray-500 dark:text-gray-400', `${t.notDue} (0/${rawItems.length} available after filtering)`);
+                    return createElement('div', 'p-6 text-center text-gray-500 dark:text-gray-400', `
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2">${category === 'words' ? t.words : t.grammar}</h2>
+                        <p class="text-xl font-semibold mt-8">${t.notDue} (0/${rawItems.length} available after filtering)</p>
+                    `);
                 }
                 setupQuiz(category, filteredItems);
             }
@@ -804,7 +816,8 @@
             levelSelect.onchange = (e) => {
                 state.currentQuiz.levelFilter = e.target.value;
                 state.currentQuiz.items = []; // Force restart quiz session
-                navigate(state.route); // Use navigate to ensure full re-render
+                persistState(); // Save the new filter setting
+                renderApp(); // Rerender immediately
             };
             filterDiv.appendChild(levelSelect);
 
@@ -899,6 +912,8 @@
         function confirmReset() {
             state.srsProgress = {};
             state.isConfirmingReset = false;
+            // Also reset the filter state upon full progress reset
+            state.currentQuiz.levelFilter = 'all';
             persistState();
             displayToast(L[state.lang].resetProgress + "!");
             navigate('/settings');
@@ -947,11 +962,11 @@
             }
         }
 
-        // --- KEYBOARD SHORTCUTS ---
+        // --- KEYBOARD SHORTCUTS (NO SPACE/ENTER) ---
 
         document.addEventListener('keydown', (e) => {
             const currentItem = getCurrentQuizItem();
-            // Removed: Enter/Space functionality
+            // Enter and Space functionality intentionally removed in the previous iteration.
             if (!currentItem || state.currentQuiz.sessionComplete) return;
 
             // Retaining the number key functionality for MCQs (1, 2, 3, 4)
@@ -965,7 +980,6 @@
                     if (value) checkAnswer(value);
                 }
             }
-            // Removed: Logic for e.key === 'Enter' and e.key === ' '
         });
 
         // NEW: Expose necessary functions globally for inline HTML event handlers (due to module scope)
