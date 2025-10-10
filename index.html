@@ -1,1003 +1,576 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deutsch-Arabisch Lernplattform</title>
-    <!-- Load Tailwind CSS CDN -->
+    <title>Deutsch A1/A2 Vorbereitung (B1)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for responsiveness and appearance */
-        :root {
-            --bg-color: #f9fafb;
-            /* Light Gray-50 */
-            --text-color: #1f2937;
-            /* Dark Gray-800 */
-        }
-
-        .dark {
-            --bg-color: #111827;
-            /* Dark Gray-900 */
-            --text-color: #f9fafb;
-            /* White */
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
             font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: #eef2f5;
+            /* Light subtle blue/gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Custom focus states for accessibility */
-        button:focus,
-        input:focus,
-        select:focus,
-        a:focus {
-            outline: 2px solid theme('colors.blue.500');
-            outline-offset: 2px;
+        .quiz-container {
+            width: 100%;
+            max-width: 700px;
+            /* Professional card style */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
         }
 
-        .quiz-option:focus {
-            box-shadow: 0 0 0 4px theme('colors.blue.500');
+        .option-button {
+            transition: all 0.2s;
         }
 
-        /* RTL adjustments */
-        [dir="rtl"] .ml-1 {
-            margin-left: 0.25rem;
-            margin-right: 0.25rem;
+        .option-button:not([disabled]):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
-        [dir="rtl"] .mr-2 {
-            margin-right: 0rem;
-            margin-left: 0.5rem;
+        /* Specific state styling for better visual feedback */
+        .correct {
+            background-color: #d1fae5 !important;
+            border-color: #10b981 !important;
+            color: #065f46 !important;
+            font-weight: 600;
         }
 
-        [dir="rtl"] .text-left {
-            text-align: right;
+        .incorrect {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #991b1b !important;
+            font-weight: 600;
         }
     </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'Arial', 'sans-serif'],
-                    },
-                },
-            }
-        }
-    </script>
 </head>
 
-<body id="app-body" class="min-h-screen">
-    <div id="app-root" class="min-h-screen">
-        <!-- Content will be rendered here by JavaScript -->
-        <div class="flex items-center justify-center h-screen text-xl text-gray-500 dark:text-gray-400">Loading
-            application...</div>
-    </div>
+<body>
 
-    <div id="toast" aria-live="polite"
-        class="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-xl transition-opacity duration-300 opacity-0 pointer-events-none z-50">
-    </div>
+    <div id="quiz-container" class="quiz-container bg-white p-8 md:p-12 rounded-2xl">
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-2 border-b-2 pb-2 border-gray-100">Deutsch B1
+                Vorbereitung (A1/A2 Review)</h1>
+            <p class="text-gray-500 text-lg">اختر القسم الذي تريد البدء به لتقييم مستواك.</p>
+        </div>
 
-    <script type="module">
-        // --- GLOBAL CONFIGURATION AND DATA (Embedded JSON) ---
+        <div id="selector-area">
+            <h2 class="text-2xl font-semibold text-center mb-8 text-gray-700">Wähle dein Fokus (اختر تركيزك)</h2>
+            <div class="space-y-6">
+                <button onclick="startQuiz('grammar')"
+                    class="w-full p-8 text-xl font-extrabold rounded-xl shadow-lg transition duration-300 text-white bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transform hover:scale-[1.01] option-button">
+                    <span class="block text-3xl mb-1">Grammatik 📚</span>
+                    <span class="text-sm font-light opacity-90">100 Fragen: Fälle (Cases), Zeitformen (Tenses),
+                        Nebensätze (Subordinate Clauses).</span>
+                </button>
 
-        const L = {
-            de: {
-                appTitle: "Deutsch-Arabisch Lernplattform",
-                home: "Startseite (Home)",
-                words: "Wortschatz (Vocabulary)",
-                grammar: "Grammatik (Grammar)",
-                review: "Wiederholung (Review)",
-                settings: "Einstellungen (Settings)",
-                currentLang: "Aktuelle Sprache",
-                theme: "Design",
-                light: "Hell (Light)",
-                dark: "Dunkel (Dark)",
-                dueItems: "Fällig heute",
-                totalItems: "Gesamt",
-                level: "Niveau",
-                topic: "Thema",
-                startQuiz: "Quiz starten (Start Quiz)",
-                next: "Weiter",
-                showAnswer: "Antwort zeigen",
-                typeAnswer: "Gib die Antwort ein...",
-                correct: "Richtig! ✅",
-                incorrect: "Falsch! ❌",
-                answerWas: "Die richtige Antwort war:",
-                progress: "Fortschritt",
-                resetProgress: "Fortschritt zurücksetzen (Reset Progress)",
-                importProgress: "Fortschritt importieren (Import Progress)",
-                exportProgress: "Fortschritt exportieren (Export Progress)",
-                leniency: "Tipp-Toleranz",
-                confirmReset: "Sind Sie sicher, dass Sie Ihren gesamten Fortschritt zurücksetzen möchten?",
-                confirmResetBtnText: "Zurücksetzung bestätigen (Confirm Reset)",
-                cancelBtnText: "Abbrechen (Cancel)",
-                importSuccess: "Fortschritt erfolgreich importiert.",
-                importFail: "Fehler beim Import. Ungültiges Format.",
-                notDue: "Keine Karten fällig. Gut gemacht!",
-                sessionComplete: "Sitzung abgeschlossen.",
-                welcome: "Willkommen! Wählen Sie eine Kategorie, um zu starten.",
-                prepB1: "Bereiten Sie sich auf B1 vor!",
-                totalLearned: "Gelernte Einheiten",
-                attempts: "Versuche",
-                correctCount: "Richtig",
-                streak: "Serie",
-                filterLevel: "Nach Niveau filtern (Filter Level)",
-                filterType: "Nach Fragetyp filtern",
-                confirmAnswer: "Antwort prüfen",
-            },
-            ar: {
-                appTitle: "منصة تعلم الألمانية-العربية", home: "الصفحة الرئيسية", words: "المفردات", grammar: "القواعد",
-                review: "المراجعة", settings: "الإعدادات", currentLang: "اللغة الحالية", theme: "المظهر",
-                light: "فاتح", dark: "داكن", dueItems: "العناصر المستحقة اليوم", totalItems: "الإجمالي", level: "المستوى", topic: "الموضوع",
-                startQuiz: "بدء الاختبار", next: "التالي",
-                showAnswer: "إظهار الإجابة",
-                typeAnswer: "...أدخل الإجابة",
-                correct: "صحيح! ✅", incorrect: "خطأ! ❌", answerWas: "الإجابة الصحيحة كانت:", progress: "التقدم",
-                resetProgress: "إعادة تعيين التقدم", importProgress: "استيراد التقدم", exportProgress: "تصدير التقدم",
-                leniency: "تسامح في الكتابة", confirmReset: "هل أنت متأكد أنك تريد إعادة تعيين كل تقدمك؟", importSuccess: "تم استيراد التقدم بنجاح.",
-                confirmResetBtnText: "تأكيد الإعادة",
-                cancelBtnText: "إلغاء",
-                importFail: "فشل الاستيراد. تنسيق غير صالح.", notDue: "لا توجد بطاقات مستحقة. عمل جيد!", sessionComplete: "اكتملت الجلسة.",
-                welcome: "مرحبًا! اختر فئة لتبدأ.", prepB1: "استعد لمستوى B1!", totalLearned: "الوحدات المتعلمة", attempts: "المحاولات",
-                correctCount: "الصحيح", streak: "سلسلة النجاح", filterLevel: "تصفية حسب المستوى", filterType: "تصفية حسب نوع السؤال",
-                confirmAnswer: "التحقق من الإجابة",
+                <button onclick="startQuiz('vocabulary')"
+                    class="w-full p-8 text-xl font-extrabold rounded-xl shadow-lg transition duration-300 text-white bg-green-600 hover:bg-green-700 hover:shadow-xl transform hover:scale-[1.01] option-button">
+                    <span class="block text-3xl mb-1">Wortschatz 💬</span>
+                    <span class="text-sm font-light opacity-90">100 Fragen: Alltagsbegriffe (Daily Terms), Verben,
+                        Synonyme (Synonyms).</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="quiz-area" class="hidden">
+
+            <button onclick="showSelector()"
+                class="text-sm font-semibold text-gray-500 hover:text-indigo-600 transition duration-150 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Zurück zur Auswahl
+            </button>
+
+            <div id="quiz-header" class="mb-8 text-center">
+                <h2 id="quiz-title" class="text-3xl font-extrabold mb-2 text-indigo-600"></h2>
+                <p id="quiz-subtitle" class="text-gray-500"></p>
+            </div>
+            <div id="question-card" class="p-8 rounded-xl mb-8 border-l-4 border-indigo-400 bg-indigo-50">
+                <p id="question-text" class="text-2xl font-bold text-gray-800 mb-4"></p>
+                <div id="level-tag" class="text-sm font-extrabold px-3 py-1 rounded-full w-fit mb-2"></div>
+            </div>
+
+            <div id="options-container" class="space-y-4">
+            </div>
+
+            <div id="feedback-area" class="mt-8">
+                <p id="result-message" class="text-center text-lg font-bold transition-opacity duration-300 opacity-0">
+                </p>
+                <p id="explanation-text"
+                    class="mt-4 p-4 bg-gray-100 border-l-4 border-gray-300 rounded-lg text-sm text-gray-700 hidden shadow-inner">
+                </p>
+                <button id="next-button" onclick="nextQuestion()"
+                    class="mt-6 w-full text-white font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200"
+                    disabled>
+                    Nächste Frage (Next Question)
+                </button>
+            </div>
+        </div>
+
+        <div id="results-area" class="hidden text-center">
+            <h2 class="text-3xl font-extrabold mb-4 text-green-600">Quiz beendet! 🎉</h2>
+            <p class="text-6xl font-extrabold text-gray-900 mb-6">Dein Score: <span id="final-score"
+                    class="text-green-600">0 / 100</span></p>
+            <p id="score-analysis" class="text-xl text-gray-700 mb-10 p-4 bg-gray-50 rounded-lg"></p>
+
+            <div class="space-y-4">
+                <button onclick="showSelector()" id="restart-button"
+                    class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-200 w-full md:w-auto">
+                    Neues Quiz wählen (Choose New Quiz)
+                </button>
+
+                <button onclick="showSelector()"
+                    class="text-sm font-semibold text-gray-500 hover:text-indigo-600 transition duration-150 flex items-center justify-center w-full">
+                    <svg xmlns="http://www.w3.org/2003/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Zurück zur Auswahl
+                </button>
+            </div>
+        </div>
+
+        <script>
+            // --- Data Definitions (Updated with 'example' and 'translation' fields) ---
+            const quizDataGrammar = [
+                { level: 'A1', question: "Ich ... in Berlin.", options: ["wohnt", "wohne", "wohnst", "wohnen"], correctAnswerIndex: 1, topic: "Präsens Konjugation (ich)", example: "Ich wohne in einem Haus.", translation: "I live in a house." },
+                { level: 'A1', question: "Was ist der Artikel für 'Tisch'?", options: ["Die", "Der", "Das", "Ein"], correctAnswerIndex: 1, topic: "Bestimmter Artikel (Maskulin)", example: "Der Tisch ist groß.", translation: "The table is big." },
+                { level: 'A1', question: "Das ist ... Apfel.", options: ["ein", "eine", "einen", "einer"], correctAnswerIndex: 0, topic: "Unbestimmter Artikel (Maskulin)", example: "Das ist ein Apfel.", translation: "That is an apple." },
+                { level: 'A1', question: "Du ... sehr schnell.", options: ["läuft", "laufen", "läufst", "laufe"], correctAnswerIndex: 2, topic: "Präsens mit Umlaut (du)", example: "Läufst du heute mit mir?", translation: "Are you running with me today?" },
+                { level: 'A1', question: "Wir kommen ... Deutschland.", options: ["aus", "von", "in", "mit"], correctAnswerIndex: 0, topic: "Präposition (aus)", example: "Wir kommen aus Berlin.", translation: "We come from Berlin." },
+                { level: 'A1', question: "Der Mann kauft ... Brot.", options: ["der", "die", "das", "dem"], correctAnswerIndex: 2, topic: "Bestimmter Artikel (Neutrum)", example: "Das Brot schmeckt gut.", translation: "The bread tastes good." },
+                { level: 'A1', question: "Sie (Singular) ... einen Kaffee.", options: ["trinken", "trinkt", "trinkst", "trinke"], correctAnswerIndex: 1, topic: "Präsens Konjugation (sie/er/es)", example: "Sie trinkt nur Tee.", translation: "She only drinks tea." },
+                { level: 'A1', question: "Wie alt ... du?", options: ["bist", "bin", "seid", "ist"], correctAnswerIndex: 0, topic: "Sein Konjugation (du)", example: "Bist du schon 18?", translation: "Are you 18 already?" },
+                { level: 'A1', question: "Ich habe ... Katze.", options: ["ein", "eine", "einen", "kein"], correctAnswerIndex: 1, topic: "Unbestimmter Artikel (Feminin)", example: "Ich habe eine kleine Katze.", translation: "I have a small cat." },
+                { level: 'A1', question: "Ist das ... Fahrrad?", options: ["dein", "deine", "deinen", "deiner"], correctAnswerIndex: 0, topic: "Possessivartikel (Neutrum)", example: "Ist das dein neues Fahrrad?", translation: "Is that your new bicycle?" },
+                { level: 'A1', question: "Wir ... heute Abend Pizza.", options: ["essen", "esst", "isst", "esse"], correctAnswerIndex: 0, topic: "Präsens Konjugation (wir)", example: "Wir essen um sieben Uhr.", translation: "We eat at seven o'clock." },
+                { level: 'A1', question: "Das Kind spielt ... Ball.", options: ["der", "den", "dem", "die"], correctAnswerIndex: 1, topic: "Akkusativ (Maskulin)", example: "Das Kind wirft den Ball.", translation: "The child throws the ball." },
+                { level: 'A1', question: "Ich habe ... Hunger.", options: ["keine", "nicht", "keinen", "Hunger nicht"], correctAnswerIndex: 2, topic: "Negation (kein/keine Akkusativ)", example: "Ich habe heute keinen Hunger.", translation: "I am not hungry today." },
+                { level: 'A1', question: "Möchtest du ... trinken?", options: ["etwas", "nichts", "alles", "immer"], correctAnswerIndex: 0, topic: "Indefinitpronomen", example: "Möchtest du etwas essen?", translation: "Would you like to eat something?" },
+                { level: 'A1', question: "Die Kinder gehen ... Schule.", options: ["in", "nach", "zu", "im"], correctAnswerIndex: 2, topic: "Präposition (zu)", example: "Ich gehe zu Fuß zur Arbeit.", translation: "I go to work on foot." },
+                { level: 'A1', question: "Das Auto steht ... Garage.", options: ["in der", "in die", "auf der", "an der"], correctAnswerIndex: 0, topic: "Lokalpräposition (in Dativ)", example: "Das Motorrad steht in der Garage.", translation: "The motorcycle is in the garage." },
+                { level: 'A1', question: "Der Stuhl steht ... Tisch.", options: ["auf", "unter", "neben dem", "in dem"], correctAnswerIndex: 2, topic: "Lokalpräpositionen (Dativ)", example: "Die Lampe hängt neben dem Bett.", translation: "The lamp is hanging next to the bed." },
+                { level: 'A1', question: "Ich ... heute ins Kino gehen.", options: ["kann", "können", "könnt", "kannst"], correctAnswerIndex: 0, topic: "Modalverb (können)", example: "Ich kann sehr gut tanzen.", translation: "I can dance very well." },
+                { level: 'A1', question: "Er hat ... Freundin.", options: ["ein", "eine", "einen", "keine"], correctAnswerIndex: 1, topic: "Unbestimmter Artikel (Akkusativ Feminin)", example: "Er hat eine neue Freundin.", translation: "He has a new girlfriend." },
+                { level: 'A1', question: "Das Kind gibt ... Mutter einen Kuss.", options: ["seine", "seiner", "sein", "seinen"], correctAnswerIndex: 1, topic: "Dativ (Feminin)", example: "Ich gebe meiner Schwester ein Geschenk.", translation: "I give my sister a gift." },
+                { level: 'A1', question: "Ich ... krank.", options: ["bin", "bist", "ist", "sind"], correctAnswerIndex: 0, topic: "Sein Konjugation (ich)", example: "Ich bin heute sehr müde.", translation: "I am very tired today." },
+                { level: 'A1', question: "Er hat ... Auto.", options: ["ein", "eine", "einen", "keine"], correctAnswerIndex: 0, topic: "Unbestimmter Artikel (Akkusativ Neutrum)", example: "Er kauft ein altes Auto.", translation: "He buys an old car." },
+                { level: 'A1', question: "Wir fahren ... Zug.", options: ["mit", "bei", "zu", "auf"], correctAnswerIndex: 0, topic: "Präposition (mit Dativ)", example: "Ich fahre mit dem Bus zur Arbeit.", translation: "I go to work by bus." },
+                { level: 'A1', question: "Wir ... am Wochenende fern.", options: ["sehen", "sehe", "siehst", "schauen"], correctAnswerIndex: 0, topic: "Präsens Konjugation (sehen)", example: "Wir sehen heute Abend einen Film.", translation: "We are watching a movie tonight." },
+                { level: 'A1', question: "Das Geschäft ist ... Sonntag geschlossen.", options: ["am", "um", "im", "in"], correctAnswerIndex: 0, topic: "Zeitpräposition (am)", example: "Wir treffen uns am Samstag.", translation: "We will meet on Saturday." },
+                { level: 'A1', question: "Kannst du mir ... schicken?", options: ["die E-Mail", "den E-Mail", "der E-Mail", "das E-Mail"], correctAnswerIndex: 0, topic: "Akkusativ (Feminin)", example: "Ich schreibe dir die E-Mail.", translation: "I will write the e-mail to you." },
+                { level: 'A1', question: "Ich lerne Deutsch, ... ich in Deutschland arbeiten will.", options: ["aber", "oder", "denn", "und"], correctAnswerIndex: 2, topic: "Konnektoren (denn)", example: "Ich lerne, denn ich habe eine Prüfung.", translation: "I am studying, because I have an exam." },
+                { level: 'A1', question: "Die Kinder spielen ... Park.", options: ["in dem", "im", "am", "zum"], correctAnswerIndex: 1, topic: "Präposition mit Kontraktion (im)", example: "Spielen die Kinder im Garten?", translation: "Are the children playing in the garden?" },
+                { level: 'A1', question: "Er muss ... arbeiten.", options: ["viel", "sehr", "gern", "nie"], correctAnswerIndex: 0, topic: "Adverbien", example: "Sie muss viel für die Prüfung lernen.", translation: "She has to study a lot for the exam." },
+                { level: 'A1', question: "Hast du ... Adresse?", options: ["die", "der", "den", "das"], correctAnswerIndex: 0, topic: "Bestimmter Artikel (Feminin)", example: "Ist die Adresse richtig?", translation: "Is the address correct?" },
+                { level: 'A1', question: "Meine Schwester ... zwei Kinder.", options: ["hat", "haben", "hast", "habe"], correctAnswerIndex: 0, topic: "Haben Konjugation (sie)", example: "Sie hat keine Zeit.", translation: "She has no time." },
+                { level: 'A1', question: "Das Zimmer ist ... klein.", options: ["zu", "auch", "sehr", "noch"], correctAnswerIndex: 2, topic: "Adverb (sehr)", example: "Das ist sehr gut.", translation: "That is very good." },
+                { level: 'A1', question: "Ich stehe um 7 Uhr ... .", options: ["aufstehe", "stehe auf", "auf", "steht auf"], correctAnswerIndex: 1, topic: "Trennbare Verben (Satzstellung)", example: "Wann stehst du auf?", translation: "When do you get up?" },
+                { level: 'A1', question: "Gehst du ... Kino?", options: ["ins", "im", "zu", "der"], correctAnswerIndex: 0, topic: "Präposition mit Kontraktion (ins)", example: "Wir gehen ins Bett.", translation: "We are going to bed." },
+                { level: 'A1', question: "Ich gebe ... Mann das Buch.", options: ["der", "den", "die", "dem"], correctAnswerIndex: 3, topic: "Dativ (Maskulin)", example: "Ich gebe dem Mann einen Stift.", translation: "I give the man a pen." },
+                { level: 'A1', question: "Wir können ... Spanisch sprechen.", options: ["nicht", "kein", "nein", "nie"], correctAnswerIndex: 0, topic: "Negation (nicht)", example: "Ich verstehe das nicht.", translation: "I don't understand that." },
+                { level: 'A1', question: "Wie ist ... Name?", options: ["ihr", "ihre", "ihren", "ihrer"], correctAnswerIndex: 0, topic: "Possessivartikel (Ihr Maskulin)", example: "Ist das Ihr Name?", translation: "Is that your (formal) name?" },
+                { level: 'A1', question: "Ich habe ... Wasser getrunken.", options: ["ein", "eine", "kein", "keinen"], correctAnswerIndex: 2, topic: "Kein (uncountable Noun)", example: "Ich habe kein Geld.", translation: "I have no money." },
+                { level: 'A1', question: "Kann ich ... helfen?", options: ["du", "dich", "dir", "dein"], correctAnswerIndex: 2, topic: "Personalpronomen (Dativ)", example: "Kannst du mir helfen?", translation: "Can you help me?" },
+                { level: 'A1', question: "Der Kurs beginnt ... 9 Uhr.", options: ["um", "an", "in", "auf"], correctAnswerIndex: 0, topic: "Temporale Präposition (um)", example: "Wir essen um 12 Uhr.", translation: "We eat at 12 o'clock." },
+                { level: 'A1', question: "... kostet das Brot?", options: ["Wie", "Was", "Wer", "Wo"], correctAnswerIndex: 0, topic: "W-Frage (Wie)", example: "Wie geht es dir?", translation: "How are you?" },
+                { level: 'A1', question: "Wir gehen ... Opa.", options: ["zum", "zu der", "zu den", "zu"], correctAnswerIndex: 0, topic: "Präposition mit Kontraktion (zum)", example: "Ich gehe zum Arzt.", translation: "I am going to the doctor." },
+                { level: 'A1', question: "Ich ... dich morgen besuchen.", options: ["wolle", "wollen", "will", "willt"], correctAnswerIndex: 2, topic: "Modalverb (wollen)", example: "Er will später kommen.", translation: "He wants to come later." },
+                { level: 'A1', question: "Das Buch liegt ... Tisch.", options: ["auf dem", "auf den", "auf der", "am"], correctAnswerIndex: 0, topic: "Lokalpräposition (auf Dativ)", example: "Die Maus sitzt auf dem Tisch.", translation: "The mouse is sitting on the table." },
+                { level: 'A1', question: "Er hilft ... Kindern.", options: ["die", "den", "dem", "das"], correctAnswerIndex: 1, topic: "Dativ (Plural)", example: "Er hilft seinen Eltern.", translation: "He helps his parents." },
+                { level: 'A1', question: "Er ruft ... an.", options: ["ich", "mir", "mich", "mein"], correctAnswerIndex: 2, topic: "Personalpronomen (Akkusativ)", example: "Rufst du mich später an?", translation: "Are you calling me later?" },
+                { level: 'A1', question: "Wie geht es ...?", options: ["du", "dich", "dir", "dein"], correctAnswerIndex: 2, topic: "Personalpronomen (Dativ)", example: "Wie geht es dir heute?", translation: "How are you today?" },
+                { level: 'A1', question: "Wir ... jetzt gehen.", options: ["müssen", "müsst", "mussen", "müsse"], correctAnswerIndex: 0, topic: "Modalverb (müssen)", example: "Wir müssen arbeiten.", translation: "We have to work." },
+                { level: 'A1', question: "... mir bitte helfen!", options: ["Helfen", "Hilf", "Hilfst", "Helft"], correctAnswerIndex: 1, topic: "Imperativ (du)", example: "Ruf mich bitte an!", translation: "Call me, please!" },
+                { level: 'A1', question: "Ich hänge das Bild ... die Wand.", options: ["an die", "an der", "auf die", "auf der"], correctAnswerIndex: 0, topic: "Wechselpräposition (an Akkusativ)", example: "Er hängt die Lampe an die Decke.", translation: "He hangs the lamp on the ceiling." },
+                { level: 'A2', question: "Gestern ... ich ins Theater gegangen.", options: ["bin", "habe", "war", "hatte"], correctAnswerIndex: 0, topic: "Perfekt (Bewegung: sein)", example: "Wir sind nach Hause gegangen.", translation: "We went home." },
+                { level: 'A2', question: "Das ist der Mann, ... ich das Buch gegeben habe.", options: ["den", "dem", "der", "des"], correctAnswerIndex: 1, topic: "Relativsatz (Dativ)", example: "Der Freund, dem ich geholfen habe, ist nett.", translation: "The friend whom I helped is nice." },
+                { level: 'A2', question: "Obwohl es regnet, ... wir spazieren.", options: ["geht", "gehen", "gehen wir", "wir gehen"], correctAnswerIndex: 2, topic: "Nebensatz (Inversion nach Komma)", example: "Es ist kalt, trotzdem gehe ich raus.", translation: "It is cold, nevertheless I go outside." },
+                { level: 'A2', question: "Er interessiert sich ... Geschichte.", options: ["für", "an", "um", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sich interessieren)", example: "Interessierst du dich für Sport?", translation: "Are you interested in sports?" },
+                { level: 'A2', question: "Der Film, ... ich gesehen habe, war spannend.", options: ["den", "dem", "der", "das"], correctAnswerIndex: 0, topic: "Relativsatz (Akkusativ)", example: "Das Buch, das ich lese, ist alt.", translation: "The book that I am reading is old." },
+                { level: 'A2', question: "Ich habe ihn angerufen, ... ich seine Hilfe brauchte.", options: ["trotzdem", "weil", "deshalb", "obwohl"], correctAnswerIndex: 1, topic: "Nebensatz (weil)", example: "Ich bin müde, weil ich lange gearbeitet habe.", translation: "I am tired because I worked for a long time." },
+                { level: 'A2', question: "Sie sind ... den Berg gestiegen.", options: ["auf", "an", "über", "in"], correctAnswerIndex: 0, topic: "Wechselpräposition (Akkusativ: auf)", example: "Wir sind auf den Turm gestiegen.", translation: "We climbed up the tower." },
+                { level: 'A2', question: "Ich ... gestern meinen Schlüssel verloren.", options: ["habe", "bin", "hatte", "war"], correctAnswerIndex: 0, topic: "Perfekt (Verlieren: haben)", example: "Sie hat ihre Tasche vergessen.", translation: "She forgot her bag." },
+                { level: 'A2', question: "Diese ... Schuhe sind zu teuer.", options: ["neu", "neue", "neuen", "neuer"], correctAnswerIndex: 2, topic: "Adjektivdeklination (Plural)", example: "Ich trage die neuen Schuhe.", translation: "I am wearing the new shoes." },
+                { level: 'A2', question: "Wenn ich Zeit ... , komme ich dich besuchen.", options: ["habe", "hätte", "werde", "bin"], correctAnswerIndex: 0, topic: "Konditionalsatz (Präsens)", example: "Wenn es regnet, bleibe ich zu Hause.", translation: "If it rains, I will stay at home." },
+                { level: 'A2', question: "Er hat sich bei ... entschuldigt.", options: ["die Lehrerin", "der Lehrerin", "den Lehrerin", "die Lehrerinnen"], correctAnswerIndex: 1, topic: "Dativ (Feminin)", example: "Sie dankt der Frau.", translation: "She thanks the woman." },
+                { level: 'A2', question: "Das ... du nicht tun!", options: ["müsstest", "musst", "muss", "dürfte"], correctAnswerIndex: 1, topic: "Modalverben (müssen)", example: "Du musst das Formular ausfüllen.", translation: "You must fill out the form." },
+                { level: 'A2', question: "Sie wartet ... den Bus.", options: ["auf", "nach", "für", "zu"], correctAnswerIndex: 0, topic: "Präpositionalverben (warten auf)", example: "Ich warte auf dich.", translation: "I am waiting for you." },
+                { level: 'A2', question: "Das ist das Haus, ... im Wald steht.", options: ["das", "der", "die", "den"], correctAnswerIndex: 0, topic: "Relativsatz (Nominativ Neutrum)", example: "Der Hund, der bellt, ist alt.", translation: "The dog that barks is old." },
+                { level: 'A2', question: "Ich ... mir die Haare geschnitten.", options: ["habe", "bin", "wurde", "war"], correctAnswerIndex: 0, topic: "Reflexivverben (Perfekt)", example: "Er hat sich die Hand gewaschen.", translation: "He washed his hand." },
+                { level: 'A2', question: "Sie spricht ... als ich.", options: ["schnell", "schneller", "schnellst", "am schnellsten"], correctAnswerIndex: 1, topic: "Komparativ", example: "Sie ist älter als ich.", translation: "She is older than me." },
+                { level: 'A2', question: "Wir fahren ans Meer, ... das Wetter gut ist.", options: ["ob", "obwohl", "wenn", "damit"], correctAnswerIndex: 2, topic: "Nebensatz (wenn)", example: "Wir gehen spazieren, wenn die Sonne scheint.", translation: "We go for a walk when the sun shines." },
+                { level: 'A2', question: "Das Auto ... in der Garage repariert.", options: ["wird", "ist", "hat", "werden"], correctAnswerIndex: 0, topic: "Passiv (Präsens)", example: "Die Straße wird gebaut.", translation: "The street is being built." },
+                { level: 'A2', question: "Er hat mich ... seiner Party eingeladen.", options: ["auf", "zu", "für", "mit"], correctAnswerIndex: 1, topic: "Präpositionalverben (einladen zu)", example: "Er lädt mich zum Essen ein.", translation: "He invites me to dinner." },
+                { level: 'A2', question: "Die Frau, ... Auto kaputt ist, wartet hier.", options: ["deren", "dessen", "die", "der"], correctAnswerIndex: 1, topic: "Relativsatz (Genitiv)", example: "Das ist der Mann, dessen Hund groß ist.", translation: "That is the man whose dog is big." },
+                { level: 'A2', question: "Er ... mir, dass er krank war.", options: ["sagt", "sagte", "gesagt", "hat gesagt"], correctAnswerIndex: 1, topic: "Präteritum (sagen)", example: "Gestern sagte er, er kommt nicht.", translation: "Yesterday he said he won't come." },
+                { level: 'A2', question: "Ich freue mich ... deinen Besuch.", options: ["auf", "über", "für", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sich freuen auf)", example: "Ich freue mich auf das Wochenende.", translation: "I am looking forward to the weekend." },
+                { level: 'A2', question: "Das ist die ... Lösung.", options: ["best", "beste", "bester", "besten"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Superlativ)", example: "Das ist der beste Kuchen.", translation: "That is the best cake." },
+                { level: 'A2', question: "Der Chef hat mich ... Büro gerufen.", options: ["ins", "im", "am", "zum"], correctAnswerIndex: 0, topic: "Wechselpräposition (Akkusativ Kontraktion)", example: "Wir gehen ins Theater.", translation: "We are going to the theater." },
+                { level: 'A2', question: "Ich habe viel ... zu tun.", options: ["zu", "von", "mit", "an"], correctAnswerIndex: 0, topic: "Infinitiv mit zu", example: "Es ist wichtig, pünktlich zu sein.", translation: "It is important to be punctual." },
+                { level: 'A2', question: "Man ... hier nicht rauchen.", options: ["darf", "muss", "soll", "will"], correctAnswerIndex: 0, topic: "Modalverben (dürfen)", example: "Man darf hier nicht parken.", translation: "One is not allowed to park here." },
+                { level: 'A2', question: "Dieses T-Shirt ist ... als das andere.", options: ["billig", "billiger", "am billigsten", "billigst"], correctAnswerIndex: 1, topic: "Komparativ", example: "Mein Auto ist schneller als deins.", translation: "My car is faster than yours." },
+                { level: 'A2', question: "Die Katze liegt ... Sofa.", options: ["auf dem", "auf den", "an dem", "vor"], correctAnswerIndex: 0, topic: "Wechselpräposition (Dativ)", example: "Das Bild hängt über dem Sofa.", translation: "The picture is hanging above the sofa." },
+                { level: 'A2', question: "Er hat das Formular selbst ... .", options: ["ausgefüllt", "füllte aus", "ausfüllen", "ausfüllt"], correctAnswerIndex: 0, topic: "Perfekt (Trennbares Verb)", example: "Ich habe das Licht angemacht.", translation: "I turned on the light." },
+                { level: 'A2', question: "Ich habe keinen Hunger, ... esse ich nichts.", options: ["denn", "weil", "deshalb", "obwohl"], correctAnswerIndex: 2, topic: "Konnektoren (deshalb)", example: "Es regnet, deshalb nehme ich den Regenschirm.", translation: "It's raining, therefore I take the umbrella." },
+                { level: 'A2', question: "Sie sind ... 2005 verheiratet.", options: ["seit", "ab", "vor", "nach"], correctAnswerIndex: 0, topic: "Temporale Präposition (seit)", example: "Ich warte seit einer Stunde.", translation: "I have been waiting for an hour." },
+                { level: 'A2', question: "Das ist der Junge, ... ich geholfen habe.", options: ["der", "den", "dem", "dessen"], correctAnswerIndex: 2, topic: "Relativsatz (Dativ)", example: "Die Frau, der ich danke, ist sehr freundlich.", translation: "The woman whom I thank is very friendly." },
+                { level: 'A2', question: "Das ist der ... schönste Tag meines Lebens.", options: ["der", "die", "das", "dem"], correctAnswerIndex: 0, topic: "Superlativ", example: "Das ist der schnellste Zug.", translation: "That is the fastest train." },
+                { level: 'A2', question: "Er hat ... Buch gekauft.", options: ["ein gut", "ein gutes", "einen guten", "eine gute"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Gemischt Neutrum)", example: "Er hat ein neues Auto gekauft.", translation: "He bought a new car." },
+                { level: 'A2', question: "Ich habe keine Zeit, ... ich arbeiten muss.", options: ["deshalb", "trotzdem", "weil", "denn"], correctAnswerIndex: 2, topic: "Nebensatz (weil)", example: "Ich kann nicht kommen, weil ich krank bin.", translation: "I cannot come because I am sick." },
+                { level: 'A2', question: "Sie fährt ... ans Meer.", options: ["lieber", "gern", "am liebsten", "gut"], correctAnswerIndex: 0, topic: "Komparativ (gern -> lieber)", example: "Ich trinke lieber Kaffee als Tee.", translation: "I prefer drinking coffee to tea." },
+                { level: 'A2', question: "Die ... Frau hat mir geholfen.", options: ["alte", "alten", "alt", "alter"], correctAnswerIndex: 0, topic: "Adjektivdeklination (Nominativ Feminin)", example: "Eine schöne Blume wächst hier.", translation: "A beautiful flower grows here." },
+                { level: 'A2', question: "Das Licht ... gelöscht.", options: ["wurde", "war", "ist", "hat"], correctAnswerIndex: 0, topic: "Passiv (Präteritum)", example: "Die Tür wurde geöffnet.", translation: "The door was opened." },
+                { level: 'A2', question: "Ich bin froh, ... du da bist.", options: ["dass", "ob", "weil", "als"], correctAnswerIndex: 0, topic: "Nebensatz (dass)", example: "Ich weiß, dass du Recht hast.", translation: "I know that you are right." },
+                { level: 'A2', question: "Er hat ... versprochen, pünktlich zu kommen.", options: ["mir", "mich", "ich", "meinen"], correctAnswerIndex: 0, topic: "Personalpronomen (Dativ)", example: "Ich habe dir gesagt, dass ich komme.", translation: "I told you that I am coming." },
+                { level: 'A2', question: "Die Leute, ... ich die Tickets gab, waren nett.", options: ["denen", "die", "derer", "den"], correctAnswerIndex: 0, topic: "Relativsatz (Dativ Plural)", example: "Das sind die Kollegen, denen ich vertraue.", translation: "These are the colleagues whom I trust." },
+                { level: 'A2', question: "Ich frage mich, ... er kommt.", options: ["ob", "dass", "wenn", "weil"], correctAnswerIndex: 0, topic: "Nebensatz (ob)", example: "Er fragt, ob wir ins Kino gehen.", translation: "He asks whether we are going to the cinema." },
+                { level: 'A2', question: "Das ... Auto ist teuer.", options: ["neu", "neue", "neuen", "neuer"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Schwach Nominativ)", example: "Der große Hund bellt.", translation: "The big dog barks." },
+                { level: 'A2', question: "Früher ... sie nicht so viel arbeiten.", options: ["musste", "mussten", "gemusst", "hat gemusst"], correctAnswerIndex: 0, topic: "Präteritum (müssen)", example: "Ich musste gestern lange warten.", translation: "I had to wait for a long time yesterday." },
+                { level: 'A2', question: "Sie ärgert sich ... ihren Fehler.", options: ["über", "auf", "an", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sich ärgern über)", example: "Er ärgert sich über das schlechte Wetter.", translation: "He is annoyed about the bad weather." },
+                { level: 'A2', question: "Ich ... gern in den Urlaub fahren.", options: ["würde", "werde", "will", "wurde"], correctAnswerIndex: 0, topic: "Konjunktiv II (würde)", example: "Ich würde gerne ein Eis essen.", translation: "I would like to eat an ice cream." },
+                { level: 'A2', question: "Das Problem ... jetzt gelöst.", options: ["wird", "ist", "hat", "werde"], correctAnswerIndex: 0, topic: "Passiv (Präsens)", example: "Der Brief wird abgeschickt.", translation: "The letter is being sent." },
+                { level: 'A2', question: "Er singt ... als ich erwartet habe.", options: ["besser", "gut", "am besten", "besten"], correctAnswerIndex: 0, topic: "Komparativ (gut -> besser)", example: "Er spielt Fußball besser als ich.", translation: "He plays football better than me." },
+                { level: 'A2', question: "Er ... in München geblieben.", options: ["ist", "hat", "war", "hatte"], correctAnswerIndex: 0, topic: "Perfekt (bleiben)", example: "Sie ist zu Hause geblieben.", translation: "She stayed at home." },
+                { level: 'A2', question: "Das Mädchen, ... du kennst, ist meine Cousine.", options: ["das", "die", "dem", "den"], correctAnswerIndex: 0, topic: "Relativsatz (Akkusativ Neutrum)", example: "Das Kind, das du siehst, lacht.", translation: "The child that you see is laughing." },
+                { level: 'A2', question: "... ich Kind war, wohnte ich in Köln.", options: ["Als", "Wenn", "Ob", "Dass"], correctAnswerIndex: 0, topic: "Temporale Nebensätze (als)", example: "Als ich jung war, spielte ich Klavier.", translation: "When I was young, I played the piano." },
+                { level: 'A2', question: "Mit ... frischer Milch schmeckt es gut.", options: ["frische", "frischer", "frischen", "frisches"], correctAnswerIndex: 1, topic: "Adjektivdeklination (Stark Dativ)", example: "Mit frischem Brot schmeckt es gut.", translation: "It tastes good with fresh bread." },
+                { level: 'A2', question: "Die Kinder ... im Garten.", options: ["spielten", "spielen", "gespielt", "spielten"], correctAnswerIndex: 0, topic: "Präteritum (spielen)", example: "Die Kinder spielten gestern im Park.", translation: "The children played in the park yesterday." },
+                { level: 'A2', question: "Wir sprechen ... das neue Projekt.", options: ["über", "von", "an", "mit"], correctAnswerIndex: 0, topic: "Präpositionalverben (sprechen über)", example: "Wir sprechen über das Wetter.", translation: "We are talking about the weather." },
+                { level: 'A2', question: "Ich habe vergessen, dich ... .", options: ["anzurufen", "rufe an", "angerufen", "rufen an"], correctAnswerIndex: 0, topic: "Infinitiv mit zu (Trennbar)", example: "Ich habe vergessen, die Rechnung zu bezahlen.", translation: "I forgot to pay the bill." },
+                { level: 'A2', question: "Die Tür ... gestern geschlossen.", options: ["wurde", "war", "ist", "hat"], correctAnswerIndex: 0, topic: "Passiv (Präteritum)", example: "Das Fenster wurde letzte Woche repariert.", translation: "The window was repaired last week." },
+                { level: 'A2', question: "Das ist der ... Berg der Welt.", options: ["höchste", "höher", "hoch", "am höchsten"], correctAnswerIndex: 0, topic: "Superlativ (hoch)", example: "Er ist der größte Mensch, den ich kenne.", translation: "He is the tallest person I know." },
+                { level: 'A2', question: "Er hat das machen ... .", options: ["müssen", "gemusst", "musste", "machen müssen"], correctAnswerIndex: 0, topic: "Perfekt mit Modalverb Ersatzinfinitiv", example: "Sie hat nicht kommen können.", translation: "She couldn't come." },
+            ];
+
+            const quizDataVocabulary = [
+                { level: 'A1', question: "Wie sagt man 'brother' auf Deutsch?", options: ["Die Schwester", "Der Vater", "Der Bruder", "Die Mutter"], correctAnswerIndex: 2, topic: "Familie", example: "Mein Bruder ist älter als ich.", translation: "My brother is older than me." },
+                { level: 'A1', question: "Was ist das Gegenteil von 'lang'?", options: ["kurz", "schwer", "groß", "alt"], correctAnswerIndex: 0, topic: "Gegenteile", example: "Die Pause ist sehr kurz.", translation: "The break is very short." },
+                { level: 'A1', question: "Ich koche das Essen in der ... .", options: ["Wohnzimmer", "Küche", "Schlafzimmer", "Bad"], correctAnswerIndex: 1, topic: "Räume", example: "Wir essen in der Küche zu Abend.", translation: "We have dinner in the kitchen." },
+                { level: 'A1', question: "Was trinke ich zum Frühstück?", options: ["Die Butter", "Die Wurst", "Die Milch", "Das Brot"], correctAnswerIndex: 2, topic: "Essen & Trinken", example: "Ich trinke meine Milch mit Kakao.", translation: "I drink my milk with cocoa." },
+                { level: 'A1', question: "Wie schreibt man die Zahl 24?", options: ["vierzigzwei", "zweiundvierzig", "vierundzwanzig", "vierundzwölf"], correctAnswerIndex: 2, topic: "Zahlen", example: "Er ist vierundzwanzig Jahre alt.", translation: "He is twenty-four years old." },
+                { level: 'A1', question: "Das Adjektiv für 'sunny' ist ... .", options: ["regnet", "schnee", "sonnig", "windig"], correctAnswerIndex: 2, topic: "Wetter", example: "Heute ist es sehr sonnig.", translation: "It is very sunny today." },
+                { level: 'A1', question: "Was ist ein Hobby?", options: ["Die Arbeit", "Das Buch", "Lesen", "Die Schule"], correctAnswerIndex: 2, topic: "Hobbys", example: "Lesen ist ein schönes Hobby.", translation: "Reading is a nice hobby." },
+                { level: 'A1', question: "Ich fahre mit dem ... zur Arbeit.", options: ["Der Hund", "Der Zug", "Die Hand", "Der Tisch"], correctAnswerIndex: 1, topic: "Transport", example: "Der Zug fährt pünktlich ab.", translation: "The train departs punctually." },
+                { level: 'A1', question: "Wie grüßt man am Abend?", options: ["Guten Morgen", "Gute Nacht", "Guten Abend", "Hallo"], correctAnswerIndex: 2, topic: "Begrüßung", example: "Wir sagen Guten Abend.", translation: "We say good evening." },
+                { level: 'A1', question: "Die Farbe des Himmels ist ... .", options: ["rot", "grün", "blau", "gelb"], correctAnswerIndex: 2, topic: "Farben", example: "Das Meer ist blau.", translation: "The sea is blue." },
+                { level: 'A1', question: "Was zieht man an?", options: ["Die Tür", "Die Jacke", "Der Stuhl", "Das Fenster"], correctAnswerIndex: 1, topic: "Kleidung", example: "Zieh deine Jacke an!", translation: "Put on your jacket!" },
+                { level: 'A1', question: "Das Tier, das bellt, ist der ... .", options: ["Die Katze", "Der Hund", "Der Vogel", "Die Maus"], correctAnswerIndex: 1, topic: "Tiere", example: "Der Hund spielt im Garten.", translation: "The dog is playing in the garden." },
+                { level: 'A1', question: "Der erste Tag der Woche ist ... .", options: ["Sonntag", "Dienstag", "Montag", "Samstag"], correctAnswerIndex: 2, topic: "Wochentage", example: "Am Montag muss ich früh aufstehen.", translation: "On Monday, I have to get up early." },
+                { level: 'A1', question: "Der Monat nach Dezember ist ... .", options: ["Februar", "März", "Januar", "April"], correctAnswerIndex: 2, topic: "Monate", example: "Im Januar ist es sehr kalt.", translation: "It is very cold in January." },
+                { level: 'A1', question: "Welche Jahreszeit ist heiß?", options: ["Der Winter", "Der Herbst", "Der Frühling", "Der Sommer"], correctAnswerIndex: 3, topic: "Jahreszeiten", example: "Im Sommer fahren wir in den Urlaub.", translation: "We go on holiday in summer." },
+                { level: 'A1', question: "Ich fühle mich ... (happy).", options: ["traurig", "glücklich", "müde", "krank"], correctAnswerIndex: 1, topic: "Gefühle", example: "Ich bin glücklich über das Geschenk.", translation: "I am happy about the present." },
+                { level: 'A1', question: "Mit der ... schreibe ich.", options: ["Das Bein", "Der Fuß", "Die Hand", "Der Kopf"], correctAnswerIndex: 2, topic: "Körperteile", example: "Gib mir deine Hand.", translation: "Give me your hand." },
+                { level: 'A1', question: "Das Gegenteil von 'rechts' ist ... .", options: ["hinten", "links", "oben", "geradeaus"], correctAnswerIndex: 1, topic: "Richtungen", example: "Die Bank ist auf der linken Seite.", translation: "The bank is on the left side." },
+                { level: 'A1', question: "Ich bin ... , weil ich viel gearbeitet habe.", options: ["fröhlich", "müde", "schnell", "kalt"], correctAnswerIndex: 1, topic: "Zustände", example: "Ich bin müde, ich gehe jetzt schlafen.", translation: "I am tired, I'm going to sleep now." },
+                { level: 'A1', question: "Die Nomenendung für Plural ist oft ... .", options: ["-t", "-e", "-en", "-st"], correctAnswerIndex: 1, topic: "Nomen Plural", example: "Der Stuhl -> Die Stühle", translation: "The chair -> The chairs" },
+                { level: 'A1', question: "Was ist das Gegenteil von 'neu'?", options: ["schön", "alt", "klein", "dünn"], correctAnswerIndex: 1, topic: "Gegenteile", example: "Mein Auto ist schon sehr alt.", translation: "My car is already very old." },
+                { level: 'A1', question: "Das Zimmer zum Schlafen ist das ... .", options: ["Wohnzimmer", "Esszimmer", "Schlafzimmer", "Büro"], correctAnswerIndex: 2, topic: "Räume", example: "Im Schlafzimmer steht das Bett.", translation: "The bed is in the bedroom." },
+                { level: 'A1', question: "Was ist das Gegenteil von 'groß'?", options: ["weit", "kurz", "klein", "schön"], correctAnswerIndex: 2, topic: "Gegenteile", example: "Das ist ein kleines Problem.", translation: "That is a small problem." },
+                { level: 'A1', question: "Ein 'Ticket' auf Deutsch heißt ... .", options: ["Die Adresse", "Das Telefon", "Die Fahrkarte", "Der Brief"], correctAnswerIndex: 2, topic: "Alltagswörter", example: "Hast du eine Fahrkarte gekauft?", translation: "Did you buy a ticket?" },
+                { level: 'A1', question: "Was mache ich am Morgen?", options: ["Abendessen", "Frühstücken", "Schlafen", "Fernsehen"], correctAnswerIndex: 1, topic: "Tagesablauf", example: "Ich frühstücke immer um 7 Uhr.", translation: "I always have breakfast at 7 o'clock." },
+                { level: 'A1', question: "Das Substantiv von 'fahren' ist die ... .", options: ["Fahrer", "Fahrt", "Fahrerin", "Fahrstuhl"], correctAnswerIndex: 1, topic: "Nomenbildung", example: "Die Fahrt dauert eine Stunde.", translation: "The journey takes one hour." },
+                { level: 'A1', question: "Wie sagt man 'daughter' auf Deutsch?", options: ["Der Sohn", "Die Tochter", "Der Enkel", "Die Tante"], correctAnswerIndex: 1, topic: "Familie", example: "Meine Tochter ist Studentin.", translation: "My daughter is a student." },
+                { level: 'A1', question: "Was ist eine Mahlzeit?", options: ["Die Arbeit", "Das Frühstück", "Das Wetter", "Der Tag"], correctAnswerIndex: 1, topic: "Essen", example: "Das Frühstück ist die wichtigste Mahlzeit.", translation: "Breakfast is the most important meal." },
+                { level: 'A1', question: "Das Adjektiv für 'cold' ist ... .", options: ["warm", "heiß", "kalt", "feucht"], correctAnswerIndex: 2, topic: "Adjektive (Wetter)", example: "Mir ist sehr kalt.", translation: "I am very cold." },
+                { level: 'A1', question: "Die Zahl '0' auf Deutsch heißt ... .", options: ["eins", "zehn", "null", "hundert"], correctAnswerIndex: 2, topic: "Zahlen", example: "Die Telefonnummer beginnt mit Null.", translation: "The phone number starts with zero." },
+                { level: 'A1', question: "Wo kaufe ich Lebensmittel?", options: ["Die Bank", "Der Bahnhof", "Der Supermarkt", "Die Post"], correctAnswerIndex: 2, topic: "Orte", example: "Ich muss in den Supermarkt gehen.", translation: "I have to go to the supermarket." },
+                { level: 'A1', question: "Das Gegenteil von 'unter' ist ... .", options: ["neben", "hinter", "auf", "vor"], correctAnswerIndex: 2, topic: "Präpositionen (Lokal)", example: "Das Buch liegt auf dem Tisch.", translation: "The book is on the table." },
+                { level: 'A1', question: "Das Verb für 'to understand' ist ... .", options: ["erklären", "verstehen", "hören", "schreiben"], correctAnswerIndex: 1, topic: "Verben", example: "Ich verstehe die Frage nicht.", translation: "I do not understand the question." },
+                { level: 'A1', question: "Der Beruf 'teacher (male)' ist ... .", options: ["Die Lehrerin", "Der Koch", "Der Lehrer", "Der Student"], correctAnswerIndex: 2, topic: "Berufe", example: "Mein Lehrer ist sehr nett.", translation: "My teacher is very nice." },
+                { level: 'A1', question: "Das Gegenteil von 'gut' ist ... .", options: ["schlecht", "nett", "schnell", "schön"], correctAnswerIndex: 0, topic: "Gegenteile", example: "Das Wetter ist heute schlecht.", translation: "The weather is bad today." },
+                { level: 'A1', question: "Welches Getränk ist oft warm?", options: ["Das Wasser", "Das Bier", "Der Tee", "Die Cola"], correctAnswerIndex: 2, topic: "Getränke", example: "Ich trinke meinen Tee ohne Zucker.", translation: "I drink my tea without sugar." },
+                { level: 'A1', question: "Das Verb für 'to go' ist ... .", options: ["kommen", "sehen", "gehen", "bleiben"], correctAnswerIndex: 2, topic: "Verben", example: "Wir gehen jetzt nach Hause.", translation: "We are going home now." },
+                { level: 'A1', question: "Mit dem ... sitze ich im Büro.", options: ["Der Tisch", "Der Stuhl", "Das Bett", "Die Lampe"], correctAnswerIndex: 1, topic: "Möbel", example: "Der Stuhl ist sehr bequem.", translation: "The chair is very comfortable." },
+                { level: 'A1', question: "Was ist das Gegenteil von 'früh'?", options: ["spät", "bald", "jetzt", "morgen"], correctAnswerIndex: 0, topic: "Adverbien (Zeit)", example: "Es ist schon sehr spät.", translation: "It is already very late." },
+                { level: 'A1', question: "Was mache ich, wenn ich müde bin?", options: ["Tanzen", "Essen", "Schlafen", "Lesen"], correctAnswerIndex: 2, topic: "Aktionen", example: "Ich will jetzt schlafen.", translation: "I want to sleep now." },
+                { level: 'A1', question: "Die Farbe von Feuer ist oft ... .", options: ["gelb", "blau", "rot", "weiß"], correctAnswerIndex: 2, topic: "Farben", example: "Meine Jacke ist rot.", translation: "My jacket is red." },
+                { level: 'A1', question: "Ich benutze den ... zum Arbeiten.", options: ["Der Koffer", "Der Bleistift", "Der Computer", "Die Zeitung"], correctAnswerIndex: 2, topic: "Objekte", example: "Ich arbeite am Computer.", translation: "I work on the computer." },
+                { level: 'A1', question: "Das Tier, das miaut, ist die ... .", options: ["Der Hund", "Die Katze", "Das Pferd", "Die Ziege"], correctAnswerIndex: 1, topic: "Tiere", example: "Die Katze schläft auf dem Sofa.", translation: "The cat is sleeping on the sofa." },
+                { level: 'A1', question: "Ein Hobby im Wasser ist ... .", options: ["Reiten", "Kochen", "Schwimmen", "Malen"], correctAnswerIndex: 2, topic: "Hobbys", example: "Wir gehen gerne schwimmen.", translation: "We like to go swimming." },
+                { level: 'A1', question: "Wie bewege ich mich in der Stadt?", options: ["Der Flug", "Der Bus", "Der Pass", "Das Gepäck"], correctAnswerIndex: 1, topic: "Transport", example: "Der Bus fährt alle 10 Minuten.", translation: "The bus runs every 10 minutes." },
+                { level: 'A1', question: "Es ist nass, wenn es ... .", options: ["schneit", "regnet", "windet", "sonnig ist"], correctAnswerIndex: 1, topic: "Wetter", example: "Es regnet den ganzen Tag.", translation: "It is raining all day." },
+                { level: 'A1', question: "Das Gegenteil von 'oben' ist ... .", options: ["links", "unten", "hinten", "neben"], correctAnswerIndex: 1, topic: "Richtungen", example: "Der Ball liegt unten.", translation: "The ball is lying below." },
+                { level: 'A1', question: "Die Zeit von 6:00 bis 10:00 ist der ... .", options: ["Der Abend", "Der Mittag", "Der Morgen", "Die Nacht"], correctAnswerIndex: 2, topic: "Tageszeit", example: "Ich trinke Kaffee am Morgen.", translation: "I drink coffee in the morning." },
+                { level: 'A1', question: "Was studiere ich in der Schule?", options: ["Der Sport", "Die Mathematik", "Die Kunst", "Der Hunger"], correctAnswerIndex: 1, topic: "Schulfächer", example: "Ich mag Mathematik sehr.", translation: "I like mathematics very much." },
+                { level: 'A1', question: "Die Pluralform von 'Haus' ist ... .", options: ["Hause", "Häusern", "Häuser", "Hausen"], correctAnswerIndex: 2, topic: "Nomen Plural", example: "In der Straße stehen viele Häuser.", translation: "There are many houses on the street." },
+                { level: 'A2', question: "Das Verb für 'to decide' ist ... .", options: ["erzählen", "fragen", "entscheiden", "versuchen"], correctAnswerIndex: 2, topic: "Verben (Entscheidung)", example: "Ich muss eine Entscheidung treffen.", translation: "I have to make a decision." },
+                { level: 'A2', question: "Was ist ein 'Dokument'?", options: ["Ein Computer", "Ein wichtiges Papier", "Ein Telefonat", "Ein Tisch"], correctAnswerIndex: 1, topic: "Büro/Arbeit", example: "Bitte unterschreibe das Dokument.", translation: "Please sign the document." },
+                { level: 'A2', question: "Das Gegenteil von 'teuer' ist ... .", options: ["billig", "schön", "langsam", "voll"], correctAnswerIndex: 0, topic: "Gegenteile (Preise)", example: "Das T-Shirt ist sehr billig.", translation: "The T-shirt is very cheap." },
+                { level: 'A2', question: "Was bedeutet 'einkaufen'?", options: ["Zuhause bleiben", "Schlafen", "Im Laden kaufen", "Sprechen"], correctAnswerIndex: 2, topic: "Trennbares Verb", example: "Ich muss Lebensmittel einkaufen.", translation: "I have to buy groceries." },
+                { level: 'A2', question: "Wenn mein Kopf weh tut, habe ich ... .", options: ["Fieber", "Husten", "Kopfschmerzen", "Schnupfen"], correctAnswerIndex: 2, topic: "Gesundheit", example: "Ich nehme eine Tablette gegen Kopfschmerzen.", translation: "I'm taking a tablet for a headache." },
+                { level: 'A2', question: "Was ist ein Synonym für 'Grund'?", options: ["Die Antwort", "Die Lösung", "Die Ursache", "Der Fehler"], correctAnswerIndex: 2, topic: "Nomen (Abstrakt)", example: "Die Ursache für das Problem ist unklar.", translation: "The cause of the problem is unclear." },
+                { level: 'A2', question: "Ein anderes Wort für 'wichtig' ist ... .", options: ["unwichtig", "bedeutend", "leicht", "langweilig"], correctAnswerIndex: 1, topic: "Adjektive", example: "Das ist eine bedeutende Entdeckung.", translation: "That is a significant discovery." },
+                { level: 'A2', question: "Ich muss morgen ... (call back).", options: ["ausfüllen", "zurückrufen", "mitmachen", "anbieten"], correctAnswerIndex: 1, topic: "Trennbare Verb (Kommunikation)", example: "Rufst du mich später zurück?", translation: "Will you call me back later?" },
+                { level: 'A2', question: "Wenn der Zug geht, dann ... er.", options: ["ankommen", "abfahren", "einsteigen", "umsteigen"], correctAnswerIndex: 1, topic: "Trennbares Verb (Reise)", example: "Der Zug fährt um 8 Uhr ab.", translation: "The train departs at 8 o'clock." },
+                { level: 'A2', question: "Wo bewahre ich Geld auf?", options: ["Der Markt", "Das Konto", "Der Pass", "Die Rechnung"], correctAnswerIndex: 1, topic: "Geld/Banken", example: "Ich habe mein Geld auf dem Konto.", translation: "I have my money in the account." },
+                { level: 'A2', question: "Was gehört zur Natur?", options: ["Die Straße", "Der Baum", "Die Technologie", "Das Haus"], correctAnswerIndex: 1, topic: "Umwelt", example: "Der Baum verliert im Herbst die Blätter.", translation: "The tree loses its leaves in autumn." },
+                { level: 'A2', question: "Das Gegenteil von 'interessant' ist ... .", options: ["schwierig", "langweilig", "einfach", "alt"], correctAnswerIndex: 1, topic: "Gegenteile (Adjektive)", example: "Der Film war sehr langweilig.", translation: "The film was very boring." },
+                { level: 'A2', question: "Was sammelt man im Leben?", options: ["Die Lösung", "Die Erfahrung", "Die Entscheidung", "Das Gesetz"], correctAnswerIndex: 1, topic: "Nomen (Abstrakt)", example: "Ich habe viel Erfahrung in diesem Bereich.", translation: "I have a lot of experience in this area." },
+                { level: 'A2', question: "Das Verb für 'to move house' ist ... .", options: ["einladen", "umziehen", "bleiben", "verbringen"], correctAnswerIndex: 1, topic: "Verben (Umzug)", example: "Wir sind letztes Jahr umgezogen.", translation: "We moved last year." },
+                { level: 'A2', question: "Was kaufe ich für eine Flugreise?", options: ["Der Bus", "Der Flug", "Die Bahn", "Das Schiff"], correctAnswerIndex: 1, topic: "Reisen", example: "Der Flug nach Berlin dauert zwei Stunden.", translation: "The flight to Berlin takes two hours." },
+                { level: 'A2', question: "Wenn man eine hohe Temperatur hat, hat man ... .", options: ["eine Erkältung", "Fieber", "Halsweh", "Bauchschmerzen"], correctAnswerIndex: 1, topic: "Gesundheit", example: "Das Kind hat hohes Fieber.", translation: "The child has a high fever." },
+                { level: 'A2', question: "Was bekomme ich für eine Party?", options: ["Der Rat", "Die Einladung", "Die Rechnung", "Das Geld"], correctAnswerIndex: 1, topic: "Nomen (Soziales)", example: "Wir haben eine Einladung zur Hochzeit.", translation: "We have an invitation to the wedding." },
+                { level: 'A2', question: "Ein anderes Wort für 'verantwortlich' ist ... .", options: ["geduldig", "fleißig", "zuständig", "mutig"], correctAnswerIndex: 2, topic: "Adjektive", example: "Ich bin für das Projekt zuständig.", translation: "I am responsible for the project." },
+                { level: 'A2', question: "Ich benutze das ... zum Surfen.", options: ["Der Drucker", "Der Bildschirm", "Das Internet", "Die Tastatur"], correctAnswerIndex: 2, topic: "Technologie", example: "Das Internet ist sehr schnell.", translation: "The internet is very fast." },
+                { level: 'A2', question: "Das Gegenteil von 'hell' ist ... .", options: ["dunkel", "nass", "leer", "neu"], correctAnswerIndex: 0, topic: "Gegenteile (Licht)", example: "Es ist dunkel im Zimmer.", translation: "It is dark in the room." },
+                { level: 'A2', question: "Was bedeutet 'vorbereiten'?", options: ["Vergessen", "Sammeln", "Fertig machen", "Anrufen"], correctAnswerIndex: 2, topic: "Trennbares Verb (Planung)", example: "Ich muss das Abendessen vorbereiten.", translation: "I have to prepare dinner." },
+                { level: 'A2', question: "Wenn ich viel huste, brauche ich ... .", options: ["eine Besserung", "ein Hustenmittel", "einen Schnupfen", "einen Rat"], correctAnswerIndex: 1, topic: "Gesundheit", example: "Das Hustenmittel hilft mir sehr gut.", translation: "The cough medicine helps me very well." },
+                { level: 'A2', question: "Was ist ein Synonym für 'Ergebnis'?", options: ["Die Lösung", "Die Ursache", "Die Entscheidung", "Die Beschwerde"], correctAnswerIndex: 0, topic: "Nomen (Abstrakt)", example: "Wir haben eine gute Lösung gefunden.", translation: "We found a good solution." },
+                { level: 'A2', question: "Was bedeutet 'köstlich'?", options: ["unangenehm", "lecker", "unwichtig", "langsam"], correctAnswerIndex: 1, topic: "Adjektive (Essen)", example: "Der Kuchen schmeckt lecker.", translation: "The cake tastes delicious." },
+                { level: 'A2', question: "Wenn ich etwas falsch mache, muss ich mich ... .", options: ["vorschlagen", "mitmachen", "einigen", "beschweren"], correctAnswerIndex: 3, topic: "Verben (Kommunikation)", example: "Die Kunden beschweren sich oft.", translation: "The customers often complain." },
+                { level: 'A2', question: "Was bedeutet 'mitmachen'?", options: ["Teilnehmen", "Absagen", "Zögern", "Warten"], correctAnswerIndex: 0, topic: "Trennbares Verb (Soziales)", example: "Willst du beim Spiel mitmachen?", translation: "Do you want to participate in the game?" },
+                { level: 'A2', question: "Ich zahle mit ... (cash).", options: ["Der Scheck", "Das Konto", "Das Bargeld", "Die Überweisung"], correctAnswerIndex: 2, topic: "Geld/Banken", example: "Ich zahle immer mit Bargeld.", translation: "I always pay with cash." },
+                { level: 'A2', question: "Das Meer auf Deutsch ist ... .", options: ["Die Wüste", "Der Berg", "Das Meer", "Der Fluss"], correctAnswerIndex: 2, topic: "Umwelt", example: "Wir fahren im Urlaub ans Meer.", translation: "We are going to the sea on vacation." },
+                { level: 'A2', question: "Das Gegenteil von 'leise' ist ... .", options: ["schnell", "laut", "ruhig", "dünn"], correctAnswerIndex: 1, topic: "Gegenteile (Geräusch)", example: "Die Musik ist zu laut.", translation: "The music is too loud." },
+                { level: 'A2', question: "Ein anderes Wort für 'Wissen' ist ... .", options: ["Der Fehler", "Die Erfahrung", "Die Information", "Die Einladung"], correctAnswerIndex: 2, topic: "Nomen (Abstrakt)", example: "Ich habe alle Informationen gefunden.", translation: "I found all the information." },
+                { level: 'A2', question: "Das Verb für 'to suggest' ist ... .", options: ["entscheiden", "erklären", "vorschlagen", "versprechen"], correctAnswerIndex: 2, topic: "Verben (Vorschlag)", example: "Ich schlage ein Treffen am Montag vor.", translation: "I suggest a meeting on Monday." },
+                { level: 'A2', question: "Das Gegenteil von 'trocken' ist ... .", options: ["warm", "nass", "hart", "hell"], correctAnswerIndex: 1, topic: "Gegenteile (Zustand)", example: "Meine Kleidung ist ganz nass.", translation: "My clothes are completely wet." },
+                { level: 'A2', question: "Das Verb für 'to recommend' ist ... .", options: ["bestellen", "verkaufen", "empfehlen", "fragen"], correctAnswerIndex: 2, topic: "Verben (Empfehlung)", example: "Ich empfehle dieses Restaurant.", translation: "I recommend this restaurant." },
+                { level: 'A2', question: "Was brauche ich, wenn ich ins Ausland reise?", options: ["Die Fahrkarte", "Der Führerschein", "Der Reisepass", "Der Schlüssel"], correctAnswerIndex: 2, topic: "Reisen", example: "Vergiss deinen Reisepass nicht!", translation: "Don't forget your passport!" },
+                { level: 'A2', question: "Wenn der Hals weh tut, habe ich ... .", options: ["Halsweh", "Kopfweh", "Bauchweh", "Zahnweh"], correctAnswerIndex: 0, topic: "Gesundheit", example: "Bei Halsweh trinke ich Tee.", translation: "When I have a sore throat, I drink tea." },
+                { level: 'A2', question: "Was mache ich mit dem Arzt?", options: ["Eine Überweisung", "Einen Termin", "Eine Lösung", "Eine Beschwerde"], correctAnswerIndex: 1, topic: "Gesundheit/Planung", example: "Ich habe einen Termin beim Zahnarzt.", translation: "I have an appointment with the dentist." },
+                { level: 'A2', question: "Ein 'Geduldig' Mensch ist ... .", options: ["schnell", "ruhig", "nervös", "mutig"], correctAnswerIndex: 1, topic: "Adjektive (Charakter)", example: "Er ist ein ruhiger Mensch.", translation: "He is a calm person." },
+                { level: 'A2', question: "Was ist ein Synonym für 'Kollege'?", options: ["Der Freund", "Der Chef", "Der Mitarbeiter", "Der Lehrer"], correctAnswerIndex: 2, topic: "Büro/Arbeit", example: "Mein Mitarbeiter ist sehr hilfsbereit.", translation: "My colleague/employee is very helpful." },
+                { level: 'A2', question: "Das Gegenteil von 'voll' ist ... .", options: ["offen", "leer", "groß", "alt"], correctAnswerIndex: 1, topic: "Gegenteile (Menge)", example: "Die Flasche ist leer.", translation: "The bottle is empty." },
+                { level: 'A2', question: "Was bedeutet 'ausfüllen'?", options: ["Suchen", "Kaufen", "Formular bearbeiten", "Wegwerfen"], correctAnswerIndex: 2, topic: "Trennbares Verb (Büro)", example: "Ich muss das Formular ausfüllen.", translation: "I have to fill out the form." },
+                { level: 'A2', question: "Wenn der Magen weh tut, habe ich ... .", options: ["Gliederschmerzen", "Bauchschmerzen", "Husten", "Fieber"], correctAnswerIndex: 1, topic: "Gesundheit", example: "Ich habe starke Bauchschmerzen.", translation: "I have severe stomach ache." },
+                { level: 'A2', question: "Was ist ein 'Gesetz'?", options: ["Eine Regel", "Eine Frage", "Ein Dokument", "Eine Idee"], correctAnswerIndex: 0, topic: "Nomen (Abstrakt)", example: "Alle müssen die Gesetze befolgen.", translation: "Everyone must follow the rules (laws)." },
+                { level: 'A2', question: "Ein anderes Wort für 'tapfer' ist ... .", options: ["faul", "mutig", "traurig", "nett"], correctAnswerIndex: 1, topic: "Adjektive", example: "Das war eine mutige Entscheidung.", translation: "That was a brave decision." },
+                { level: 'A2', question: "Was bedeutet 'anbieten'?", options: ["Nehmen", "Geben", "Warten", "Hören"], correctAnswerIndex: 1, topic: "Trennbares Verb (Soziales)", example: "Ich biete dir meine Hilfe an.", translation: "I offer you my help." },
+                { level: 'A2', question: "Was mache ich mit Geld von Konto A zu Konto B?", options: ["Einzahlen", "Abheben", "Überweisen", "Ausgeben"], correctAnswerIndex: 2, topic: "Geld/Banken", example: "Ich muss Geld auf dein Konto überweisen.", translation: "I have to transfer money to your account." },
+                { level: 'A2', question: "Die Person, die mit mir arbeitet, ist mein ... .", options: ["Der Patient", "Der Lehrer", "Der Kunde", "Der Kollege"], correctAnswerIndex: 3, topic: "Büro/Arbeit", example: "Mein Kollege hilft mir oft.", translation: "My colleague often helps me." },
+                { level: 'A2', question: "Was ist das Gegenteil von 'ehrlich'?", options: ["freundlich", "falsch", "lügen", "nett"], correctAnswerIndex: 2, topic: "Gegenteile (Charakter)", example: "Er versucht oft zu lügen.", translation: "He often tries to lie." },
+                { level: 'A2', question: "Der ... zeigt mir das Bild.", options: ["Der Drucker", "Der Bildschirm", "Die Tastatur", "Die Maus"], correctAnswerIndex: 1, topic: "Technologie", example: "Der Bildschirm ist sehr groß.", translation: "The screen is very big." },
+                { level: 'A2', question: "Ein 'Meeting' auf Deutsch ist ... .", options: ["Die Besprechung", "Das Telefonat", "Die Pause", "Die Arbeit"], correctAnswerIndex: 0, topic: "Büro/Arbeit", example: "Wir haben eine Besprechung um 10 Uhr.", translation: "We have a meeting at 10 o'clock." },
+                { level: 'A2', question: "Was ist ein Verb für 'to agree'?", options: ["diskutieren", "einigen", "entscheiden", "ärgern"], correctAnswerIndex: 1, topic: "Verben (Kommunikation)", example: "Wir können uns nicht einigen.", translation: "We cannot agree." },
+            ];
+
+            // --- Global State and Elements ---
+            let shuffledQuizData = [];
+            let currentQuizType = '';
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let isAnswered = false;
+            let theme = {};
+
+            const selectorArea = document.getElementById('selector-area');
+            const quizArea = document.getElementById('quiz-area');
+            const resultsArea = document.getElementById('results-area');
+
+            const quizTitle = document.getElementById('quiz-title');
+            const quizSubtitle = document.getElementById('quiz-subtitle');
+            const questionCard = document.getElementById('question-card');
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const nextButton = document.getElementById('next-button');
+            const resultMessage = document.getElementById('result-message');
+            const explanationText = document.getElementById('explanation-text');
+            const levelTag = document.getElementById('level-tag');
+            const finalScore = document.getElementById('final-score');
+            const scoreAnalysis = document.getElementById('score-analysis');
+            const restartButton = document.getElementById('restart-button');
+
+            // --- Utility Functions ---
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
             }
-        };
 
-        // Base seed data for generating 200 unique words
-        const baseWordSeeds = [
-            { "de": "das Buch", "ar": "الكتاب", "pos": "Nomen", "gender": "das", "example_de": "Das Buch ist neu.", "example_ar": "الكتاب جديد.", "distractors_de": ["das Heft", "die Zeitung", "der Stift"], "tags": ["schule"] },
-            { "de": "lernen", "ar": "يتعلم", "pos": "Verb", "example_de": "Ich lerne Deutsch.", "example_ar": "أنا أتعلم الألمانية.", "distractors_de": ["lehren", "arbeiten", "spielen"], "tags": ["bildung"] },
-            { "de": "kalt", "ar": "بارد", "pos": "Adjektiv", "example_de": "Es ist kalt draußen.", "example_ar": "الجو بارد في الخارج.", "distractors_de": ["warm", "heiß", "kühl"], "tags": ["wetter"] },
-            { "de": "die Straße", "ar": "الشارع", "pos": "Nomen", "gender": "die", "example_de": "Die Straße ist lang.", "example_ar": "الشارع طويل.", "distractors_de": ["der Weg", "der Platz", "der Park"], "tags": ["stadt"] },
-            { "de": "bezahlen", "ar": "يدفع", "pos": "Verb", "example_de": "Ich muss die Rechnung bezahlen.", "example_ar": "يجب أن أدفع الفاتورة.", "distractors_de": ["kaufen", "verkaufen", "holen"], "tags": ["finanzen"] },
-            { "de": "interessant", "ar": "مثير للاهتمام", "pos": "Adjektiv", "example_de": "Der Film ist interessant.", "example_ar": "الفيلم مثير للاهتمام.", "distractors_de": ["langweilig", "schlecht", "einfach"], "tags": ["allgemein"] },
-            { "de": "der Bahnhof", "ar": "محطة القطار", "pos": "Nomen", "gender": "der", "example_de": "Wo ist der Bahnhof?", "example_ar": "أين محطة القطار؟", "distractors_de": ["der Flughafen", "die Haltestelle", "das Rathaus"], "tags": ["reisen"] },
-            { "de": "essen", "ar": "يأكل", "pos": "Verb", "example_de": "Wir essen zu Mittag.", "example_ar": "نحن نأكل الغداء.", "distractors_de": ["trinken", "schlafen", "gehen"], "tags": ["essen"] },
-            { "de": "schön", "ar": "جميل", "pos": "Adjektiv", "example_de": "Das Wetter ist schön.", "example_ar": "الطقس جميل.", "distractors_de": ["hässlich", "groß", "klein"], "tags": ["allgemein"] },
-            { "de": "die Familie", "ar": "العائلة", "pos": "Nomen", "gender": "die", "example_de": "Meine Familie ist hier.", "example_ar": "عائلتي هنا.", "distractors_de": ["der Freund", "die Kollegen", "der Nachbar"], "tags": ["leben"] },
-        ];
+            // --- Core Quiz Logic ---
 
-        // Base seed data for generating 200 unique grammar items
-        const baseGrammarSeeds = [
-            // Question changed from "___ ist das dein Hund?" to "___ das dein Hund?" 
-            // to clearly indicate the verb is the missing part of the sentence.
-            { "topic": "Nominativ", "rule_de": "Wer/Was?", "rule_ar": "من/ماذا؟", "question": "___ das dein Hund?", "answer": "Ist", "explanation_de": "Ja/Nein Frage beginnt mit dem Verb an Position 1.", "explanation_ar": "سؤال نعم/لا يبدأ بالفعل في الموضع الأول.", "distractors": ["Was", "Wo", "Wann"], "tags": ["kasus"] },
-            { "topic": "Verben", "rule_de": "Konjugation", "rule_ar": "تصريف", "question": "Wir ___ heute Abend Pizza.", "answer": "machen", "explanation_de": "Konjugation für 'wir'.", "explanation_ar": "تصريف لـ 'نحن'.", "distractors": ["machst", "macht", "mache"], "tags": ["verben"] },
-            { "topic": "Dativ", "rule_de": "Wem? (Person)", "rule_ar": "لمن؟ (شخص)", "question": "Ich gebe ___ Mann das Buch.", "answer": "dem", "explanation_de": "Dativ maskulin Artikel.", "explanation_ar": "أداة النصب المذكر.", "distractors": ["der", "den", "des"], "tags": ["kasus"] },
-            { "topic": "Präposition", "rule_de": "Mit Akkusativ", "rule_ar": "مع حالة النصب", "question": "Wir fahren ___ die Stadt.", "answer": "durch", "explanation_de": "'durch' mit Akkusativ.", "explanation_ar": "'durch' مع حالة النصب.", "distractors": ["bei", "mit", "von"], "tags": ["präpositionen"] },
-            { "topic": "Perfekt", "rule_de": "Haben/Sein + Partizip II", "rule_ar": "Haben/Sein + اسم المفعول", "question": "Er ___ gestern ins Kino gegangen.", "answer": "ist", "explanation_de": "Bewegungsverben nutzen 'sein'.", "explanation_ar": "أفعال الحركة تستخدم 'sein'.", "distractors": ["hat", "wird", "war"], "tags": ["zeiten"] },
-            { "topic": "Modalverben", "rule_de": "Müssen, dürfen, können...", "rule_ar": "الأفعال المساعدة", "question": "Du ___ mir helfen.", "answer": "musst", "explanation_de": "Konjugation von 'müssen'.", "explanation_ar": "تصريف 'müssen'.", "distractors": ["kannst", "darfst", "willst"], "tags": ["verben"] },
-            { "topic": "Adjektive", "rule_de": "Adjektivdeklination", "rule_ar": "تصريف الصفات", "question": "Ich habe einen ___ Hund gesehen.", "answer": "großen", "explanation_de": "Akkusativ maskulin, schwache Deklination.", "explanation_ar": "نصب مذكر, تصريف ضعيف.", "distractors": ["groß", "große", "großes"], "tags": ["adjektive"] },
-            { "topic": "Temporale Nebensätze", "rule_de": "Wenn, als, während...", "rule_ar": "جمل زمنية فرعية", "question": "___ ich klein war, spielte ich oft.", "answer": "Als", "explanation_de": "'Als' für einmalige Handlung in der Vergangenheit.", "explanation_ar": "'Als' للحدث الوحيد في الماضي.", "distractors": ["Wenn", "Während", "Bevor"], "tags": ["nebensätze"] },
-            { "topic": "Possessivpronomen", "rule_de": "Mein, dein, sein...", "rule_ar": "ضمائر الملكية", "question": "Ist das ___ Auto?", "answer": "dein", "explanation_de": "Nominativ Singular neutral.", "explanation_ar": "رفع مفرد مذكر.", "distractors": ["deine", "deinem", "deinen"], "tags": ["pronomen"] },
-            { "topic": "Reflexive Verben", "rule_de": "sich + Akkusativ/Dativ", "rule_ar": "أفعال انعكاسية", "question": "Ich ziehe ___ an.", "answer": "mich", "explanation_de": "sich anziehen + Akkusativ.", "explanation_ar": "sich anziehen + حالة النصب.", "distractors": ["mir", "dich", "dir"], "tags": ["verben"] },
-        ];
+            function showSelector() {
+                quizArea.classList.add('hidden');
+                resultsArea.classList.add('hidden');
+                selectorArea.classList.remove('hidden');
+                document.getElementById('quiz-container').classList.remove('max-w-xl');
+                document.getElementById('quiz-container').classList.add('max-w-700px');
+            }
 
-        // Function to generate unique words
-        const generateUniqueWords = (count = 200) => {
-            const words = [];
-            for (let i = 1; i <= count; i++) {
-                const seed = baseWordSeeds[(i - 1) % baseWordSeeds.length];
-                const level = i <= 100 ? "A1" : "A2";
-                words.push({
-                    "id": `w-${level}-${String(i).padStart(3, '0')}`,
-                    "de": seed.de,
-                    "ar": seed.ar,
-                    "pos": seed.pos,
-                    "gender": seed.gender,
-                    "example_de": seed.example_de,
-                    "example_ar": seed.example_ar,
-                    // Ensure quiz structure is consistent for distractor retrieval
-                    "quiz": { "types": ["mcq"], "distractors_de": seed.distractors_de },
-                    "tags": [...seed.tags, `item-${i}`],
-                    "level": level
+            function startQuiz(type) {
+                currentQuizType = type;
+                currentQuestionIndex = 0;
+                score = 0;
+                isAnswered = false;
+
+                if (type === 'grammar') {
+                    // Create a deep copy to ensure original data is not modified
+                    shuffledQuizData = shuffleArray([...quizDataGrammar]);
+                    theme = {
+                        name: 'Grammatik Test',
+                        subtitle: '100 Fragen: Fälle، أزمنة، وبنية الجملة.',
+                        primary: 'indigo',
+                        secondary: 'purple',
+                        bg: 'indigo-50',
+                        border: 'indigo-400'
+                    };
+                } else if (type === 'vocabulary') {
+                    // Create a deep copy to ensure original data is not modified
+                    shuffledQuizData = shuffleArray([...quizDataVocabulary]);
+                    theme = {
+                        name: 'Wortschatz Test',
+                        subtitle: '100 سؤال: مفردات يومية، أفعال، مرادفات.',
+                        primary: 'green',
+                        secondary: 'teal',
+                        bg: 'green-50',
+                        border: 'green-400'
+                    };
+                }
+
+                // Apply Theme and visibility
+                selectorArea.classList.add('hidden');
+                resultsArea.classList.add('hidden');
+                quizArea.classList.remove('hidden');
+
+                // Apply theme colors dynamically
+                quizTitle.textContent = theme.name;
+                quizTitle.className = `text-3xl font-extrabold mb-2 text-${theme.primary}-600`;
+                quizSubtitle.textContent = theme.subtitle;
+                questionCard.className = `p-8 rounded-xl mb-8 border-l-4 border-${theme.border} bg-${theme.bg}`;
+                nextButton.className = `mt-6 w-full text-white font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 bg-${theme.primary}-600 hover:bg-${theme.primary}-700`;
+
+                renderQuestion();
+            }
+
+            function renderQuestion() {
+                const q = shuffledQuizData[currentQuestionIndex];
+                const questionNumber = currentQuestionIndex + 1;
+                const totalQuestions = shuffledQuizData.length;
+
+                optionsContainer.innerHTML = '';
+                resultMessage.textContent = '';
+                resultMessage.classList.add('opacity-0');
+                explanationText.classList.add('hidden');
+                nextButton.disabled = true;
+                isAnswered = false;
+
+                questionText.innerHTML = `<span class="text-sm font-normal text-gray-500 block mb-1">Frage ${questionNumber} von ${totalQuestions}</span>${q.question}`;
+
+                // Dynamic level tag coloring
+                let levelColor = q.level === 'A1' ? theme.secondary : theme.primary;
+                levelTag.textContent = `Level: ${q.level}`;
+                levelTag.className = `text-sm font-extrabold px-3 py-1 rounded-full w-fit mb-2 bg-${levelColor}-200 text-${levelColor}-800`;
+
+                q.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    // Use a clean, modern option button style
+                    button.className = `option-button w-full text-left py-4 px-5 border border-gray-300 rounded-lg text-gray-700 bg-white transition duration-150 shadow-sm hover:bg-gray-50 hover:border-${theme.primary}-400`;
+                    button.onclick = () => checkAnswer(index, button);
+                    optionsContainer.appendChild(button);
                 });
             }
-            return words;
-        };
 
-        // Function to generate unique grammar items
-        const generateUniqueGrammar = (count = 200) => {
-            // FIX: Initialize grammar as a local array instead of relying on a global variable
-            const grammar = [];
-            for (let i = 1; i <= count; i++) {
-                const seed = baseGrammarSeeds[(i - 1) % baseGrammarSeeds.length];
-                const level = i <= 100 ? "A1" : "A2";
-                grammar.push({
-                    "id": `g-${level}-${String(i).padStart(3, '0')}`,
-                    "topic": seed.topic,
-                    "rule_de": seed.rule_de,
-                    "rule_ar": seed.rule_ar,
-                    "question": seed.question,
-                    "answer": seed.answer,
-                    "type": "mcq",
-                    "explanation_de": seed.explanation_de,
-                    "explanation_ar": seed.explanation_ar,
-                    // Use 'distractors' for grammar items
-                    "distractors": seed.distractors,
-                    "level": level,
-                    "tags": [...seed.tags, `item-${i}`]
-                });
-            }
-            return grammar; // Return the local array
-        };
+            function checkAnswer(selectedIndex, selectedButton) {
+                if (isAnswered) return;
+                isAnswered = true;
 
-        // All data combined, ensuring all quiz items are set to "mcq" for consistency
-        const ALL_QUIZ_ITEMS = {
-            words: generateUniqueWords(200),
-            grammar: generateUniqueGrammar(200)
-        };
+                const q = shuffledQuizData[currentQuestionIndex];
+                const options = Array.from(optionsContainer.children);
 
-        const APP_STORAGE_KEY = 'bilingualStudyProgress';
-        const DAY_IN_MS = 24 * 60 * 60 * 1000;
+                options.forEach(btn => btn.disabled = true);
 
-        // --- STATE MANAGEMENT ---
-        let state = {
-            lang: localStorage.getItem('lang') || 'de',
-            theme: localStorage.getItem('theme') || 'light',
-            route: localStorage.getItem('route') || '/',
-            leniency: false,
-            srsProgress: {},
-            currentQuiz: {
-                category: null,
-                items: [],
-                currentIndex: 0,
-                feedback: null, // 'correct', 'incorrect', null
-                showAnswer: false,
-                sessionComplete: false,
-                userAnswer: '',
-                levelFilter: localStorage.getItem('levelFilter') || 'all', // Load filter from storage
-                typeFilter: 'all'
-            },
-            isConfirmingReset: false, // State for confirmation modal
-        };
+                const isCorrect = selectedIndex === q.correctAnswerIndex;
 
-        // --- SRS LOGIC ---
-        const SRS = {
-            initial: { attempts: 0, correct: 0, streak: 0, lastSeen: 0, interval: 0, ease: 2.5, dueAt: 0 },
-            calculateNext: (srsItem, correct) => {
-                let { interval, ease, streak } = srsItem;
-                const now = Date.now();
-
-                if (correct) {
-                    streak += 1;
-                    ease = Math.max(1.3, ease + 0.02); // Simplified ease increase
-
-                    if (streak === 1) interval = 1;
-                    else if (streak === 2) interval = 6;
-                    else interval = Math.round(interval * ease);
+                if (isCorrect) {
+                    score++;
+                    selectedButton.classList.add('correct');
+                    resultMessage.textContent = 'Richtig! (إجابة صحيحة!)';
+                    resultMessage.classList.remove('text-red-600');
+                    resultMessage.classList.add('text-green-600', 'opacity-100');
                 } else {
-                    streak = 0;
-                    interval = 1;
-                    ease = Math.max(1.3, ease - 0.2);
+                    selectedButton.classList.add('incorrect');
+                    options[q.correctAnswerIndex].classList.add('correct');
+                    resultMessage.textContent = 'Falsch. (إجابة خاطئة.)';
+                    resultMessage.classList.remove('text-green-600');
+                    resultMessage.classList.add('text-red-600', 'opacity-100');
                 }
 
-                const nextDueAt = now + interval * DAY_IN_MS;
+                // --- MODIFIED SECTION START ---
+                let explanationHTML = `Thema (الموضوع): <strong>${q.topic}</strong>`;
 
-                return {
-                    attempts: srsItem.attempts + 1,
-                    correct: srsItem.correct + (correct ? 1 : 0),
-                    streak: streak,
-                    lastSeen: now,
-                    interval: interval,
-                    ease: ease,
-                    dueAt: nextDueAt,
-                };
+                // Add example and translation if they exist
+                if (q.example) {
+                    explanationHTML += `<div class="mt-4 pt-4 border-t border-gray-200">
+                        <p class="font-bold text-gray-800">Beispielsatz (جملة مثال):</p>
+                        <p class="text-indigo-600">${q.example}</p>
+                    </div>`;
+                }
+                if (q.translation) {
+                    explanationHTML += `<div class="mt-2">
+                        <p class="font-bold text-gray-800">Übersetzung (الترجمة):</p>
+                        <p class="text-gray-600">${q.translation}</p>
+                    </div>`;
+                }
+
+                explanationText.innerHTML = explanationHTML;
+                // --- MODIFIED SECTION END ---
+
+                explanationText.classList.remove('hidden');
+
+                nextButton.disabled = false;
             }
-        };
 
-        // --- UTILITIES ---
+            function nextQuestion() {
+                if (!isAnswered) return;
 
-        function persistState() {
-            localStorage.setItem('lang', state.lang);
-            localStorage.setItem('theme', state.theme);
-            localStorage.setItem('leniency', state.leniency);
-            localStorage.setItem('route', state.route);
-            localStorage.setItem('levelFilter', state.currentQuiz.levelFilter); // Persist filter setting
-            localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(state.srsProgress));
-            applyTheme();
-            applyDirection();
-        }
-
-        function loadState() {
-            const storedProgress = localStorage.getItem(APP_STORAGE_KEY);
-            if (storedProgress) {
-                try {
-                    state.srsProgress = JSON.parse(storedProgress);
-                } catch (e) {
-                    console.error("Error parsing stored progress:", e);
+                currentQuestionIndex++;
+                if (currentQuestionIndex < shuffledQuizData.length) {
+                    renderQuestion();
+                } else {
+                    showResults();
                 }
             }
-            applyTheme();
-            applyDirection();
-        }
 
-        function applyTheme() {
-            document.body.className = document.body.className.replace('dark', '').trim();
-            if (state.theme === 'dark') {
-                document.body.classList.add('dark');
-            }
-        }
+            function showResults() {
+                quizArea.classList.add('hidden');
+                resultsArea.classList.remove('hidden');
 
-        function applyDirection() {
-            document.body.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-            document.body.lang = state.lang === 'ar' ? 'ar' : 'de'; // Set lang attribute for better a11y/rendering
-        }
+                const total = shuffledQuizData.length;
+                const percentage = (score / total) * 100;
 
-        function displayToast(message, duration = 3000) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.style.opacity = '1';
-            toast.style.pointerEvents = 'auto';
+                finalScore.textContent = `${score} / ${total}`;
+                finalScore.className = `text-${theme.primary}-600`;
+                resultsArea.querySelector('h2').className = `text-3xl font-extrabold mb-4 text-${theme.primary}-600`;
 
-            // Update RTL position
-            toast.className = toast.className.replace(/left-4|right-4/g, '').trim();
-            toast.classList.add('fixed', 'bottom-4', state.lang === 'ar' ? 'left-4' : 'right-4', 'bg-blue-600', 'text-white', 'px-4', 'py-3', 'rounded-lg', 'shadow-xl', 'transition-opacity', 'duration-300', 'z-50');
-
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.pointerEvents = 'none';
-            }, duration);
-        }
-
-        function updateSrsProgress(itemId, correct) {
-            const current = state.srsProgress[itemId] || SRS.initial;
-            const updated = SRS.calculateNext(current, correct);
-            state.srsProgress = { ...state.srsProgress, [itemId]: updated };
-            persistState();
-        }
-
-        function getAllItemsWithSrs() {
-            const allItems = [...ALL_QUIZ_ITEMS.words, ...ALL_QUIZ_ITEMS.grammar];
-            return allItems.map(item => ({
-                ...item,
-                srs: state.srsProgress[item.id] || SRS.initial
-            }));
-        }
-
-        // --- ROUTING AND RENDERING ---
-
-        function navigate(newRoute) {
-            if (state.route === '/review' || state.route.startsWith('/quiz') || state.route === '/words' || state.route === '/grammar') {
-                // Reset quiz session state when leaving a quiz view
-                state.currentQuiz = {
-                    category: null, items: [], currentIndex: 0, feedback: null, showAnswer: false, sessionComplete: false, userAnswer: '',
-                    levelFilter: state.currentQuiz.levelFilter || 'all', typeFilter: 'all' // Preserve filter setting
-                };
-            }
-            state.isConfirmingReset = false; // Reset confirmation state on navigation
-            state.route = newRoute;
-            persistState();
-            renderApp();
-        }
-
-        function createElement(tag, classes, innerHTML = '', attributes = {}) {
-            const el = document.createElement(tag);
-            if (classes) el.className = classes;
-            if (innerHTML) el.innerHTML = innerHTML;
-            for (const key in attributes) {
-                el.setAttribute(key, attributes[key]);
-            }
-            return el;
-        }
-
-        function renderHeader() {
-            const t = L[state.lang];
-            const dueItems = getAllItemsWithSrs().filter(item => item.srs.dueAt <= Date.now() || item.srs.attempts === 0);
-            const dueTodayCount = dueItems.length;
-
-            const NavItem = (to, text, count = 0) => {
-                const isActive = state.route === to;
-                const btn = createElement('button',
-                    `px-3 py-2 rounded-lg transition-colors duration-200 text-sm font-medium ${isActive ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`,
-                    `${text}`, { 'data-route': to }
-                );
-                // Use inline onclick here as these are static
-                btn.onclick = () => navigate(to);
-
-                if (count > 0) {
-                    const span = createElement('span', 'ml-1 px-2 py-0.5 text-xs font-bold bg-red-500 text-white rounded-full', `${count}`);
-                    btn.appendChild(span);
+                let analysisText = '';
+                if (currentQuizType === 'grammar') {
+                    if (percentage >= 90) analysisText = "Hervorragend! (ممتاز!) Deine Grammatik ist sehr stark für B1. Weiter so!";
+                    else if (percentage >= 70) analysisText = "Sehr gut! (جيد جداً!) Du hast solide A1/A2 Grammatikkenntnisse. Konzentriere dich auf die komplexeren Nebensätze.";
+                    else if (percentage >= 50) analysisText = "Gut gemacht. (عمل جيد.) Du hast eine Basis, aber es gibt noch Lücken in Fällen und Perfekt/Präteritum. Wiederhole die Grundlagen!";
+                    else analysisText = "Du brauchst noch mehr Übung (تحتاج المزيد من التدريب) in den grammatischen Strukturen. Beginne mit den A1-Fällen.";
+                } else { // Vocabulary
+                    if (percentage >= 90) analysisText = "Exzellent! (رائع!) Dein Wortschatz ist bereit für B1. Du hast eine sehr breite Basis.";
+                    else if (percentage >= 70) analysisText = "Sehr gut! (جيد جداً!) Du beherrschst die meisten A1/A2 Vokabeln. Fokussiere dich auf Fachthemen wie Banken oder Gesundheit.";
+                    else if (percentage >= 50) analysisText = "Gute Leistung. (أداء جيد.) Arbeite weiter an deinen thematischen Wortfeldern, besonders A2 Vokabular.";
+                    else analysisText = "Hier besteht noch Übungsbedarf (هناك حاجة للمزيد من المراجعة). Konzentriere dich auf die A1-Grundlagen (Familie, Essen, Wohnen).";
                 }
-                return btn;
-            };
+                scoreAnalysis.textContent = analysisText;
 
-            const header = createElement('header', 'bg-white dark:bg-gray-900 shadow-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10');
-            const container = createElement('div', 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center');
-
-            const title = createElement('h1', 'text-2xl font-extrabold text-gray-900 dark:text-white mb-3 md:mb-0', t.appTitle);
-
-            const nav = createElement('nav', 'flex flex-wrap justify-center gap-2');
-            nav.appendChild(NavItem('/', t.home));
-            nav.appendChild(NavItem('/words', t.words));
-            nav.appendChild(NavItem('/grammar', t.grammar));
-            nav.appendChild(NavItem('/review', t.review, dueTodayCount));
-            nav.appendChild(NavItem('/settings', t.settings));
-
-            container.appendChild(title);
-            container.appendChild(nav);
-            header.appendChild(container);
-            return header;
-        }
-
-        function renderHome() {
-            const t = L[state.lang];
-            const allItems = getAllItemsWithSrs();
-            const totalItemCount = allItems.length;
-            const dueTodayCount = allItems.filter(item => item.srs.dueAt <= Date.now() || item.srs.attempts === 0).length;
-            const learnedCount = allItems.filter(s => s.srs.streak > 0 && s.srs.dueAt > 0).length;
-
-            const StatCard = (title, value, color) => {
-                const card = createElement('div', `p-3 rounded-lg bg-white dark:bg-gray-800 border border-${color}-400`);
-                card.appendChild(createElement('p', `text-3xl font-extrabold text-${color}-600 dark:text-${color}-400`, value));
-                card.appendChild(createElement('p', 'text-sm text-gray-500 dark:text-gray-300', title));
-                return card;
-            };
-
-            const Card = (category) => {
-                const isWords = category === 'words';
-                const color = isWords ? 'blue' : 'green';
-                const text = isWords ? t.words : t.grammar;
-                const count = isWords ? ALL_QUIZ_ITEMS.words.length : ALL_QUIZ_ITEMS.grammar.length;
-
-                const card = createElement('div', `bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow cursor-pointer border-t-4 border-${color}-500`, '', { 'data-category': category });
-                card.onclick = () => navigate(`/${category}`);
-                card.appendChild(createElement('h3', `text-3xl font-bold text-${color}-600 dark:text-${color}-400 mb-2`, text));
-                card.appendChild(createElement('p', 'text-gray-600 dark:text-gray-300 mb-4', `${t.totalItems}: ${count}`));
-                card.appendChild(createElement('button', `text-${color}-600 dark:text-${color}-400 font-semibold hover:underline`, t.startQuiz));
-                return card;
-            };
-
-            const container = createElement('div', 'p-6 space-y-8 max-w-4xl mx-auto');
-            container.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-
-            container.appendChild(createElement('h2', 'text-4xl font-extrabold text-gray-900 dark:text-white mb-6 border-b pb-3 border-gray-200 dark:border-gray-700', t.welcome));
-
-            const grid = createElement('div', 'grid grid-cols-1 md:grid-cols-2 gap-6');
-            grid.appendChild(Card('words'));
-            grid.appendChild(Card('grammar'));
-            container.appendChild(grid);
-
-            const progressCard = createElement('div', 'bg-gray-100 dark:bg-gray-700 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500');
-            progressCard.appendChild(createElement('h3', 'text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-4', t.progress));
-
-            const statsGrid = createElement('div', 'grid grid-cols-3 gap-4 text-center');
-            statsGrid.appendChild(StatCard(t.dueItems, dueTodayCount, 'red'));
-            statsGrid.appendChild(StatCard(t.totalLearned, learnedCount, 'blue'));
-            statsGrid.appendChild(StatCard(t.totalItems, totalItemCount, 'gray'));
-            progressCard.appendChild(statsGrid);
-
-            progressCard.appendChild(createElement('p', 'mt-4 text-center text-lg font-medium text-gray-700 dark:text-gray-300', t.prepB1));
-            container.appendChild(progressCard);
-
-            return container;
-        }
-
-        function renderSettings() {
-            const t = L[state.lang];
-
-            const SettingCard = (title, content) => {
-                const card = createElement('div', 'bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg flex justify-between items-center');
-                card.appendChild(createElement('h3', 'text-lg font-semibold text-gray-900 dark:text-white', title));
-                const contentWrapper = createElement('div', 'flex items-center space-x-3');
-                contentWrapper.appendChild(content);
-                card.appendChild(contentWrapper);
-                return card;
-            };
-
-            // Language Toggle
-            // Note: Language buttons are kept simple as they represent the change action itself
-            const langButton = createElement('button', 'px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors', `${state.lang === 'de' ? '🇩🇪 Deutsch' : '🇦🇪 العربية'} \u2192 ${state.lang === 'de' ? '🇦🇪 العربية' : '🇩🇪 Deutsch'}`);
-            langButton.onclick = () => { state.lang = state.lang === 'de' ? 'ar' : 'de'; navigate('/settings'); };
-
-            // Theme Toggle
-            const themeButton = createElement('button', 'px-4 py-2 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition-colors dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-gray-300', `${state.theme === 'light' ? '🌙' : '☀️'} ${t[state.theme === 'light' ? 'dark' : 'light']}`);
-            themeButton.onclick = () => { state.theme = state.theme === 'light' ? 'dark' : 'light'; navigate('/settings'); };
-
-            // Progress Management
-            const progressGroup = createElement('div', 'flex flex-col space-y-3');
-
-            const exportButton = createElement('button', 'px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors', t.exportProgress);
-            exportButton.onclick = handleExportProgress;
-            progressGroup.appendChild(exportButton);
-
-            const importLabel = createElement('label', 'block w-full text-center px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-colors cursor-pointer');
-            const importInput = createElement('input', 'hidden', '', { type: 'file', accept: '.json' });
-            importInput.onchange = handleImportProgress;
-            importLabel.appendChild(importInput);
-            importLabel.appendChild(document.createTextNode(t.importProgress));
-            progressGroup.appendChild(importLabel);
-
-            // Conditional Reset Button or Confirmation Box
-            if (state.isConfirmingReset) {
-                const confirmBox = createElement('div', 'p-4 bg-red-100 dark:bg-red-900 border border-red-500 rounded-lg space-y-3');
-                confirmBox.appendChild(createElement('p', 'font-semibold text-red-800 dark:text-red-200', t.confirmReset));
-                const btnGroup = createElement('div', 'flex justify-end space-x-3');
-
-                // Use new localization keys
-                const cancelBtn = createElement('button', 'px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition-colors', t.cancelBtnText);
-                cancelBtn.onclick = cancelReset;
-
-                const confirmBtn = createElement('button', 'px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors', t.confirmResetBtnText);
-                confirmBtn.onclick = confirmReset;
-
-                btnGroup.appendChild(cancelBtn);
-                btnGroup.appendChild(confirmBtn);
-                confirmBox.appendChild(btnGroup);
-                progressGroup.appendChild(confirmBox);
-
-            } else {
-                const resetButton = createElement('button', 'px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors', t.resetProgress);
-                resetButton.onclick = handleResetProgress;
-                progressGroup.appendChild(resetButton);
+                // Apply theme color to the main restart button
+                restartButton.className = `bg-${theme.primary}-600 hover:bg-${theme.primary}-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-200 w-full md:w-auto`;
             }
 
-            const container = createElement('div', 'p-4 max-w-xl mx-auto space-y-6');
-            container.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-            container.appendChild(createElement('h2', 'text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2', t.settings));
+            // Initialize the view to show the selector
+            document.addEventListener('DOMContentLoaded', showSelector);
+        </script>
 
-            container.appendChild(SettingCard(t.currentLang, langButton));
-            container.appendChild(SettingCard(t.theme, themeButton));
-            container.appendChild(SettingCard(t.progress, progressGroup));
-
-            return container;
-        }
-
-        // --- QUIZ ENGINE IMPLEMENTATION ---
-
-        function setupQuiz(category, items) {
-            const itemsWithSrs = items.map(item => ({ ...item, srs: state.srsProgress[item.id] || SRS.initial }));
-
-            // Shuffle and take a maximum of 100 items for the session
-            const shuffledItems = itemsWithSrs.sort(() => Math.random() - 0.5).slice(0, 100);
-
-            state.currentQuiz = {
-                category,
-                items: shuffledItems,
-                currentIndex: 0,
-                feedback: null,
-                showAnswer: false,
-                sessionComplete: false,
-                userAnswer: '',
-                levelFilter: state.currentQuiz.levelFilter || 'all',
-                typeFilter: 'all'
-            };
-        }
-
-        function getCurrentQuizItem() {
-            return state.currentQuiz.items[state.currentQuiz.currentIndex];
-        }
-
-        /**
-         * Checks the user's selected answer against the correct one.
-         * @param {string} userAnswer The selected option text.
-         */
-        function checkAnswer(userAnswer) {
-            if (state.currentQuiz.feedback || state.currentQuiz.sessionComplete) return;
-
-            const item = getCurrentQuizItem();
-            // The correct answer is always the German term (item.de) or the grammar answer (item.answer)
-            const correctAnswer = item.answer || item.de;
-
-            // Comparison is now strict string matching
-            const isCorrect = userAnswer === correctAnswer;
-
-            state.currentQuiz.feedback = isCorrect ? 'correct' : 'incorrect';
-            state.currentQuiz.userAnswer = userAnswer;
-            updateSrsProgress(item.id, isCorrect);
-            renderQuizContent();
-        }
-
-        function showAnswerAndMarkIncorrect() {
-            if (state.currentQuiz.feedback || state.currentQuiz.sessionComplete) return;
-            const item = getCurrentQuizItem();
-            state.currentQuiz.showAnswer = true;
-            state.currentQuiz.feedback = 'incorrect';
-            updateSrsProgress(item.id, false);
-            renderQuizContent();
-        }
-
-        function nextItem() {
-            if (state.currentQuiz.currentIndex < state.currentQuiz.items.length - 1) {
-                state.currentQuiz.currentIndex++;
-                state.currentQuiz.feedback = null;
-                state.currentQuiz.showAnswer = false;
-                state.currentQuiz.userAnswer = '';
-                renderQuizContent();
-            } else {
-                state.currentQuiz.sessionComplete = true;
-                displayToast(L[state.lang].sessionComplete);
-                renderQuizContent();
-            }
-        }
-
-        function renderQuizContent() {
-            const item = getCurrentQuizItem();
-            const t = L[state.lang];
-            const quizContainer = document.getElementById('quiz-container');
-
-            // CRITICAL CHECK: If the container isn't ready yet (e.g., still rendering the main page), exit.
-            if (!quizContainer) {
-                return;
-            }
-
-            if (!item || state.currentQuiz.sessionComplete) {
-                quizContainer.innerHTML = `
-                    <div class="p-6 text-center text-green-600 dark:text-green-400">
-                        <p class="text-3xl font-bold mb-4">${t.sessionComplete}</p>
-                        <button onclick="navigate('/')" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">${t.home}</button>
-                    </div>
-                `;
-                return;
-            }
-
-            const isWords = item.id.startsWith('w-');
-            const itemSrs = state.srsProgress[item.id] || SRS.initial;
-            // Use item.answer for grammar (gap-fill) and item.de for words (translation)
-            const correctAnswer = item.answer || item.de;
-
-            // Consolidate distractor retrieval
-            // Words use item.quiz?.distractors_de, Grammar uses item.distractors
-            const distractors = item.quiz?.distractors_de || item.distractors || [];
-            const itemTopic = isWords ? (item.pos || t.words) : (item.topic || t.grammar);
-
-            // Question is always the Arabic term for words, or the German phrase with a gap for grammar
-            const itemQuestion = isWords ? item.ar : item.question;
-
-            const itemExplanation = state.lang === 'de' ? (item.explanation_de || item.example_de) : (item.explanation_ar || item.example_ar);
-
-            let contentHTML = '';
-
-            // 1. Progress Bar
-            const progress = ((state.currentQuiz.currentIndex + 1) / state.currentQuiz.items.length) * 100;
-            contentHTML += `
-                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                    <div class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: ${progress}%"></div>
-                </div>
-            `;
-
-            // 2. Item Info
-            contentHTML += `
-                <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
-                    <span>${t.topic}: ${itemTopic}</span>
-                    <span>${t.level}: ${item.level}</span>
-                </div>
-            `;
-
-            // 3. Question Card
-            // The question is presented in the non-German language (Arabic) or as a gap-fill.
-            const questionLang = isWords ? 'ar' : 'de';
-            contentHTML += `
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-blue-500">
-                    <p class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
-                        ${state.currentQuiz.currentIndex + 1} / ${state.currentQuiz.items.length}
-                    </p>
-                    <p lang="${questionLang}" class="text-3xl font-bold leading-relaxed text-gray-800 dark:text-gray-200">
-                        ${itemQuestion.replace('___', '<span class="text-red-500 dark:text-red-400">______</span>')}
-                    </p>
-                    ${isWords && item.gender ? `<p class="mt-2 text-blue-600 dark:text-blue-400 font-medium">${item.gender}</p>` : ''}
-                </div>
-            `;
-
-            // 4. Quiz Options (Always MCQ)
-            const options = [correctAnswer, ...distractors].filter(Boolean);
-            const mcqOptions = [...new Set(options)].sort(() => Math.random() - 0.5);
-
-            if (!state.currentQuiz.feedback) {
-                // Render MCQ buttons
-                contentHTML += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">`;
-                mcqOptions.forEach((option, index) => {
-                    // Use a function to safely escape quotes for inline onclick
-                    const safeOption = option.replace(/'/g, "\\'");
-                    contentHTML += `
-                        <button
-                            onclick="checkAnswer('${safeOption}')"
-                            class="quiz-option w-full text-left p-4 bg-gray-100 dark:bg-gray-700 rounded-lg text-lg font-medium text-gray-900 dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 transition-colors shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-500/50"
-                            data-mcq-key="${index + 1}"
-                            lang="de"
-                            tabindex="0"
-                        >
-                            <span class="font-mono text-sm mr-2 opacity-70">(${index + 1})</span>
-                            ${option}
-                        </button>
-                    `;
-                });
-                contentHTML += `</div>`;
-
-                // Add show answer button
-                contentHTML += `
-                     <button onclick="showAnswerAndMarkIncorrect()" class="w-full px-6 py-3 bg-red-600 text-white rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors shadow-md mt-4">
-                        ${t.showAnswer}
-                    </button>
-                `;
-            }
-
-            // 5. Feedback / Answer
-            if (state.currentQuiz.feedback || state.currentQuiz.showAnswer) {
-                const isCorrect = state.currentQuiz.feedback === 'correct';
-
-                // Highlight the selected answer
-                const selectedAnswer = state.currentQuiz.userAnswer;
-                const feedbackOptions = mcqOptions.map(option => {
-                    let classes = "p-3 rounded-lg border-2 text-md font-medium mb-1";
-                    let prefix = '';
-
-                    if (option === correctAnswer) {
-                        // Correct Answer
-                        classes += " bg-green-200 dark:bg-green-900 border-green-500 text-green-800 dark:text-green-200 font-bold";
-                        prefix = '✅ ';
-                    } else if (option === selectedAnswer && !isCorrect) {
-                        // Incorrect Selected Answer
-                        classes += " bg-red-200 dark:bg-red-900 border-red-500 text-red-800 dark:text-red-200 line-through";
-                        prefix = '❌ ';
-                    } else {
-                        // Unselected Distractor
-                        classes += " bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 opacity-60";
-                    }
-
-                    return `<div class="${classes}" lang="de">${prefix}${option}</div>`;
-                }).join('');
-
-
-                contentHTML += `
-                    <div class="p-4 rounded-xl shadow-inner ${isCorrect ? 'bg-green-100 dark:bg-green-900/50 border-green-500' : 'bg-red-100 dark:bg-red-900/50 border-red-500'}">
-                        <p class="text-xl font-bold ${isCorrect ? 'text-green-700 dark:text-green-300' : 'text-red-700 dark:text-red-300'} mb-3">
-                            ${isCorrect ? t.correct : t.incorrect}
-                        </p>
-
-                        <div class="space-y-1 mt-3">
-                            ${feedbackOptions}
-                        </div>
-
-                        <div class="mt-3 pt-2 border-t border-dashed border-gray-400 dark:border-gray-600 text-sm italic text-gray-600 dark:text-gray-400">
-                            ${itemExplanation || ''}
-                        </div>
-                    </div>
-                    <button onclick="nextItem()" class="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold text-lg hover:bg-indigo-700 transition-colors shadow-md animate-pulse">
-                        ${t.next}
-                    </button>
-                `;
-            }
-
-            // 6. SRS Status
-            contentHTML += `
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400 pt-4">
-                    <p>${t.streak}: ${itemSrs.streak} | ${t.attempts}: ${itemSrs.attempts} (${t.correctCount}: ${itemSrs.correct})</p>
-                </div>
-            `;
-
-            quizContainer.innerHTML = `<div class="space-y-6 p-4 max-w-xl mx-auto">${contentHTML}</div>`;
-        }
-
-        function renderQuizView(category) {
-            const t = L[state.lang];
-            const rawItems = category === 'words' ? ALL_QUIZ_ITEMS.words : ALL_QUIZ_ITEMS.grammar;
-
-            const filteredItems = rawItems
-                .filter(item => state.currentQuiz.levelFilter === 'all' || item.level === state.currentQuiz.levelFilter);
-
-            // Get the level of the first item in the current session (if any)
-            const currentItemLevel = state.currentQuiz.items[0]?.level;
-
-            // If quiz not started, or category changed, or the filter setting has changed, restart session
-            if (state.currentQuiz.category !== category || state.currentQuiz.items.length === 0 || currentItemLevel !== state.currentQuiz.levelFilter) {
-                // Check if there are any items to quiz before attempting setup
-                if (filteredItems.length === 0) {
-                    return createElement('div', 'p-6 text-center text-gray-500 dark:text-gray-400', `
-                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2">${category === 'words' ? t.words : t.grammar}</h2>
-                        <p class="text-xl font-semibold mt-8">${t.notDue} (0/${rawItems.length} available after filtering)</p>
-                    `);
-                }
-                setupQuiz(category, filteredItems);
-            }
-
-            const container = createElement('div', 'p-4');
-            container.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-
-            // Removed the item count from the title
-            container.appendChild(createElement('h2', 'text-3xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2', `${category === 'words' ? t.words : t.grammar}`));
-
-            // Filters Section (Simplified to only Level Filter)
-            const filterDiv = createElement('div', 'flex flex-wrap gap-4 mb-6');
-
-            // Level Filter
-            const levelSelect = createElement('select', 'p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white', '', { id: 'level-filter' });
-            levelSelect.innerHTML = `
-                <option value="all">${t.filterLevel}: ${t.totalItems}</option>
-                <option value="A1" ${state.currentQuiz.levelFilter === 'A1' ? 'selected' : ''}>${t.level} A1</option>
-                <option value="A2" ${state.currentQuiz.levelFilter === 'A2' ? 'selected' : ''}>${t.level} A2</option>
-            `;
-            levelSelect.onchange = (e) => {
-                state.currentQuiz.levelFilter = e.target.value;
-                state.currentQuiz.items = []; // Force restart quiz session
-                persistState(); // Save the new filter setting
-                renderApp(); // Rerender immediately
-            };
-            filterDiv.appendChild(levelSelect);
-
-            container.appendChild(filterDiv);
-
-            // Container for the dynamic quiz content
-            const quizContainer = createElement('div', '', '', { id: 'quiz-container' });
-            container.appendChild(quizContainer);
-
-            return container;
-        }
-
-        function renderReview() {
-            const t = L[state.lang];
-            const dueItems = getAllItemsWithSrs()
-                .filter(item => item.srs.dueAt <= Date.now() || item.srs.attempts === 0)
-                .sort((a, b) => a.srs.dueAt - b.srs.dueAt); // Prioritize overdue
-
-            // Check if there are any items to quiz
-            if (dueItems.length === 0) {
-                return createElement('div', 'p-6 text-center text-gray-500 dark:text-gray-400', `
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2">${t.review}</h2>
-                    <p class="text-xl font-semibold mt-8">${t.notDue}</p>
-                `);
-            }
-
-            // Start review session if not already in one
-            if (state.currentQuiz.category !== 'review' || state.currentQuiz.items.length === 0) {
-                // Ensure a minimum of 10 items or all due items are in the session
-                const sessionSize = Math.min(dueItems.length, 50);
-                setupQuiz('review', dueItems.slice(0, sessionSize));
-            }
-
-            const container = createElement('div', 'p-4');
-            container.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-
-            // Removed the item count from the title
-            container.appendChild(createElement('h2', 'text-3xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2', `${t.review}`));
-
-            const quizContainer = createElement('div', '', '', { id: 'quiz-container' });
-            container.appendChild(quizContainer);
-
-            return container;
-        }
-
-
-        // --- PROGRESS HANDLERS (Import/Export/Reset) ---
-
-        function handleExportProgress() {
-            const dataStr = JSON.stringify(state.srsProgress, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
-            const exportFileDefaultName = 'bilingual-progress.json';
-
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-            displayToast(L[state.lang].exportProgress + "!");
-        }
-
-        function handleImportProgress(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const importedData = JSON.parse(e.target.result);
-                    // Basic validation
-                    if (typeof importedData === 'object' && Object.keys(importedData).every(key => key.startsWith('w-') || key.startsWith('g-'))) {
-                        state.srsProgress = importedData;
-                        persistState();
-                        displayToast(L[state.lang].importSuccess);
-                        navigate('/settings'); // Re-render settings to show imported state
-                    } else {
-                        displayToast(L[state.lang].importFail);
-                    }
-                } catch (error) {
-                    console.error("Import error:", error);
-                    displayToast(L[state.lang].importFail);
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        function handleResetProgress() {
-            // Replaced window.confirm with state change to show confirmation UI
-            state.isConfirmingReset = true;
-            navigate('/settings');
-        }
-
-        function confirmReset() {
-            state.srsProgress = {};
-            state.isConfirmingReset = false;
-            // Also reset the filter state upon full progress reset
-            state.currentQuiz.levelFilter = 'all';
-            persistState();
-            displayToast(L[state.lang].resetProgress + "!");
-            navigate('/settings');
-        }
-
-        function cancelReset() {
-            state.isConfirmingReset = false;
-            navigate('/settings');
-        }
-
-
-        // --- MAIN RENDER LOOP ---
-
-        function renderApp() {
-            const appRoot = document.getElementById('app-root');
-            appRoot.innerHTML = '';
-
-            const mainContainer = createElement('div', 'bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300');
-            mainContainer.appendChild(renderHeader());
-
-            const mainContent = createElement('main', 'py-8');
-
-            let content;
-            switch (state.route) {
-                case '/words':
-                case '/grammar':
-                    content = renderQuizView(state.route.substring(1));
-                    break;
-                case '/review':
-                    content = renderReview();
-                    break;
-                case '/settings':
-                    content = renderSettings();
-                    break;
-                case '/':
-                default:
-                    content = renderHome();
-            }
-            mainContent.appendChild(content);
-            mainContainer.appendChild(mainContent);
-            appRoot.appendChild(mainContainer);
-
-            // Defer rendering quiz content until the main HTML structure is in the DOM.
-            if (state.route === '/words' || state.route === '/grammar' || state.route === '/review') {
-                setTimeout(renderQuizContent, 0);
-            }
-        }
-
-        // --- KEYBOARD SHORTCUTS (NO SPACE/ENTER) ---
-
-        document.addEventListener('keydown', (e) => {
-            const currentItem = getCurrentQuizItem();
-            // Enter and Space functionality intentionally removed in the previous iteration.
-            if (!currentItem || state.currentQuiz.sessionComplete) return;
-
-            // Retaining the number key functionality for MCQs (1, 2, 3, 4)
-            if (!state.currentQuiz.feedback && e.key >= '1' && e.key <= '4') {
-                e.preventDefault();
-                const optionIndex = parseInt(e.key, 10) - 1;
-                const button = document.querySelector(`.quiz-option[data-mcq-key="${optionIndex + 1}"]`);
-                if (button) {
-                    // Directly call checkAnswer with the button's intended value for robustness
-                    const value = button.getAttribute('onclick').match(/checkAnswer\('(.*)'\)/)?.[1] || button.textContent.trim().replace(/^\(\d\)\s*/, '');
-                    if (value) checkAnswer(value);
-                }
-            }
-        });
-
-        // NEW: Expose necessary functions globally for inline HTML event handlers (due to module scope)
-        window.navigate = navigate;
-        window.checkAnswer = checkAnswer;
-        window.showAnswerAndMarkIncorrect = showAnswerAndMarkIncorrect;
-        window.nextItem = nextItem;
-        window.confirmReset = confirmReset;
-        window.cancelReset = cancelReset;
-
-        // Initialize the app on load
-        window.onload = () => {
-            loadState();
-            renderApp();
-        };
-
-        // PWA Note: For actual PWA capability, a service worker registration and manifest would be added here.
-    </script>
 </body>
 
 </html>
