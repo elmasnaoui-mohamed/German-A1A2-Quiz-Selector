@@ -1,0 +1,752 @@
+[
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Tasche.",
+    "options": [
+      "dem",
+      "den",
+      "der",
+      "das"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Tasche.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G051"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Auto.",
+    "options": [
+      "den",
+      "dem",
+      "der",
+      "das"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Auto.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G052"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Kind.",
+    "options": [
+      "den",
+      "der",
+      "das",
+      "dem"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Kind.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G053"
+  },
+  {
+    "level": "A1",
+    "question": "___ Kind ist hier.",
+    "options": [
+      "ein",
+      "die",
+      "das",
+      "der"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "das Kind ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G054"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Kind.",
+    "options": [
+      "die",
+      "das",
+      "den",
+      "der"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Kind.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G055"
+  },
+  {
+    "level": "A1",
+    "question": "___ Zeitung ist hier.",
+    "options": [
+      "der",
+      "das",
+      "ein",
+      "die"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Artikel & Kasus",
+    "example": "die Zeitung ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G056"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Stuhl.",
+    "options": [
+      "das",
+      "der",
+      "den",
+      "die"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe den Stuhl.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G057"
+  },
+  {
+    "level": "A1",
+    "question": "___ Tasche ist hier.",
+    "options": [
+      "ein",
+      "der",
+      "die",
+      "das"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "die Tasche ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G058"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeit.",
+    "options": [
+      "dem",
+      "der",
+      "das",
+      "den"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeit.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G059"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Kind.",
+    "options": [
+      "der",
+      "den",
+      "das",
+      "die"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Kind.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G060"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Kind.",
+    "options": [
+      "den",
+      "das",
+      "die",
+      "der"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Kind.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G061"
+  },
+  {
+    "level": "A1",
+    "question": "___ Kind ist hier.",
+    "options": [
+      "die",
+      "ein",
+      "der",
+      "das"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Artikel & Kasus",
+    "example": "das Kind ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G062"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Apfel.",
+    "options": [
+      "die",
+      "den",
+      "das",
+      "der"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe den Apfel.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G063"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Lehrer.",
+    "options": [
+      "das",
+      "dem",
+      "der",
+      "den"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Lehrer.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G064"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Kind.",
+    "options": [
+      "der",
+      "dem",
+      "den",
+      "das"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Kind.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G065"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Stuhl.",
+    "options": [
+      "der",
+      "das",
+      "dem",
+      "den"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Stuhl.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G066"
+  },
+  {
+    "level": "A1",
+    "question": "___ Stuhl ist hier.",
+    "options": [
+      "der",
+      "das",
+      "ein",
+      "die"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "der Stuhl ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G067"
+  },
+  {
+    "level": "A1",
+    "question": "___ Stuhl ist hier.",
+    "options": [
+      "das",
+      "ein",
+      "der",
+      "die"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "der Stuhl ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G068"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeit.",
+    "options": [
+      "den",
+      "das",
+      "der",
+      "dem"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeit.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G069"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Kind.",
+    "options": [
+      "das",
+      "der",
+      "den",
+      "die"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Kind.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G070"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeitung.",
+    "options": [
+      "dem",
+      "den",
+      "der",
+      "das"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeitung.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G071"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Stuhl.",
+    "options": [
+      "den",
+      "dem",
+      "der",
+      "das"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Stuhl.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G072"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Kind.",
+    "options": [
+      "die",
+      "der",
+      "das",
+      "den"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Kind.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G073"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeitung.",
+    "options": [
+      "den",
+      "das",
+      "der",
+      "dem"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeitung.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G074"
+  },
+  {
+    "level": "A1",
+    "question": "___ Kind ist hier.",
+    "options": [
+      "das",
+      "der",
+      "ein",
+      "die"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "das Kind ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G075"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Zimmer.",
+    "options": [
+      "der",
+      "den",
+      "das",
+      "die"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Zimmer.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G076"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Stuhl.",
+    "options": [
+      "dem",
+      "das",
+      "der",
+      "den"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Stuhl.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G077"
+  },
+  {
+    "level": "A1",
+    "question": "___ Stuhl ist hier.",
+    "options": [
+      "die",
+      "der",
+      "das",
+      "ein"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "der Stuhl ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G078"
+  },
+  {
+    "level": "A1",
+    "question": "___ Auto ist hier.",
+    "options": [
+      "das",
+      "der",
+      "die",
+      "ein"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "das Auto ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G079"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Zimmer.",
+    "options": [
+      "die",
+      "der",
+      "das",
+      "den"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Zimmer.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G080"
+  },
+  {
+    "level": "A1",
+    "question": "___ Kind ist hier.",
+    "options": [
+      "die",
+      "das",
+      "der",
+      "ein"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "das Kind ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G081"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Stuhl.",
+    "options": [
+      "dem",
+      "der",
+      "den",
+      "das"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Stuhl.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G082"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Stuhl.",
+    "options": [
+      "der",
+      "dem",
+      "den",
+      "das"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Stuhl.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G083"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeit.",
+    "options": [
+      "der",
+      "den",
+      "das",
+      "dem"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeit.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G084"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Apfel.",
+    "options": [
+      "der",
+      "den",
+      "das",
+      "die"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe den Apfel.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G085"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Zimmer.",
+    "options": [
+      "die",
+      "der",
+      "das",
+      "den"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Zimmer.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G086"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Zeit.",
+    "options": [
+      "die",
+      "der",
+      "den",
+      "das"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe die Zeit.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G087"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Tasche.",
+    "options": [
+      "der",
+      "dem",
+      "das",
+      "den"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Tasche.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G088"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Lehrer.",
+    "options": [
+      "den",
+      "das",
+      "die",
+      "der"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe den Lehrer.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G089"
+  },
+  {
+    "level": "A1",
+    "question": "___ Kind ist hier.",
+    "options": [
+      "die",
+      "das",
+      "der",
+      "ein"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "das Kind ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G090"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Lehrer.",
+    "options": [
+      "dem",
+      "den",
+      "das",
+      "der"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Lehrer.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G091"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zimmer.",
+    "options": [
+      "das",
+      "der",
+      "dem",
+      "den"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Zimmer.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G092"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Apfel.",
+    "options": [
+      "dem",
+      "den",
+      "das",
+      "der"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Apfel.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G093"
+  },
+  {
+    "level": "A1",
+    "question": "___ Auto ist hier.",
+    "options": [
+      "der",
+      "die",
+      "ein",
+      "das"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Artikel & Kasus",
+    "example": "das Auto ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G094"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeitung.",
+    "options": [
+      "den",
+      "dem",
+      "das",
+      "der"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeitung.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G095"
+  },
+  {
+    "level": "A1",
+    "question": "Ich sehe ___ Zimmer.",
+    "options": [
+      "das",
+      "den",
+      "die",
+      "der"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Artikel & Kasus",
+    "example": "Ich sehe das Zimmer.",
+    "translation": "اختر أداة التعريف في حالة النصب.",
+    "id": "G096"
+  },
+  {
+    "level": "A1",
+    "question": "___ Zimmer ist hier.",
+    "options": [
+      "der",
+      "ein",
+      "das",
+      "die"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Artikel & Kasus",
+    "example": "das Zimmer ist hier.",
+    "translation": "اختر أداة التعريف في حالة الرفع.",
+    "id": "G097"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Lehrer.",
+    "options": [
+      "der",
+      "dem",
+      "den",
+      "das"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe dem Lehrer.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G098"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeitung.",
+    "options": [
+      "dem",
+      "der",
+      "den",
+      "das"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeitung.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G099"
+  },
+  {
+    "level": "A1",
+    "question": "Ich helfe ___ Zeit.",
+    "options": [
+      "das",
+      "der",
+      "den",
+      "dem"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Artikel & Kasus",
+    "example": "Ich helfe der Zeit.",
+    "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+    "id": "G100"
+  }
+]

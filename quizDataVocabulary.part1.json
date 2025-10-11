@@ -1,0 +1,752 @@
+[
+  {
+    "level": "A1",
+    "question": "Ich ___ meine Hausaufgaben (heute Abend).",
+    "options": [
+      "kaufe",
+      "arbeiten",
+      "mache",
+      "lernt"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben",
+    "example": "Ich mache meine Hausaufgaben (heute Abend).",
+    "translation": "أقوم بواجباتي (هذا المساء).",
+    "id": "V001"
+  },
+  {
+    "level": "A1",
+    "question": "Wir ___ meine Eltern am Sonntag.",
+    "options": [
+      "besuche",
+      "besuchen",
+      "lernt",
+      "macht"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Verben",
+    "example": "Wir besuchen meine Eltern am Sonntag.",
+    "translation": "نحن نزور والديّ يوم الأحد.",
+    "id": "V002"
+  },
+  {
+    "level": "A1",
+    "question": "Die Kinder ___ im Garten.",
+    "options": [
+      "kaufen",
+      "spielen",
+      "kauft",
+      "arbeiten"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Verben",
+    "example": "Die Kinder spielen im Garten.",
+    "translation": "الأطفال يلعبون في الحديقة.",
+    "id": "V003"
+  },
+  {
+    "level": "A1",
+    "question": "Er ___ für die Prüfung.",
+    "options": [
+      "beginnen",
+      "kaufe",
+      "lernt",
+      "macht"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben",
+    "example": "Er lernt für die Prüfung.",
+    "translation": "هو يذاكر للامتحان.",
+    "id": "V004"
+  },
+  {
+    "level": "A1",
+    "question": "Sie ___ heute nicht.",
+    "options": [
+      "arbeitet",
+      "lernt",
+      "schließt",
+      "bezahlt"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Verben",
+    "example": "Sie arbeitet heute nicht.",
+    "translation": "هي لا تعمل اليوم.",
+    "id": "V005"
+  },
+  {
+    "level": "A1",
+    "question": "Wir ___ Brot im Supermarkt.",
+    "options": [
+      "schließen",
+      "schließe",
+      "kaufen",
+      "machen"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben",
+    "example": "Wir kaufen Brot im Supermarkt.",
+    "translation": "نحن نشتري خبزاً من السوبرماركت.",
+    "id": "V006"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ an der Kasse.",
+    "options": [
+      "arbeiten",
+      "öffnet",
+      "bezahle",
+      "beginnen"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben",
+    "example": "Ich bezahle an der Kasse.",
+    "translation": "أنا أدفع عند الصندوق.",
+    "id": "V007"
+  },
+  {
+    "level": "A1",
+    "question": "Er ___ die Tür.",
+    "options": [
+      "lerne",
+      "schließt",
+      "arbeite",
+      "öffnet"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Verben",
+    "example": "Er öffnet die Tür.",
+    "translation": "هو يفتح الباب.",
+    "id": "V008"
+  },
+  {
+    "level": "A1",
+    "question": "Sie ___ das Fenster.",
+    "options": [
+      "bezahlen",
+      "besuche",
+      "beginnt",
+      "schließt"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Verben",
+    "example": "Sie schließt das Fenster.",
+    "translation": "هي تغلق النافذة.",
+    "id": "V009"
+  },
+  {
+    "level": "A1",
+    "question": "Der Kurs ___ um 9 Uhr.",
+    "options": [
+      "beginnt",
+      "besucht",
+      "schließe",
+      "kauft"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Verben",
+    "example": "Der Kurs beginnt um 9 Uhr.",
+    "translation": "الدورة تبدأ الساعة 9.",
+    "id": "V010"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Flughafen",
+      "Supermarkt",
+      "Krankenhaus",
+      "Bibliothek"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Supermarkt.",
+    "translation": "جملة مكان محددة.",
+    "id": "V011"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (f).",
+    "options": [
+      "Küche",
+      "Bahnhof",
+      "Bibliothek",
+      "Schule"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Küche.",
+    "translation": "جملة مكان محددة.",
+    "id": "V012"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (f).",
+    "options": [
+      "Schule",
+      "Apotheke",
+      "Bahnhof",
+      "Krankenhaus"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Schule.",
+    "translation": "جملة مكان محددة.",
+    "id": "V013"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Küche",
+      "Bahnhof",
+      "Universität",
+      "Flughafen"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Bahnhof.",
+    "translation": "جملة مكان محددة.",
+    "id": "V014"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (f).",
+    "options": [
+      "Bibliothek",
+      "Apotheke",
+      "Schule",
+      "Supermarkt"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Apotheke.",
+    "translation": "جملة مكان محددة.",
+    "id": "V015"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Bibliothek",
+      "Universität",
+      "Bahnhof",
+      "Apotheke"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Bibliothek.",
+    "translation": "جملة مكان محددة.",
+    "id": "V016"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Supermarkt",
+      "Restaurant",
+      "Universität",
+      "Schule"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Restaurant.",
+    "translation": "جملة مكان محددة.",
+    "id": "V017"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Schule",
+      "Bahnhof",
+      "Krankenhaus",
+      "Universität"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Universität.",
+    "translation": "جملة مكان محددة.",
+    "id": "V018"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Bibliothek",
+      "Schule",
+      "Krankenhaus",
+      "Apotheke"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Krankenhaus.",
+    "translation": "جملة مكان محددة.",
+    "id": "V019"
+  },
+  {
+    "level": "A1",
+    "question": "Ich bin in der/im ___ (m/n).",
+    "options": [
+      "Restaurant",
+      "Universität",
+      "Flughafen",
+      "Bahnhof"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Orte",
+    "example": "Ich bin in der/im Flughafen.",
+    "translation": "جملة مكان محددة.",
+    "id": "V020"
+  },
+  {
+    "level": "A1",
+    "question": "Er bleibt heute im Bett, er ist ___.",
+    "options": [
+      "schwach",
+      "leise",
+      "glücklich",
+      "krank"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Er bleibt heute im Bett, er ist krank.",
+    "translation": "هو يبقى في السرير اليوم، إنه مريض.",
+    "id": "V021"
+  },
+  {
+    "level": "A1",
+    "question": "Nach der Arbeit bin ich ___.",
+    "options": [
+      "warm",
+      "kalt",
+      "müde",
+      "schnell"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Nach der Arbeit bin ich müde.",
+    "translation": "بعد العمل أكون متعباً.",
+    "id": "V022"
+  },
+  {
+    "level": "A1",
+    "question": "Sie hat gute Nachrichten, sie ist ___.",
+    "options": [
+      "leise",
+      "traurig",
+      "langsam",
+      "glücklich"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Sie hat gute Nachrichten, sie ist glücklich.",
+    "translation": "لديها أخبار جيدة، هي سعيدة.",
+    "id": "V023"
+  },
+  {
+    "level": "A1",
+    "question": "Er hat seinen Job verloren, er ist ___.",
+    "options": [
+      "teuer",
+      "glücklich",
+      "gesund",
+      "traurig"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Er hat seinen Job verloren, er ist traurig.",
+    "translation": "فقد عمله، إنه حزين.",
+    "id": "V024"
+  },
+  {
+    "level": "A1",
+    "question": "Sie kann 100 Kilo heben, sie ist ___.",
+    "options": [
+      "kalt",
+      "gesund",
+      "warm",
+      "stark"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Sie kann 100 Kilo heben, sie ist stark.",
+    "translation": "تستطيع رفع 100 كلغ، إنها قوية.",
+    "id": "V025"
+  },
+  {
+    "level": "A1",
+    "question": "Nach der Krankheit fühle ich mich ___.",
+    "options": [
+      "traurig",
+      "langsam",
+      "krank",
+      "schwach"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Nach der Krankheit fühle ich mich schwach.",
+    "translation": "بعد المرض أشعر بالضعف.",
+    "id": "V026"
+  },
+  {
+    "level": "A1",
+    "question": "Der Arzt sagt: Du bist ___.",
+    "options": [
+      "glücklich",
+      "schwach",
+      "gesund",
+      "teuer"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Der Arzt sagt: Du bist gesund.",
+    "translation": "الطبيب يقول: أنت بصحة جيدة.",
+    "id": "V027"
+  },
+  {
+    "level": "A1",
+    "question": "Dieses Auto kostet 80.000€, es ist sehr ___.",
+    "options": [
+      "langsam",
+      "teuer",
+      "traurig",
+      "warm"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Dieses Auto kostet 80.000€, es ist sehr teuer.",
+    "translation": "هذه السيارة غالية.",
+    "id": "V028"
+  },
+  {
+    "level": "A1",
+    "question": "Das Hemd kostet nur 5€, es ist ___.",
+    "options": [
+      "gesund",
+      "billig",
+      "müde",
+      "kalt"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Das Hemd kostet nur 5€, es ist billig.",
+    "translation": "هذا القميص رخيص.",
+    "id": "V029"
+  },
+  {
+    "level": "A1",
+    "question": "Der Zug ICE ist sehr ___.",
+    "options": [
+      "billig",
+      "leise",
+      "teuer",
+      "schnell"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Der Zug ICE ist sehr schnell.",
+    "translation": "القطار سريع جداً.",
+    "id": "V030"
+  },
+  {
+    "level": "A1",
+    "question": "Bitte fahr in der Stadt ___.",
+    "options": [
+      "schnell",
+      "gesund",
+      "langsam",
+      "schwach"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Bitte fahr in der Stadt langsam.",
+    "translation": "قد ببطء داخل المدينة.",
+    "id": "V031"
+  },
+  {
+    "level": "A1",
+    "question": "Die Baustelle nebenan ist sehr ___.",
+    "options": [
+      "traurig",
+      "krank",
+      "teuer",
+      "laut"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Die Baustelle nebenan ist sehr laut.",
+    "translation": "الورشة صاخبة جداً.",
+    "id": "V032"
+  },
+  {
+    "level": "A1",
+    "question": "In der Bibliothek musst du ___. sprechen.",
+    "options": [
+      "warm",
+      "laut",
+      "krank",
+      "leise"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "In der Bibliothek musst du leise. sprechen.",
+    "translation": "في المكتبة يجب أن تتحدث بهدوء.",
+    "id": "V033"
+  },
+  {
+    "level": "A1",
+    "question": "Im Winter ist es in Berlin sehr ___.",
+    "options": [
+      "warm",
+      "billig",
+      "gesund",
+      "kalt"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Im Winter ist es in Berlin sehr kalt.",
+    "translation": "في الشتاء الجو بارد.",
+    "id": "V034"
+  },
+  {
+    "level": "A1",
+    "question": "Heute ist es 28°C, es ist ___.",
+    "options": [
+      "billig",
+      "warm",
+      "traurig",
+      "schwach"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Adjektive (Kontext)",
+    "example": "Heute ist es 28°C, es ist warm.",
+    "translation": "اليوم دافئ.",
+    "id": "V035"
+  },
+  {
+    "level": "A1",
+    "question": "Das Auto steht ___ Garage.",
+    "options": [
+      "ohne",
+      "im",
+      "in der",
+      "beim"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Präpositionen",
+    "example": "Das Auto steht in der Garage.",
+    "translation": "السيارة في المرآب.",
+    "id": "V036"
+  },
+  {
+    "level": "A1",
+    "question": "Wir gehen ___ Kino.",
+    "options": [
+      "in der",
+      "am",
+      "ins",
+      "zum"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Präpositionen",
+    "example": "Wir gehen ins Kino.",
+    "translation": "نذهب إلى السينما.",
+    "id": "V037"
+  },
+  {
+    "level": "A1",
+    "question": "Ich gehe ___ Arzt (Termin).",
+    "options": [
+      "in der",
+      "mit",
+      "auf der",
+      "zum"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Präpositionen",
+    "example": "Ich gehe zum Arzt (Termin).",
+    "translation": "أذهب إلى الطبيب (موعد).",
+    "id": "V038"
+  },
+  {
+    "level": "A1",
+    "question": "Er arbeitet ___ DHL.",
+    "options": [
+      "bei",
+      "auf dem",
+      "zum",
+      "ins"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Präpositionen",
+    "example": "Er arbeitet bei DHL.",
+    "translation": "هو يعمل لدى DHL.",
+    "id": "V039"
+  },
+  {
+    "level": "A1",
+    "question": "Wir fahren ___ dem Zug nach Köln.",
+    "options": [
+      "am",
+      "zur",
+      "im",
+      "mit"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Präpositionen",
+    "example": "Wir fahren mit dem Zug nach Köln.",
+    "translation": "نذهب بالقطار إلى كولن.",
+    "id": "V040"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (heute Abend).",
+    "options": [
+      "lese",
+      "esse",
+      "schreiben",
+      "gehen"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Verben+Zeit",
+    "example": "Ich lese ein Buch. (heute Abend).",
+    "translation": "أنا أقرأ كتاباً (heute Abend).",
+    "id": "V041"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (morgen früh).",
+    "options": [
+      "lese",
+      "gehen",
+      "trinke",
+      "schreibt"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Verben+Zeit",
+    "example": "Ich lese ein Buch. (morgen früh).",
+    "translation": "أنا أقرأ كتاباً (morgen früh).",
+    "id": "V042"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (gestern).",
+    "options": [
+      "lese",
+      "gehen",
+      "isst",
+      "schreibt"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Verben+Zeit",
+    "example": "Ich lese ein Buch. (gestern).",
+    "translation": "أنا أقرأ كتاباً (gestern).",
+    "id": "V043"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (am Wochenende).",
+    "options": [
+      "geht",
+      "lesen",
+      "lese",
+      "gehen"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben+Zeit",
+    "example": "Ich lese ein Buch. (am Wochenende).",
+    "translation": "أنا أقرأ كتاباً (am Wochenende).",
+    "id": "V044"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (am Montag).",
+    "options": [
+      "geht",
+      "isst",
+      "trinkt",
+      "lese"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Verben+Zeit",
+    "example": "Ich lese ein Buch. (am Montag).",
+    "translation": "أنا أقرأ كتاباً (am Montag).",
+    "id": "V045"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (nächste Woche).",
+    "options": [
+      "isst",
+      "essen",
+      "lese",
+      "schreibt"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben+Zeit",
+    "example": "Ich lese ein Buch. (nächste Woche).",
+    "translation": "أنا أقرأ كتاباً (nächste Woche).",
+    "id": "V046"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (zu Hause).",
+    "options": [
+      "trinken",
+      "lese",
+      "essen",
+      "gehen"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Verben+Ort",
+    "example": "Ich lese ein Buch. (zu Hause).",
+    "translation": "أنا أقرأ كتاباً (zu Hause).",
+    "id": "V047"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (in Berlin).",
+    "options": [
+      "isst",
+      "trinke",
+      "schreibe",
+      "lese"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Verben+Ort",
+    "example": "Ich lese ein Buch. (in Berlin).",
+    "translation": "أنا أقرأ كتاباً (in Berlin).",
+    "id": "V048"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (in der Schule).",
+    "options": [
+      "gehen",
+      "schreibe",
+      "lese",
+      "lesen"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben+Ort",
+    "example": "Ich lese ein Buch. (in der Schule).",
+    "translation": "أنا أقرأ كتاباً (in der Schule).",
+    "id": "V049"
+  },
+  {
+    "level": "A1",
+    "question": "Ich ___ ein Buch (___). (im Park).",
+    "options": [
+      "isst",
+      "gehe",
+      "lese",
+      "liest"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Verben+Ort",
+    "example": "Ich lese ein Buch. (im Park).",
+    "translation": "أنا أقرأ كتاباً (im Park).",
+    "id": "V050"
+  }
+]

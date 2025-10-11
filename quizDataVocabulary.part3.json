@@ -1,0 +1,752 @@
+[
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "grün",
+      "gelb",
+      "blau",
+      "weiß"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V101"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "gelb",
+      "grün",
+      "rot",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V102"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "grün",
+      "weiß",
+      "schwarz",
+      "gelb"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V103"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "schwarz",
+      "gelb",
+      "blau",
+      "rot"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V104"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "weiß",
+      "blau",
+      "rot",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V105"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "schwarz",
+      "rot",
+      "blau",
+      "weiß"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V106"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "grün",
+      "rot",
+      "gelb",
+      "weiß"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V107"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "grün",
+      "gelb",
+      "rot",
+      "blau"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V108"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "rot",
+      "schwarz",
+      "gelb",
+      "blau"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V109"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "rot",
+      "weiß",
+      "schwarz",
+      "grün"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V110"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "gelb",
+      "schwarz",
+      "grün",
+      "rot"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V111"
+  },
+  {
+    "level": "A1",
+    "question": "Der Schnee in den Alpen ist ___.",
+    "options": [
+      "gelb",
+      "grün",
+      "schwarz",
+      "weiß"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Schnee in den Alpen ist weiß.",
+    "translation": "الثلج أبيض.",
+    "id": "V112"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "schwarz",
+      "rot",
+      "grün",
+      "gelb"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V113"
+  },
+  {
+    "level": "A1",
+    "question": "Der Schnee in den Alpen ist ___.",
+    "options": [
+      "blau",
+      "grün",
+      "gelb",
+      "weiß"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Schnee in den Alpen ist weiß.",
+    "translation": "الثلج أبيض.",
+    "id": "V114"
+  },
+  {
+    "level": "A1",
+    "question": "Der Schnee in den Alpen ist ___.",
+    "options": [
+      "grün",
+      "rot",
+      "weiß",
+      "gelb"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Schnee in den Alpen ist weiß.",
+    "translation": "الثلج أبيض.",
+    "id": "V115"
+  },
+  {
+    "level": "A1",
+    "question": "Der Himmel über dem Meer ist ___.",
+    "options": [
+      "weiß",
+      "blau",
+      "schwarz",
+      "grün"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Himmel über dem Meer ist blau.",
+    "translation": "السماء فوق البحر زرقاء.",
+    "id": "V116"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "rot",
+      "gelb",
+      "blau",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V117"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "weiß",
+      "grün",
+      "gelb",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V118"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "grün",
+      "weiß",
+      "blau",
+      "gelb"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V119"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "weiß",
+      "rot",
+      "gelb",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V120"
+  },
+  {
+    "level": "A1",
+    "question": "Der Himmel über dem Meer ist ___.",
+    "options": [
+      "schwarz",
+      "blau",
+      "weiß",
+      "grün"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Himmel über dem Meer ist blau.",
+    "translation": "السماء فوق البحر زرقاء.",
+    "id": "V121"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "schwarz",
+      "rot",
+      "weiß",
+      "gelb"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V122"
+  },
+  {
+    "level": "A1",
+    "question": "Der Himmel über dem Meer ist ___.",
+    "options": [
+      "weiß",
+      "grün",
+      "blau",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Himmel über dem Meer ist blau.",
+    "translation": "السماء فوق البحر زرقاء.",
+    "id": "V123"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "grün",
+      "gelb",
+      "schwarz",
+      "rot"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V124"
+  },
+  {
+    "level": "A1",
+    "question": "Der Schnee in den Alpen ist ___.",
+    "options": [
+      "grün",
+      "blau",
+      "weiß",
+      "rot"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Schnee in den Alpen ist weiß.",
+    "translation": "الثلج أبيض.",
+    "id": "V125"
+  },
+  {
+    "level": "A1",
+    "question": "Der Himmel über dem Meer ist ___.",
+    "options": [
+      "blau",
+      "rot",
+      "schwarz",
+      "grün"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Himmel über dem Meer ist blau.",
+    "translation": "السماء فوق البحر زرقاء.",
+    "id": "V126"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "blau",
+      "gelb",
+      "schwarz",
+      "rot"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V127"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "schwarz",
+      "gelb",
+      "weiß",
+      "blau"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V128"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "grün",
+      "rot",
+      "schwarz",
+      "weiß"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V129"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "blau",
+      "rot",
+      "weiß",
+      "gelb"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V130"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "gelb",
+      "rot",
+      "grün",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V131"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "grün",
+      "blau",
+      "schwarz",
+      "weiß"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V132"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "weiß",
+      "rot",
+      "gelb",
+      "grün"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V133"
+  },
+  {
+    "level": "A1",
+    "question": "Der Schnee in den Alpen ist ___.",
+    "options": [
+      "rot",
+      "gelb",
+      "schwarz",
+      "weiß"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Schnee in den Alpen ist weiß.",
+    "translation": "الثلج أبيض.",
+    "id": "V134"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "rot",
+      "gelb",
+      "blau",
+      "grün"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V135"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "schwarz",
+      "gelb",
+      "grün",
+      "blau"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V136"
+  },
+  {
+    "level": "A1",
+    "question": "Der Himmel über dem Meer ist ___.",
+    "options": [
+      "rot",
+      "schwarz",
+      "gelb",
+      "blau"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Himmel über dem Meer ist blau.",
+    "translation": "السماء فوق البحر زرقاء.",
+    "id": "V137"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "grün",
+      "schwarz",
+      "gelb",
+      "weiß"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V138"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "rot",
+      "blau",
+      "gelb",
+      "grün"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V139"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "grün",
+      "gelb",
+      "schwarz",
+      "weiß"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V140"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "grün",
+      "gelb",
+      "weiß",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V141"
+  },
+  {
+    "level": "A1",
+    "question": "Die Tomate ist ___.",
+    "options": [
+      "schwarz",
+      "gelb",
+      "weiß",
+      "rot"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Tomate ist rot.",
+    "translation": "الطماطم حمراء.",
+    "id": "V142"
+  },
+  {
+    "level": "A1",
+    "question": "Die Nacht ohne Mond ist ___.",
+    "options": [
+      "weiß",
+      "rot",
+      "grün",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Nacht ohne Mond ist schwarz.",
+    "translation": "الليل بلا قمر أسود.",
+    "id": "V143"
+  },
+  {
+    "level": "A1",
+    "question": "Der Schnee in den Alpen ist ___.",
+    "options": [
+      "gelb",
+      "blau",
+      "rot",
+      "weiß"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Schnee in den Alpen ist weiß.",
+    "translation": "الثلج أبيض.",
+    "id": "V144"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "grün",
+      "blau",
+      "schwarz",
+      "gelb"
+    ],
+    "correctAnswerIndex": 0,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V145"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "blau",
+      "weiß",
+      "schwarz",
+      "grün"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V146"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "schwarz",
+      "grün",
+      "weiß",
+      "gelb"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V147"
+  },
+  {
+    "level": "A1",
+    "question": "Der Himmel über dem Meer ist ___.",
+    "options": [
+      "grün",
+      "blau",
+      "weiß",
+      "schwarz"
+    ],
+    "correctAnswerIndex": 1,
+    "topic": "Wortschatz/Farben",
+    "example": "Der Himmel über dem Meer ist blau.",
+    "translation": "السماء فوق البحر زرقاء.",
+    "id": "V148"
+  },
+  {
+    "level": "A1",
+    "question": "Das Gras im Park ist ___.",
+    "options": [
+      "gelb",
+      "schwarz",
+      "weiß",
+      "grün"
+    ],
+    "correctAnswerIndex": 3,
+    "topic": "Wortschatz/Farben",
+    "example": "Das Gras im Park ist grün.",
+    "translation": "العشب أخضر.",
+    "id": "V149"
+  },
+  {
+    "level": "A1",
+    "question": "Die Banane ist ___.",
+    "options": [
+      "blau",
+      "schwarz",
+      "gelb",
+      "grün"
+    ],
+    "correctAnswerIndex": 2,
+    "topic": "Wortschatz/Farben",
+    "example": "Die Banane ist gelb.",
+    "translation": "الموزة صفراء.",
+    "id": "V150"
+  }
+]
