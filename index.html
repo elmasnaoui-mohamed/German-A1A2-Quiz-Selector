@@ -48,7 +48,7 @@
 
     .app-title {
       font-size: 24px;
-      font-weight: 900;
+      font-weight: 700;
       margin: 0 0 8px
     }
 
@@ -110,14 +110,14 @@
       padding: 6px 10px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 700;
       background: #0b1324;
       border: 1px solid #23314a
     }
 
     .title {
       font-size: 18px;
-      font-weight: 900;
+      font-weight: 700;
       margin: 0 0 6px;
       direction: ltr;
     }
@@ -173,7 +173,7 @@
     }
 
     .result {
-      font-weight: 900;
+      font-weight: 700;
       margin-top: 8px;
       transition: opacity .2s
     }
@@ -215,7 +215,6 @@
     }
 
     .kbd {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       border: 1px solid #324257;
       border-radius: 6px;
       padding: 2px 6px
@@ -233,10 +232,12 @@
           <button class="btn primary" onclick="startQuiz('grammar')">القواعد (Grammatik)</button>
         </div>
         <div id="progress-area" class="card hidden" style="margin-top:12px;background:#0b1324">
-          <div class="title">Du hast einen unvollendeten Test! (لديك اختبار غير مكتمل)</div>
+          <div class="title">Du hast einen unvollendeten Test! (Du hast einen unvollendeten Test! (لديك اختبار غير
+            مكتمل))</div>
           <div class="row">
-            <button id="resume-button" class="btn" onclick="resumeQuiz()">استئناف الاختبار 🔄</button>
-            <button class="btn ghost" onclick="clearProgressAndShowSelector()">حذف المحفوظ</button>
+            <button id="resume-button" class="btn" onclick="resumeQuiz()">Test fortsetzen 🔄 (استئناف الاختبار)</button>
+            <button class="btn ghost" onclick="clearProgressAndShowSelector()">Gespeichertes löschen (حذف
+              المحفوظ)</button>
           </div>
         </div>
       </div>
@@ -245,7 +246,7 @@
     <section id="quiz-area" class="grid hidden">
       <div class="card">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <span id="level-tag" class="tag">المستوى</span>
+          <span id="level-tag" class="tag">Niveau (المستوى)</span>
           <span id="progress-text" class="progress"></span>
         </div>
         <div class="bar" style="margin-top:8px"><span id="bar-fill" style="width:0%"></span></div>
@@ -256,8 +257,10 @@
           <div id="result-message" class="result" style="opacity:0">—</div>
           <div id="explanation-text" class="explain hidden"></div>
           <div class="footer-actions">
-            <button id="next-button" class="btn" disabled onclick="nextQuestion()">السؤال التالي ⏭️</button>
-            <button class="btn ghost" onclick="saveProgressAndShowSelector()">العودة للاختيار</button>
+            <button id="next-button" class="btn" disabled onclick="nextQuestion()">Nächste Frage (السؤال التالي)
+              ⏭️</button>
+            <button class="btn ghost" onclick="saveProgressAndShowSelector()">Zurück zur Auswahl (العودة
+              للاختيار)</button>
           </div>
         </div>
       </div>
@@ -265,12 +268,13 @@
 
     <section id="results-area" class="grid hidden">
       <div class="card center">
-        <div class="title">انتهى الاختبار!</div>
-        <div style="font-size:48px;font-weight:900;margin:8px 0" id="final-score">0 / 100</div>
+        <div class="title">Test abgeschlossen! (انتهى الاختبار)</div>
+        <div style="font-size:48px;font-weight:700;margin:8px 0" id="final-score">0 / 100</div>
         <div class="muted" id="score-analysis"></div>
         <div class="row" style="justify-content:center;margin-top:12px">
           <button class="btn primary" onclick="startQuiz(state.section)">إعادة نفس القسم</button>
-          <button class="btn ghost" onclick="clearProgressAndShowSelector()">العودة للاختيار</button>
+          <button class="btn ghost" onclick="clearProgressAndShowSelector()">Zurück zur Auswahl (العودة
+            للاختيار)</button>
         </div>
       </div>
     </section>
@@ -397,7 +401,7 @@
     function decorateLevel(level) {
       const palette = { A1: { bg: '#1b3821', color: '#d1fae5', text: 'A1' }, A2: { bg: '#3b2f12', color: '#fef3c7', text: 'A2' }, B1: { bg: '#1d254a', color: '#e0e7ff', text: 'B1' } };
       const p = palette[level] || palette.A1;
-      $levelTag.style.backgroundColor = p.bg; $levelTag.style.color = p.color; $levelTag.textContent = 'المستوى: ' + p.text;
+      $levelTag.style.backgroundColor = p.bg; $levelTag.style.color = p.color; $levelTag.textContent = 'Niveau (المستوى): ' + p.text;
     }
 
     function getCorrectIndexes(q) {
@@ -407,7 +411,7 @@
 
     function renderQuestion() {
       $options.innerHTML = ''; $explain.classList.add('hidden'); $resultMsg.style.opacity = 0;
-      $nextBtn.disabled = true; $nextBtn.textContent = 'السؤال التالي';
+      $nextBtn.disabled = true; $nextBtn.textContent = 'Nächste Frage (السؤال التالي)';
 
       const idx = state.order[state.index];
       const q = state.questions[idx];
@@ -440,13 +444,13 @@
       });
       const correct = correctIdxs.includes(choice);
       state.answered[q.id] = correct; if (correct) state.correct++;
-      $resultMsg.textContent = correct ? 'إجابة صحيحة ✅' : 'إجابة خاطئة ❌';
+      $resultMsg.textContent = correct ? 'Richtige Antwort ✅ (إجابة صحيحة)' : 'Falsche Antwort ❌ (إجابة خاطئة)';
       $resultMsg.style.opacity = 1;
       if (q.example || q.translation || q.topic) {
-        $explain.innerHTML = `<div style="font-weight:900;margin-bottom:6px">التوضيح:</div>
-        <div style="margin-bottom:4px"><span style="font-weight:800">الجملة (DE):</span> ${q.example || '-'}</div>
-        <div style="margin-bottom:4px"><span style="font-weight:800">الشرح (AR):</span> ${q.translation || '-'}</div>
-        <div style="font-size:12px;opacity:.8"><span style="font-weight:800">الموضوع:</span> ${q.topic || '-'}</div>`;
+        $explain.innerHTML = `<div style="font-weight:700;margin-bottom:6px">Erklärung (التوضيح):</div>
+        <div style="margin-bottom:4px"><span style="font-weight:700">Satz (DE) (الجملة):</span> ${q.example || '-'}</div>
+        <div style="margin-bottom:4px"><span style="font-weight:700">Bedeutung (AR) (الشرح):</span> ${q.translation || '-'}</div>
+        <div style="font-size:12px;opacity:.8"><span style="font-weight:700">Thema (الموضوع):</span> ${q.topic || '-'}</div>`;
         $explain.classList.remove('hidden');
       }
       $nextBtn.disabled = false; saveProgress();
@@ -461,7 +465,7 @@
         const score = Math.round((state.correct / total) * 100);
         $resultsArea.classList.remove('hidden'); $quizArea.classList.add('hidden');
         $finalScore.textContent = `${score} / 100`;
-        $scoreAnalysis.textContent = score >= 85 ? 'ممتاز! جاهز للتحضير لـ B1.' : (score >= 70 ? 'جيد جداً. كرّر على نقاط الضعف.' : 'تحتاج مراجعة أكثر لمستوى A1/A2.');
+        $scoreAnalysis.textContent = score >= 85 ? 'Ausgezeichnet! Bereit für B1. (ممتاز! جاهز للتحضير لـ B1)' : (score >= 70 ? 'Sehr gut. Wiederhole die Schwächen. (جيد جداً. كرّر على نقاط الضعف)' : 'Du musst A1/A2 noch mehr üben. (تحتاج مراجعة أكثر لمستوى A1/A2)');
         saveProgress();
       }
     }
