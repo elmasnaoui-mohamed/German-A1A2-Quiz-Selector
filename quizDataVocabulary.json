@@ -1,0 +1,1502 @@
+[
+    {
+        "level": "A1",
+        "question": "Ich ___ meine Hausaufgaben (heute Abend).",
+        "options": [
+            "kaufe",
+            "arbeiten",
+            "mache",
+            "lernt"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Verben",
+        "example": "Ich mache meine Hausaufgaben (heute Abend).",
+        "translation": "أقوم بواجباتي (هذا المساء).",
+        "id": "V001"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ meine Eltern am Sonntag.",
+        "options": [
+            "besuche",
+            "besuchen",
+            "lernt",
+            "macht"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Verben",
+        "example": "Wir besuchen meine Eltern am Sonntag.",
+        "translation": "نحن نزور والديّ يوم الأحد.",
+        "id": "V002"
+    },
+    {
+        "level": "A1",
+        "question": "Die Kinder ___ im Garten.",
+        "options": [
+            "kaufen",
+            "spielen",
+            "kauft",
+            "arbeiten"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Verben",
+        "example": "Die Kinder spielen im Garten.",
+        "translation": "الأطفال يلعبون في الحديقة.",
+        "id": "V003"
+    },
+    {
+        "level": "A1",
+        "question": "Er ___ einen Kuchen (___). (heute).",
+        "options": [
+            "isst",
+            "schreiben",
+            "backen",
+            "backt"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Verben",
+        "example": "Er backt einen Kuchen (heute).",
+        "translation": "هو يخبز كعكة (اليوم).",
+        "id": "V004"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ einen Brief an ihre Oma.",
+        "options": [
+            "lesen",
+            "lesen",
+            "schreibt",
+            "macht"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Verben",
+        "example": "Sie schreibt einen Brief an ihre Oma.",
+        "translation": "هي تكتب رسالة لجدتها.",
+        "id": "V005"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ in der Schule.",
+        "options": [
+            "arbeite",
+            "lernen",
+            "arbeiten",
+            "lerne"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Verben",
+        "example": "Ich arbeite in der Schule.",
+        "translation": "أنا أعمل في المدرسة.",
+        "id": "V006"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ in Deutschland.",
+        "options": [
+            "wohnen",
+            "wohnt",
+            "wohne",
+            "wohnst"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Verben",
+        "example": "Wir wohnen in Deutschland.",
+        "translation": "نحن نسكن في ألمانيا.",
+        "id": "V007"
+    },
+    {
+        "level": "A1",
+        "question": "Ihr ___ in einem Haus.",
+        "options": [
+            "wohnen",
+            "wohne",
+            "wohnt",
+            "wohnst"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Verben",
+        "example": "Ihr wohnt in einem Haus.",
+        "translation": "أنتم تسكنون في منزل.",
+        "id": "V008"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ ein Auto.",
+        "options": [
+            "fahren",
+            "fährt",
+            "fahre",
+            "fahrt"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Verben",
+        "example": "Sie fährt ein Auto.",
+        "translation": "هي تقود سيارة.",
+        "id": "V009"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ einen Kaffee.",
+        "options": [
+            "trinke",
+            "trinkt",
+            "trinken",
+            "trinkst"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Verben",
+        "example": "Ich trinke einen Kaffee.",
+        "translation": "أنا أشرب قهوة.",
+        "id": "V010"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ ein Buch (___). (im Büro).",
+        "options": [
+            "gehe",
+            "geht",
+            "trinke",
+            "lese"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Verben+Ort",
+        "example": "Ich lese ein Buch. (im Büro).",
+        "translation": "أنا أقرأ كتاباً (im Büro).",
+        "id": "V011"
+    },
+    {
+        "level": "A1",
+        "question": "Er ___ eine E-Mail (___). (heute Abend).",
+        "options": [
+            "schreiben",
+            "schreibt",
+            "trinkt",
+            "lesen"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Verben+Zeit",
+        "example": "Er schreibt eine E-Mail. (heute Abend).",
+        "translation": "هو يكتب بريداً إلكترونياً (heute Abend).",
+        "id": "V012"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ spazieren (___). (im Park).",
+        "options": [
+            "schreiben",
+            "gehen",
+            "esse",
+            "trinkt"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Verben+Ort",
+        "example": "Wir gehen spazieren. (im Park).",
+        "translation": "نحن نتمشى (im Park).",
+        "id": "V013"
+    },
+    {
+        "level": "A1",
+        "question": "Du ___ Fußball (___). (im Stadion).",
+        "options": [
+            "spielen",
+            "spielst",
+            "spielt",
+            "spiele"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Verben+Ort",
+        "example": "Du spielst Fußball (im Stadion).",
+        "translation": "أنت تلعب كرة القدم (im Stadion).",
+        "id": "V014"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ heute in die Schule.",
+        "options": [
+            "gehe",
+            "geht",
+            "gehst",
+            "gehen"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Verben",
+        "example": "Ich gehe heute in die Schule.",
+        "translation": "أنا أذهب اليوم إلى المدرسة.",
+        "id": "V015"
+    },
+    {
+        "level": "A1",
+        "question": "Er ___ in einem Hotel.",
+        "options": [
+            "arbeitet",
+            "arbeiten",
+            "wohnt",
+            "wohnen"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Verben",
+        "example": "Er arbeitet in einem Hotel.",
+        "translation": "هو يعمل في فندق.",
+        "id": "V016"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ Deutsch.",
+        "options": [
+            "lerne",
+            "lernt",
+            "lernen",
+            "lernt"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Verben",
+        "example": "Wir lernen Deutsch.",
+        "translation": "نحن نتعلم الألمانية.",
+        "id": "V017"
+    },
+    {
+        "level": "A1",
+        "question": "Die Sonne ist ___.",
+        "options": [
+            "grün",
+            "gelb",
+            "blau",
+            "rot"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Farben",
+        "example": "Die Sonne ist gelb.",
+        "translation": "الشمس صفراء.",
+        "id": "V018"
+    },
+    {
+        "level": "A1",
+        "question": "Der Schnee in den Alpen ist ___.",
+        "options": [
+            "rot",
+            "weiß",
+            "blau",
+            "grün"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Farben",
+        "example": "Der Schnee in den Alpen ist weiß.",
+        "translation": "الثلج أبيض.",
+        "id": "V019"
+    },
+    {
+        "level": "A1",
+        "question": "Das Gras im Park ist ___.",
+        "options": [
+            "gelb",
+            "weiß",
+            "blau",
+            "grün"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Farben",
+        "example": "Das Gras im Park ist grün.",
+        "translation": "العشب أخضر.",
+        "id": "V020"
+    },
+    {
+        "level": "A1",
+        "question": "Die Banane ist ___.",
+        "options": [
+            "schwarz",
+            "grün",
+            "weiß",
+            "gelb"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Farben",
+        "example": "Die Banane ist gelb.",
+        "translation": "الموزة صفراء.",
+        "id": "V021"
+    },
+    {
+        "level": "A1",
+        "question": "Die Tomate ist ___.",
+        "options": [
+            "gelb",
+            "grün",
+            "rot",
+            "schwarz"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Farben",
+        "example": "Die Tomate ist rot.",
+        "translation": "الطماطم حمراء.",
+        "id": "V022"
+    },
+    {
+        "level": "A1",
+        "question": "Die Milch ist ___.",
+        "options": [
+            "gelb",
+            "schwarz",
+            "weiß",
+            "blau"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Farben",
+        "example": "Die Milch ist weiß.",
+        "translation": "الحليب أبيض.",
+        "id": "V023"
+    },
+    {
+        "level": "A1",
+        "question": "Die Nacht ohne Mond ist ___.",
+        "options": [
+            "gelb",
+            "schwarz",
+            "weiß",
+            "blau"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Farben",
+        "example": "Die Nacht ohne Mond ist schwarz.",
+        "translation": "الليل بلا قمر أسود.",
+        "id": "V024"
+    },
+    {
+        "level": "A1",
+        "question": "Der Himmel über dem Meer ist ___.",
+        "options": [
+            "grün",
+            "blau",
+            "rot",
+            "gelb"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Farben",
+        "example": "Der Himmel über dem Meer ist blau.",
+        "translation": "السماء فوق البحر زرقاء.",
+        "id": "V025"
+    },
+    {
+        "level": "A1",
+        "question": "Das Blut ist ___.",
+        "options": [
+            "rot",
+            "blau",
+            "grün",
+            "gelb"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Farben",
+        "example": "Das Blut ist rot.",
+        "translation": "الدم أحمر.",
+        "id": "V026"
+    },
+    {
+        "level": "A1",
+        "question": "Der ___ ist eine Person, die lehrt.",
+        "options": [
+            "Student",
+            "Lehrer",
+            "Arzt",
+            "Koch"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Berufe",
+        "example": "Der Lehrer ist eine Person, die lehrt.",
+        "translation": "المعلم هو شخص يقوم بالتدريس.",
+        "id": "V027"
+    },
+    {
+        "level": "A1",
+        "question": "Der ___ arbeitet in einem Krankenhaus.",
+        "options": [
+            "Koch",
+            "Bäcker",
+            "Arzt",
+            "Fahrer"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Berufe",
+        "example": "Der Arzt arbeitet in einem Krankenhaus.",
+        "translation": "الطبيب يعمل في مستشفى.",
+        "id": "V028"
+    },
+    {
+        "level": "A1",
+        "question": "Der ___ fährt Bus oder Taxi.",
+        "options": [
+            "Lehrer",
+            "Koch",
+            "Fahrer",
+            "Arzt"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Berufe",
+        "example": "Der Fahrer fährt Bus oder Taxi.",
+        "translation": "السائق يقود حافلة أو سيارة أجرة.",
+        "id": "V029"
+    },
+    {
+        "level": "A1",
+        "question": "Die ___ backt Brot und Kuchen.",
+        "options": [
+            "Ärztin",
+            "Fahrerin",
+            "Bäckerin",
+            "Lehrerin"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Berufe",
+        "example": "Die Bäckerin backt Brot und Kuchen.",
+        "translation": "الخبازة تخبز الخبز والكعك.",
+        "id": "V030"
+    },
+    {
+        "level": "A1",
+        "question": "Die ___ ist die Mutter meines Vaters.",
+        "options": [
+            "Mutter",
+            "Oma",
+            "Tante",
+            "Schwester"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Familie",
+        "example": "Die Oma ist die Mutter meines Vaters.",
+        "translation": "الجدة هي والدة أبي.",
+        "id": "V031"
+    },
+    {
+        "level": "A1",
+        "question": "Der ___ meines Bruders ist mein Neffe.",
+        "options": [
+            "Sohn",
+            "Bruder",
+            "Vater",
+            "Onkel"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Familie",
+        "example": "Der Sohn meines Bruders ist mein Neffe.",
+        "translation": "ابن أخي هو ابن أخي.",
+        "id": "V032"
+    },
+    {
+        "level": "A1",
+        "question": "Die ___ meiner Tante ist meine Cousine.",
+        "options": [
+            "Tochter",
+            "Bruder",
+            "Sohn",
+            "Schwester"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Familie",
+        "example": "Die Tochter meiner Tante ist meine Cousine.",
+        "translation": "ابنة عمتي هي ابنة عمي.",
+        "id": "V033"
+    },
+    {
+        "level": "A1",
+        "question": "Der Vater meiner Mutter ist mein ___.",
+        "options": [
+            "Opa",
+            "Onkel",
+            "Vater",
+            "Bruder"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Familie",
+        "example": "Der Vater meiner Mutter ist mein Opa.",
+        "translation": "والد والدتي هو جدي.",
+        "id": "V034"
+    },
+    {
+        "level": "A1",
+        "question": "Die ___ meiner Mutter ist meine Großmutter.",
+        "options": [
+            "Bruder",
+            "Schwester",
+            "Mutter",
+            "Tante"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Familie",
+        "example": "Die Mutter meiner Mutter ist meine Großmutter.",
+        "translation": "والدة أمي هي جدتي.",
+        "id": "V035"
+    },
+    {
+        "level": "A1",
+        "question": "Die Schwester meiner Mutter ist meine ___.",
+        "options": [
+            "Tante",
+            "Cousine",
+            "Oma",
+            "Tochter"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Familie",
+        "example": "Die Schwester meiner Mutter ist meine Tante.",
+        "translation": "أخت أمي هي عمتي/خالتي.",
+        "id": "V036"
+    },
+    {
+        "level": "A1",
+        "question": "Ein Kind, das 1 Jahr alt ist, ist noch sehr ___.",
+        "options": [
+            "klein",
+            "groß",
+            "alt",
+            "schwer"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Ein Kind, das 1 Jahr alt ist, ist noch sehr klein.",
+        "translation": "طفل عمره عام واحد ما زال صغيرا جدا.",
+        "id": "V037"
+    },
+    {
+        "level": "A1",
+        "question": "Ein Elefant ist ___ als eine Maus.",
+        "options": [
+            "klein",
+            "schwer",
+            "leicht",
+            "groß"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Ein Elefant ist schwerer als eine Maus.",
+        "translation": "الفيل أثقل من الفأر.",
+        "id": "V038"
+    },
+    {
+        "level": "A1",
+        "question": "Die Sonne ist ___ und warm.",
+        "options": [
+            "kalt",
+            "hell",
+            "dunkel",
+            "nass"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Die Sonne ist hell und warm.",
+        "translation": "الشمس مشرقة ودافئة.",
+        "id": "V039"
+    },
+    {
+        "level": "A1",
+        "question": "Das Gegenteil von 'hell' ist ___.",
+        "options": [
+            "dunkel",
+            "warm",
+            "neu",
+            "hoch"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'hell' ist dunkel.",
+        "translation": "عكس كلمة 'فاتح' هو 'داكن'.",
+        "id": "V040"
+    },
+    {
+        "level": "A1",
+        "question": "Ein Auto ist ___ als ein Fahrrad.",
+        "options": [
+            "langsam",
+            "schnell",
+            "klein",
+            "alt"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Ein Auto ist schnell als ein Fahrrad.",
+        "translation": "السيارة أسرع من الدراجة.",
+        "id": "V041"
+    },
+    {
+        "level": "A1",
+        "question": "Der Berg ist ___.",
+        "options": [
+            "tief",
+            "hoch",
+            "flach",
+            "niedrig"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Der Berg ist hoch.",
+        "translation": "الجبل مرتفع.",
+        "id": "V042"
+    },
+    {
+        "level": "A1",
+        "question": "Die Nacht ist ___ und es ist kalt.",
+        "options": [
+            "warm",
+            "sonnig",
+            "dunkel",
+            "hell"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Die Nacht ist dunkel und es ist kalt.",
+        "translation": "الليل مظلم وبارد.",
+        "id": "V043"
+    },
+    {
+        "level": "A1",
+        "question": "Die Suppe ist sehr ___.",
+        "options": [
+            "heiß",
+            "kalt",
+            "schnell",
+            "alt"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Die Suppe ist sehr heiß.",
+        "translation": "الحساء ساخن جداً.",
+        "id": "V044"
+    },
+    {
+        "level": "A1",
+        "question": "Das Gegenteil von 'groß' ist ___.",
+        "options": [
+            "klein",
+            "schwer",
+            "leicht",
+            "alt"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'groß' ist 'klein'.",
+        "translation": "عكس كلمة 'كبير' هو 'صغير'.",
+        "id": "V045"
+    },
+    {
+        "level": "A1",
+        "question": "Das Gegenteil von 'neu' ist ___.",
+        "options": [
+            "jung",
+            "alt",
+            "klein",
+            "groß"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'neu' ist 'alt'.",
+        "translation": "عكس كلمة 'جديد' هو 'قديم'.",
+        "id": "V046"
+    },
+    {
+        "level": "A1",
+        "question": "Ich gehe in die ___.",
+        "options": [
+            "Park",
+            "Bäckerei",
+            "Kino",
+            "Küche"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich gehe in die Bäckerei.",
+        "translation": "أذهب إلى المخبز.",
+        "id": "V047"
+    },
+    {
+        "level": "A1",
+        "question": "Ich kaufe Lebensmittel im ___.",
+        "options": [
+            "Kino",
+            "Park",
+            "Supermarkt",
+            "Schule"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich kaufe Lebensmittel im Supermarkt.",
+        "translation": "أشتري البقالة في السوبر ماركت.",
+        "id": "V048"
+    },
+    {
+        "level": "A1",
+        "question": "Ich esse im ___.",
+        "options": [
+            "Restaurant",
+            "Kino",
+            "Park",
+            "Schule"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich esse im Restaurant.",
+        "translation": "أنا آكل في المطعم.",
+        "id": "V049"
+    },
+    {
+        "level": "A1",
+        "question": "Ich gehe ins ___ um einen Film zu sehen.",
+        "options": [
+            "Schule",
+            "Kino",
+            "Bäckerei",
+            "Supermarkt"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich gehe ins Kino um einen Film zu sehen.",
+        "translation": "أذهب إلى السينما لأشاهد فيلمًا.",
+        "id": "V050"
+    },
+    {
+        "level": "A1",
+        "question": "Ich gehe spazieren im ___.",
+        "options": [
+            "Park",
+            "Kino",
+            "Restaurant",
+            "Schule"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich gehe spazieren im Park.",
+        "translation": "أذهب للتنزه في الحديقة.",
+        "id": "V051"
+    },
+    {
+        "level": "A1",
+        "question": "Der Tag ist hell, die ___ ist dunkel.",
+        "options": [
+            "Morgen",
+            "Abend",
+            "Nacht",
+            "Mittag"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Zeit",
+        "example": "Der Tag ist hell, die Nacht ist dunkel.",
+        "translation": "النهار مشرق، الليل مظلم.",
+        "id": "V052"
+    },
+    {
+        "level": "A1",
+        "question": "Ich stehe früh am ___ auf.",
+        "options": [
+            "Nacht",
+            "Morgen",
+            "Abend",
+            "Mittag"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Zeit",
+        "example": "Ich stehe früh am Morgen auf.",
+        "translation": "أستيقظ في الصباح الباكر.",
+        "id": "V053"
+    },
+    {
+        "level": "A1",
+        "question": "Wir essen am ___.",
+        "options": [
+            "Mittag",
+            "Abend",
+            "Morgen",
+            "Nacht"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Zeit",
+        "example": "Wir essen am Mittag.",
+        "translation": "نحن نأكل في الظهر.",
+        "id": "V054"
+    },
+    {
+        "level": "A1",
+        "question": "Ich rufe dich am ___ an.",
+        "options": [
+            "Morgen",
+            "Nacht",
+            "Abend",
+            "Mittag"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Zeit",
+        "example": "Ich rufe dich am Abend an.",
+        "translation": "سأتصل بك في المساء.",
+        "id": "V055"
+    },
+    {
+        "level": "A1",
+        "question": "Ich bin am Montag, Dienstag, ___ und Donnerstag in der Schule.",
+        "options": [
+            "Freitag",
+            "Samstag",
+            "Sonntag",
+            "Mittwoch"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Wochentage",
+        "example": "Ich bin am Montag, Dienstag, Mittwoch und Donnerstag in der Schule.",
+        "translation": "أنا في المدرسة يوم الاثنين والثلاثاء والأربعاء والخميس.",
+        "id": "V056"
+    },
+    {
+        "level": "A1",
+        "question": "Ich habe am ___ und Sonntag frei.",
+        "options": [
+            "Dienstag",
+            "Mittwoch",
+            "Freitag",
+            "Samstag"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Wochentage",
+        "example": "Ich habe am Samstag und Sonntag frei.",
+        "translation": "لدي إجازة يومي السبت والأحد.",
+        "id": "V057"
+    },
+    {
+        "level": "A1",
+        "question": "Der Monat nach dem Februar ist der ___.",
+        "options": [
+            "April",
+            "März",
+            "Mai",
+            "Juni"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Monate",
+        "example": "Der Monat nach dem Februar ist der März.",
+        "translation": "الشهر الذي يلي فبراير هو مارس.",
+        "id": "V058"
+    },
+    {
+        "level": "A1",
+        "question": "Die Jahreszeit nach dem Sommer ist der ___.",
+        "options": [
+            "Winter",
+            "Frühling",
+            "Herbst",
+            "Sommer"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Jahreszeiten",
+        "example": "Die Jahreszeit nach dem Sommer ist der Herbst.",
+        "translation": "الفصل الذي يلي الصيف هو الخريف.",
+        "id": "V059"
+    },
+    {
+        "level": "A1",
+        "question": "Im ___ regnet es oft.",
+        "options": [
+            "Sommer",
+            "Winter",
+            "Frühling",
+            "Herbst"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Jahreszeiten",
+        "example": "Im Herbst regnet es oft.",
+        "translation": "في الخريف غالبًا ما تمطر.",
+        "id": "V060"
+    },
+    {
+        "level": "A2",
+        "question": "Ich brauche ein ___, um die Tür zu öffnen.",
+        "options": [
+            "Tisch",
+            "Schlüssel",
+            "Stuhl",
+            "Handy"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Nomen",
+        "example": "Ich brauche einen Schlüssel, um die Tür zu öffnen.",
+        "translation": "أحتاج إلى مفتاح لفتح الباب.",
+        "id": "V061"
+    },
+    {
+        "level": "A2",
+        "question": "Wir sitzen auf dem ___.",
+        "options": [
+            "Tisch",
+            "Stuhl",
+            "Fenster",
+            "Tür"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Nomen",
+        "example": "Wir sitzen auf dem Stuhl.",
+        "translation": "نحن نجلس على الكرسي.",
+        "id": "V062"
+    },
+    {
+        "level": "A2",
+        "question": "Manchmal koche ich in der ___.",
+        "options": [
+            "Küche",
+            "Schlafzimmer",
+            "Wohnzimmer",
+            "Bad"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Orte im Haus",
+        "example": "Manchmal koche ich in der Küche.",
+        "translation": "أحيانًا أطبخ في المطبخ.",
+        "id": "V063"
+    },
+    {
+        "level": "A2",
+        "question": "Ich schlafe im ___.",
+        "options": [
+            "Küche",
+            "Bad",
+            "Schlafzimmer",
+            "Wohnzimmer"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Orte im Haus",
+        "example": "Ich schlafe im Schlafzimmer.",
+        "translation": "أنام في غرفة النوم.",
+        "id": "V064"
+    },
+    {
+        "level": "A2",
+        "question": "Ich dusche im ___.",
+        "options": [
+            "Küche",
+            "Bad",
+            "Schlafzimmer",
+            "Wohnzimmer"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Orte im Haus",
+        "example": "Ich dusche im Bad.",
+        "translation": "أستحم في الحمام.",
+        "id": "V065"
+    },
+    {
+        "level": "A2",
+        "question": "Ich sehe Fernsehen im ___.",
+        "options": [
+            "Küche",
+            "Bad",
+            "Schlafzimmer",
+            "Wohnzimmer"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Orte im Haus",
+        "example": "Ich sehe Fernsehen im Wohnzimmer.",
+        "translation": "أشاهد التلفاز في غرفة المعيشة.",
+        "id": "V066"
+    },
+    {
+        "level": "A2",
+        "question": "Ich lerne Deutsch, ___ ich in Deutschland arbeiten möchte.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Ich lerne Deutsch, weil ich in Deutschland arbeiten möchte.",
+        "translation": "أتعلم الألمانية لأنني أريد العمل في ألمانيا.",
+        "id": "V067"
+    },
+    {
+        "level": "A2",
+        "question": "Sie kann gut kochen, ___ sie nicht oft kocht.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Sie kann gut kochen, obwohl sie nicht oft kocht.",
+        "translation": "هي تستطيع الطهي جيداً، على الرغم من أنها لا تطهو غالبًا.",
+        "id": "V068"
+    },
+    {
+        "level": "A2",
+        "question": "Ich kaufe das, ___ es im Angebot ist.",
+        "options": [
+            "wenn",
+            "weil",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Ich kaufe das, wenn es im Angebot ist.",
+        "translation": "سأشتري هذا إذا كان في العرض.",
+        "id": "V069"
+    },
+    {
+        "level": "A2",
+        "question": "Ich glaube, ___ er kommt.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Ich glaube, dass er kommt.",
+        "translation": "أعتقد أنه سيأتي.",
+        "id": "V070"
+    },
+    {
+        "level": "A2",
+        "question": "Ich fahre in die Berge, ___ ich Ski fahren möchte.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Ich fahre in die Berge, weil ich Ski fahren möchte.",
+        "translation": "سأذهب إلى الجبال لأنني أريد التزلج.",
+        "id": "V071"
+    },
+    {
+        "level": "A2",
+        "question": "Er hat viel Geld, ___ er glücklich ist.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Er hat viel Geld, obwohl er glücklich ist.",
+        "translation": "لديه الكثير من المال، على الرغم من أنه سعيد.",
+        "id": "V072"
+    },
+    {
+        "level": "A2",
+        "question": "Ich gehe spazieren, ___ es kalt ist.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Konjunktionen",
+        "example": "Ich gehe spazieren, obwohl es kalt ist.",
+        "translation": "أتمشى على الرغم من أن الجو بارد.",
+        "id": "V073"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'teuer' ist ___.",
+        "options": [
+            "gut",
+            "billig",
+            "klein",
+            "schnell"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'teuer' ist 'billig'.",
+        "translation": "عكس كلمة 'غالٍ' هو 'رخيص'.",
+        "id": "V074"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'langsam' ist ___.",
+        "options": [
+            "schnell",
+            "klein",
+            "groß",
+            "alt"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'langsam' ist 'schnell'.",
+        "translation": "عكس كلمة 'بطيء' هو 'سريع'.",
+        "id": "V075"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'schön' ist ___.",
+        "options": [
+            "klein",
+            "langsam",
+            "hässlich",
+            "neu"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'schön' ist 'hässlich'.",
+        "translation": "عكس كلمة 'جميل' هو 'قبيح'.",
+        "id": "V076"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'sauber' ist ___.",
+        "options": [
+            "schmutzig",
+            "neu",
+            "alt",
+            "klein"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'sauber' ist 'schmutzig'.",
+        "translation": "عكس كلمة 'نظيف' هو 'متسخ'.",
+        "id": "V077"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'alt' ist ___.",
+        "options": [
+            "neu",
+            "schwer",
+            "leicht",
+            "klein"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'alt' ist 'neu'.",
+        "translation": "عكس كلمة 'قديم' هو 'جديد'.",
+        "id": "V078"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'warm' ist ___.",
+        "options": [
+            "heiß",
+            "kalt",
+            "nass",
+            "trocken"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'warm' ist 'kalt'.",
+        "translation": "عكس كلمة 'دافئ' هو 'بارد'.",
+        "id": "V079"
+    },
+    {
+        "level": "A2",
+        "question": "Ich möchte einen ___ Film sehen.",
+        "options": [
+            "interessant",
+            "interessanter",
+            "interessantes",
+            "interessante"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Ich möchte einen interessanten Film sehen.",
+        "translation": "أرغب في مشاهدة فيلم مثير للاهتمام.",
+        "id": "V080"
+    },
+    {
+        "level": "A2",
+        "question": "Sie hat ein ___ Kleid gekauft.",
+        "options": [
+            "schön",
+            "schöne",
+            "schönes",
+            "schöner"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Sie hat ein schönes Kleid gekauft.",
+        "translation": "اشترت فستانًا جميلاً.",
+        "id": "V081"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe einen Termin beim ___.",
+        "options": [
+            "Bäcker",
+            "Arzt",
+            "Supermarkt",
+            "Kino"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich habe einen Termin beim Arzt.",
+        "translation": "لدي موعد مع الطبيب.",
+        "id": "V082"
+    },
+    {
+        "level": "A2",
+        "question": "Ich muss zur ___ gehen, um etwas zu drucken.",
+        "options": [
+            "Bäckerei",
+            "Post",
+            "Schule",
+            "Restaurant"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich muss zur Post gehen, um etwas zu drucken.",
+        "translation": "يجب أن أذهب إلى البريد لأطبع شيئًا.",
+        "id": "V083"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe morgen einen Termin beim ___.",
+        "options": [
+            "Krankenhaus",
+            "Arzt",
+            "Küche",
+            "Park"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Orte",
+        "example": "Ich habe morgen einen Termin beim Arzt.",
+        "translation": "لدي موعد غدًا مع الطبيب.",
+        "id": "V084"
+    },
+    {
+        "level": "A2",
+        "question": "Ich rufe meine Freundin ___ an.",
+        "options": [
+            "Morgen",
+            "Abend",
+            "Mittag",
+            "heute Abend"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Zeit",
+        "example": "Ich rufe meine Freundin heute Abend an.",
+        "translation": "سأتصل بصديقتي هذا المساء.",
+        "id": "V085"
+    },
+    {
+        "level": "A2",
+        "question": "Ich gehe um 8 ___ schlafen.",
+        "options": [
+            "Uhr",
+            "Stunde",
+            "Minute",
+            "Sekunde"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Zeit",
+        "example": "Ich gehe um 8 Uhr schlafen.",
+        "translation": "أذهب للنوم في الساعة الثامنة.",
+        "id": "V086"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe einen Brief ___.",
+        "options": [
+            "geschrieben",
+            "schreibe",
+            "schreiben",
+            "geschriebt"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Perfekt",
+        "example": "Ich habe einen Brief geschrieben.",
+        "translation": "لقد كتبت رسالة.",
+        "id": "V087"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe das Auto ___.",
+        "options": [
+            "gefahren",
+            "fährt",
+            "gefährt",
+            "fuhr"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Perfekt",
+        "example": "Ich habe das Auto gefahren.",
+        "translation": "لقد قدت السيارة.",
+        "id": "V088"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe Pizza ___.",
+        "options": [
+            "gegessen",
+            "essen",
+            "isst",
+            "aß"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Perfekt",
+        "example": "Ich habe Pizza gegessen.",
+        "translation": "لقد أكلت البيتزا.",
+        "id": "V089"
+    },
+    {
+        "level": "A2",
+        "question": "Ich stehe um sieben ___ auf.",
+        "options": [
+            "Uhr",
+            "Tag",
+            "Abend",
+            "Nacht"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Zeit",
+        "example": "Ich stehe um sieben Uhr auf.",
+        "translation": "أستيقظ في تمام الساعة السابعة.",
+        "id": "V090"
+    },
+    {
+        "level": "A2",
+        "question": "Ich möchte einen ___ Kuchen backen.",
+        "options": [
+            "lecker",
+            "leckere",
+            "leckeren",
+            "leckeres"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Ich möchte einen leckeren Kuchen backen.",
+        "translation": "أريد أن أخبز كعكة لذيذة.",
+        "id": "V091"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe ein ___ Buch gelesen.",
+        "options": [
+            "spannend",
+            "spannende",
+            "spannenden",
+            "spannendes"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Ich habe ein spannendes Buch gelesen.",
+        "translation": "لقد قرأت كتابًا مثيرًا.",
+        "id": "V092"
+    },
+    {
+        "level": "A2",
+        "question": "Ich spreche ___ Deutsch.",
+        "options": [
+            "gut",
+            "besser",
+            "am besten",
+            "beste"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adverbien",
+        "example": "Ich spreche gut Deutsch.",
+        "translation": "أنا أتحدث الألمانية جيدًا.",
+        "id": "V093"
+    },
+    {
+        "level": "A2",
+        "question": "Ich kann ___ schwimmen.",
+        "options": [
+            "schnell",
+            "schnelle",
+            "schneller",
+            "schnellsten"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adverbien",
+        "example": "Ich kann schnell schwimmen.",
+        "translation": "أستطيع السباحة بسرعة.",
+        "id": "V094"
+    },
+    {
+        "level": "A2",
+        "question": "Ich mag das Buch, es ist sehr ___.",
+        "options": [
+            "interessant",
+            "interessanter",
+            "interessantesten",
+            "interessanteste"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Ich mag das Buch, es ist sehr interessant.",
+        "translation": "أنا أحب الكتاب، إنه مثير جدًا للاهتمام.",
+        "id": "V095"
+    },
+    {
+        "level": "A2",
+        "question": "Er ist ein ___ Mensch.",
+        "options": [
+            "freundlich",
+            "freundliche",
+            "freundlicher",
+            "freundliches"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Er ist ein freundlicher Mensch.",
+        "translation": "هو شخص لطيف.",
+        "id": "V096"
+    },
+    {
+        "level": "A2",
+        "question": "Ich suche ein ___ Restaurant.",
+        "options": [
+            "gut",
+            "gutes",
+            "guten",
+            "gute"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Ich suche ein gutes Restaurant.",
+        "translation": "أنا أبحث عن مطعم جيد.",
+        "id": "V097"
+    },
+    {
+        "level": "A2",
+        "question": "Der Film war sehr ___.",
+        "options": [
+            "langweilig",
+            "langweiliger",
+            "langweiligste",
+            "langweilig"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Der Film war sehr langweilig.",
+        "translation": "الفيلم كان مملًا جدًا.",
+        "id": "V098"
+    },
+    {
+        "level": "A2",
+        "question": "Das Gegenteil von 'warm' ist ___.",
+        "options": [
+            "kalt",
+            "heiß",
+            "feucht",
+            "kühl"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Wortschatz/Adjektive",
+        "example": "Das Gegenteil von 'warm' ist 'kalt'.",
+        "translation": "عكس كلمة 'دافئ' هو 'بارد'.",
+        "id": "V099"
+    },
+    {
+        "level": "A2",
+        "question": "Ich möchte ein ___ Auto kaufen.",
+        "options": [
+            "neu",
+            "neues",
+            "neuen",
+            "neue"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Wortschatz/Adjektivendungen",
+        "example": "Ich möchte ein neues Auto kaufen.",
+        "translation": "أرغب في شراء سيارة جديدة.",
+        "id": "V100"
+    }
+]

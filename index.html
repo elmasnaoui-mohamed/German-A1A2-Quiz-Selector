@@ -4,21 +4,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Deutsch A1/A2</title>
+  <title>Deutsch A1/A2 — Quiz (DE–AR)</title>
 
+  <!-- Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Inter:wght@400;600;700;900&display=swap"
     rel="stylesheet">
+
   <style>
     :root {
       --bg: #0b1220;
-      --card: #101827;
-      --muted: #1c283a;
+      --card: #0f172a;
+      --muted: #1f2a44;
+      --muted-2: #172033;
       --text: #e6edf3;
+      --text-weak: #c9d2da;
       --brand: #22d3ee;
       --ok: #10b981;
       --bad: #ef4444;
-      --ring: #334155
+      --ring: #334155;
+      --yellow: #eab308;
     }
 
     * {
@@ -33,461 +38,810 @@
 
     body {
       margin: 0;
-      font-family: 'Cairo', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(180deg, #0b1220 0%, #0c1526 100%);
       color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
     }
 
     .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px
-    }
-
-    .app-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin: 0 0 8px
-    }
-
-    .sub {
-      opacity: .8
-    }
-
-    .grid {
-      display: grid;
-      gap: 16px
-    }
-
-    .card {
+      width: 100%;
+      max-width: 720px;
       background: var(--card);
-      border: 1px solid var(--ring);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .25)
+      border: 1px solid #0b213d;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .35)
     }
 
-    .hidden {
-      display: none !important
-    }
-
-    .btn {
-      border: 1px solid var(--ring);
-      background: linear-gradient(180deg, #0c172b, #0a1422);
-      color: var(--text);
-      padding: 12px 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: all 0.5s;
-    }
-
-    .btn:hover {
-      filter: brightness(1.15)
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, #22d3ee, #34d399);
-      border: none;
-      color: #031a1f
-    }
-
-    .btn.ghost {
-      background: transparent
-    }
-
-    .row {
+    .topbar {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      background: #0b1324;
-      border: 1px solid #23314a
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--muted-2);
+      border-bottom: 1px solid #0f2749;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .title {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0 0 6px;
-      direction: ltr;
+      font-weight: 900;
+      letter-spacing: .4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .muted {
-      color: #9fb0c9;
-      font-size: 14px
+    .title .flag {
+      font-size: 20px
     }
 
-    .options {
-      display: grid;
-      gap: 10px;
-      margin-top: 12px
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center
     }
 
-    .option-button {
-      border: 1px solid var(--ring);
-      background: #0b1324;
-      color: var(--text);
-      padding: 14px;
+    .btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: var(--muted);
+      color: #fff;
+      padding: 10px 14px;
       border-radius: 12px;
-      text-align: right;
+      font-weight: 800;
       cursor: pointer;
-      transition: transform .06s
+      transition: transform .12s ease, background .2s ease, border-color .2s ease;
+      font-size: 14px;
     }
 
-    .option-button:hover {
-      filter: brightness(1.08);
+    .btn:hover {
       transform: translateY(-1px)
     }
 
-    .option-button.correct {
-      background: #052e1a;
-      border-color: var(--ok)
+    .btn:active {
+      transform: translateY(0) scale(.98)
     }
 
-    .option-button.incorrect {
-      background: #3a0a0a;
-      border-color: var(--bad)
+    .btn.brand {
+      background: var(--brand);
+      color: #03131a;
     }
 
-    .progress {
-      font-size: 13px;
-      opacity: .85
+    .btn.brand:hover {
+      background: #3ae7ff
     }
 
-    .footer-actions {
+    .btn.ghost {
+      background: transparent;
+      border-color: #1e3356
+    }
+
+    .btn.warn {
+      background: #2a0f12;
+      border-color: #431317;
+      color: #ffb4b4
+    }
+
+    .content {
+      padding: 16px
+    }
+
+    .stack {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 12px;
+      flex-direction: column;
       gap: 12px
     }
 
-    .result {
-      font-weight: 700;
-      margin-top: 8px;
-      transition: opacity .2s
-    }
-
-    .explain {
-      background: #0b1324;
-      border: 1px dashed var(--ring);
-      border-radius: 12px;
-      padding: 12px;
-      margin-top: 10px
+    .card {
+      background: #0e1a2e;
+      border: 1px solid #0f2749;
+      border-radius: 16px;
+      padding: 16px
     }
 
     .center {
       text-align: center
     }
 
-    .links a {
-      color: #67e8f9;
-      text-decoration: none
+    .muted {
+      color: var(--text-weak)
     }
 
-    .links a:hover {
-      text-decoration: underline
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px
     }
 
-    .bar {
-      height: 10px;
-      background: #0f213a;
-      border: 1px solid var(--ring);
+    @media (min-width:520px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .progress {
+      height: 8px;
+      background: #10223f;
       border-radius: 999px;
-      overflow: hidden
+      overflow: hidden;
+      border: 1px solid #163059
     }
 
-    .bar>span {
-      display: block;
+    .progress>div {
       height: 100%;
-      background: linear-gradient(90deg, #22d3ee, #34d399);
-      width: 0%
+      width: 0%;
+      background: var(--brand);
+      transition: width .3s ease
     }
 
-    .kbd {
-      border: 1px solid #324257;
-      border-radius: 6px;
-      padding: 2px 6px
+    .question {
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.35
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px
+    }
+
+    .pill {
+      border: 1px solid rgba(34, 211, 238, .5);
+      color: #9ceefa;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800
+    }
+
+    .topic {
+      font-size: 12px;
+      font-weight: 800;
+      color: #9abbd6
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px
+    }
+
+    /* Visibility fix: brighten option background & text */
+    .option {
+      border: 1px solid #24527a;
+      background: #1a2944;
+      /* lighter navy for contrast */
+      color: #eaf6ff;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: right;
+      cursor: pointer;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .option:hover {
+      background: #234a72;
+      border-color: #34d0ff
+    }
+
+    .opt-index {
+      color: #bfefff;
+      opacity: .95;
+      font-family: monospace
+    }
+
+    .option.correct {
+      background: rgba(16, 185, 129, .22);
+      border-color: #10b981;
+      color: #eafff5
+    }
+
+    .option.wrong {
+      background: rgba(239, 68, 68, .22);
+      border-color: #ef4444
+    }
+
+    .footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px
+    }
+
+    .left-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .hint {
+      background: #0a1c31;
+      border: 1px dashed #28517e;
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: #bfd9f1;
+      font-size: 13px
+    }
+
+    .hint b {
+      color: #89e4ff
+    }
+
+    .ltr {
+      direction: ltr;
+      unicode-bidi: bidi-override
+    }
+
+    .rtl {
+      direction: rtl
+    }
+
+    .hidden {
+      display: none !important
+    }
+
+    /* Results */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px
+    }
+
+    @media (min-width:680px) {
+      .results-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .badge {
+      background: #0d263d;
+      border: 1px solid #1c3f64;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 900
+    }
+
+    .badge.ok {
+      background: rgba(16, 185, 129, .2);
+      border-color: #10b981
+    }
+
+    .badge.bad {
+      background: rgba(239, 68, 68, .2);
+      border-color: #ef4444
+    }
+
+    .review-item {
+      border: 1px solid #17365a;
+      background: #0c1a2f;
+      border-radius: 12px;
+      padding: 12px
+    }
+
+    .review-q {
+      font-weight: 900;
+      margin-bottom: 6px
+    }
+
+    .review-ex {
+      font-size: 13px;
+      color: #b5cce3
+    }
+
+    /* Resume banner */
+    .resume {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: #0c1a2f;
+      border: 1px solid #17426d;
+      padding: 10px 12px;
+      border-radius: 12px
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 18px;
+      inset-inline: 18px;
+      max-width: 720px;
+      margin: 0 auto;
+      display: none
+    }
+
+    .toast .inner {
+      background: #0a1f33;
+      border: 1px solid #1a3656;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-align: center
+    }
+
+    .toast.show {
+      display: block
+    }
+
+    /* --- Mobile tweaks --- */
+    @media (max-width: 480px) {
+      .btn {
+        font-size: 13px;
+        padding: 9px 12px;
+      }
+
+      .question {
+        font-size: 18px;
+      }
+
+      .option {
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .top-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .progress>div {
+        transition: width .25s ease;
+      }
+
+      .container {
+        border-radius: 14px;
+      }
+
+      .card {
+        border-radius: 12px;
+        padding: 14px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <section id="selector-area" class="grid">
-      <div class="card">
-        <div class="title">Wähle den Abschnitt (اختر القسم)</div>
-        <div class="row">
-          <button class="btn primary" onclick="startQuiz('vocabulary')">المفردات (Wortschatz)</button>
-          <button class="btn primary" onclick="startQuiz('grammar')">القواعد (Grammatik)</button>
+
+  <main class="container" id="app">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="title">
+        <span class="flag" aria-hidden="true">🇩🇪</span>
+        <span>Deutsch <span class="muted">/ عربي</span></span>
+      </div>
+      <div class="top-actions">
+        <!-- Localized buttons -->
+        <button id="resetBtn" class="btn warn" title="إعادة التعيين — Zurücksetzen">🔄 إعادة • Zurücksetzen</button>
+        <button id="homeBtn" class="btn ghost" title="العودة إلى الصفحة الرئيسية — Startseite">🏠 الرئيسية •
+          Startseite</button>
+      </div>
+    </div>
+
+    <!-- START AREA -->
+    <section id="start" class="content stack">
+      <div id="resumeBanner" class="resume hidden">
+        <div>
+          <div class="muted" style="font-size:13px; font-weight:800">متابعة التقدم — <span class="ltr">Fortschritt
+              fortsetzen</span></div>
+          <div id="resumeMeta" style="font-size:12px" class="muted"></div>
         </div>
-        <div id="progress-area" class="card hidden" style="margin-top:12px;background:#0b1324">
-          <div class="title">Du hast einen unvollendeten Test! (Du hast einen unvollendeten Test! (لديك اختبار غير
-            مكتمل))</div>
-          <div class="row">
-            <button id="resume-button" class="btn" onclick="resumeQuiz()">Test fortsetzen 🔄 (استئناف الاختبار)</button>
-            <button class="btn ghost" onclick="clearProgressAndShowSelector()">Gespeichertes löschen (حذف
-              المحفوظ)</button>
-          </div>
+        <div class="top-actions">
+          <button id="resumeBtn" class="btn brand">استئناف • Fortsetzen</button>
+          <button id="discardBtn" class="btn ghost">بدء جديد • Neu starten</button>
         </div>
       </div>
-    </section>
 
-    <section id="quiz-area" class="grid hidden">
-      <div class="card">
-        <div class="row" style="justify-content:space-between;align-items:center">
-          <span id="level-tag" class="tag">Niveau (المستوى)</span>
-          <span id="progress-text" class="progress"></span>
-        </div>
-        <div class="bar" style="margin-top:8px"><span id="bar-fill" style="width:0%"></span></div>
-
-        <div id="question-wrap" style="margin-top:8px">
-          <div id="question-text" class="title">—</div>
-          <div id="options-container" class="options"></div>
-          <div id="result-message" class="result" style="opacity:0">—</div>
-          <div id="explanation-text" class="explain hidden"></div>
-          <div class="footer-actions">
-            <button id="next-button" class="btn" disabled onclick="nextQuestion()">Nächste Frage (السؤال التالي)
-              ⏭️</button>
-            <button class="btn ghost" onclick="saveProgressAndShowSelector()">Zurück zur Auswahl (العودة
-              للاختيار)</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="results-area" class="grid hidden">
       <div class="card center">
-        <div class="title">Test abgeschlossen! (انتهى الاختبار)</div>
-        <div style="font-size:48px;font-weight:700;margin:8px 0" id="final-score">0 / 100</div>
-        <div class="muted" id="score-analysis"></div>
-        <div class="row" style="justify-content:center;margin-top:12px">
-          <button class="btn primary" onclick="startQuiz(state.section)">إعادة نفس القسم</button>
-          <button class="btn ghost" onclick="clearProgressAndShowSelector()">Zurück zur Auswahl (العودة
-            للاختيار)</button>
+        <h1 style="margin:6px 0 10px 0; font-size:26px" class="ltr">Wähle deinen Quiz-Typ</h1>
+        <div class="muted" style="font-weight:800">اختر نوع الاختبار (ألماني/عربي فقط)</div>
+        <div class="grid-2" style="margin-top:14px">
+          <button id="btnGrammar" class="btn brand" style="width:100%; font-size:18px; padding:18px">🇩🇪 Grammatik •
+            القواعد</button>
+          <button id="btnVocab" class="btn brand" style="width:100%; font-size:18px; padding:18px">🗣️ Wortschatz •
+            المفردات</button>
+        </div>
+        <div class="hint" style="margin-top:12px">
+          <b>تلميح / Hinweis:</b> تقدمك يُحفَظ تلقائياً على هذا الجهاز. يمكنك الرجوع لاحقاً والمتابعة.
         </div>
       </div>
     </section>
+
+    <!-- QUIZ AREA -->
+    <section id="quiz" class="content hidden">
+      <div class="stack">
+        <div class="card">
+          <div class="progress">
+            <div id="progressFill"></div>
+          </div>
+          <div class="meta">
+            <div class="topic" id="topic"></div>
+            <div class="pill" id="level"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div id="question" class="question">…</div>
+          <div id="options" class="options"></div>
+
+          <div class="footer-actions">
+            <div class="left-actions">
+              <button id="prevBtn" class="btn ghost">← السابق • Zurück</button>
+              <button id="nextBtn" class="btn">التالي • Weiter</button>
+            </div>
+            <div class="muted" id="progressText">0 / 0</div>
+          </div>
+
+          <div id="translation" class="hint hidden" style="margin-top:10px"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS AREA -->
+    <section id="results" class="content hidden">
+      <div class="stack">
+        <div class="card center">
+          <h2 style="margin:6px 0 10px 0; font-size:26px">النتائج • Ergebnisse</h2>
+          <div class="results-grid">
+            <div class="badge ok">✅ صحيحة • Richtig: <span id="rightCount">0</span></div>
+            <div class="badge bad">❌ خاطئة • Falsch: <span id="wrongCount">0</span></div>
+          </div>
+          <div class="hint" style="margin-top:12px" id="scoreMsg"></div>
+          <div class="top-actions" style="justify-content:center; margin-top:12px">
+            <button id="againBtn" class="btn brand">إعادة • Nochmal</button>
+            <button id="homeBtn2" class="btn ghost">🏠 الرئيسية • Startseite</button>
+          </div>
+        </div>
+
+        <div id="review" class="card hidden">
+          <h3 style="margin:0 0 10px 0">مراجعة الأسئلة الخاطئة • Falsche Fragen</h3>
+          <div id="reviewList" class="stack"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">
+    <div class="inner" id="toastText"></div>
   </div>
 
   <script>
-    const STORAGE = localStorage;
-    const STORE_KEY = 'de_ar_quiz_progress_v3';
-
-    const SOURCES = {
-      grammar: [
-        'quizDataGrammar.part1.json', 'quizDataGrammar.part2.json', 'quizDataGrammar.part3.json',
-        'quizDataGrammar.part4.json', 'quizDataGrammar.part5.json', 'quizDataGrammar.part6.json'
-      ],
-      vocabulary: [
-        'quizDataVocabulary.part1.json', 'quizDataVocabulary.part2.json', 'quizDataVocabulary.part3.json',
-        'quizDataVocabulary.part4.json', 'quizDataVocabulary.part5.json', 'quizDataVocabulary.part6.json'
-      ]
+    /*** State & Persistence ***/
+    const $ = (id) => document.getElementById(id);
+    const els = {
+      start: $('start'), quiz: $('quiz'), results: $('results'),
+      btnGrammar: $('btnGrammar'), btnVocab: $('btnVocab'),
+      homeBtn: $('homeBtn'), resetBtn: $('resetBtn'), homeBtn2: $('homeBtn2'),
+      resumeBanner: $('resumeBanner'), resumeMeta: $('resumeMeta'), resumeBtn: $('resumeBtn'), discardBtn: $('discardBtn'),
+      progressFill: $('progressFill'), progressText: $('progressText'),
+      question: $('question'), options: $('options'), nextBtn: $('nextBtn'), prevBtn: $('prevBtn'),
+      topic: $('topic'), level: $('level'), translation: $('translation'),
+      rightCount: $('rightCount'), wrongCount: $('wrongCount'), scoreMsg: $('scoreMsg'),
+      againBtn: $('againBtn'), review: $('review'), reviewList: $('reviewList'),
+      toast: $('toast'), toastText: $('toastText')
     };
 
-    let state = { mode: 'menu', section: null, questions: [], order: [], index: 0, correct: 0, answered: {} };
+    const DATA_FILES = {
+      Grammatik: 'quizDataGrammar.json',
+      Wortschatz: 'quizDataVocabulary.json'
+    };
 
-    const $selectorArea = document.getElementById('selector-area');
-    const $quizArea = document.getElementById('quiz-area');
-    const $resultsArea = document.getElementById('results-area');
-    const $progressArea = document.getElementById('progress-area');
-    const $questionText = document.getElementById('question-text');
-    const $levelTag = document.getElementById('level-tag');
-    const $options = document.getElementById('options-container');
-    const $nextBtn = document.getElementById('next-button');
-    const $resultMsg = document.getElementById('result-message');
-    const $explain = document.getElementById('explanation-text');
-    const $finalScore = document.getElementById('final-score');
-    const $scoreAnalysis = document.getElementById('score-analysis');
-    const $progressText = document.getElementById('progress-text');
-    const $bar = document.getElementById('bar-fill');
+    const initialState = () => ({
+      mode: 'start',                // 'start' | 'quiz' | 'results'
+      quizType: null,               // 'Grammatik' | 'Wortschatz'
+      file: null,                   // data filename
+      questions: [],                // loaded questions
+      index: 0,
+      answers: [],                  // per index: selected option or null
+      correct: 0,
+      finished: false,
+      updatedAt: Date.now()
+    });
 
-    async function loadSection(section) {
-      const files = SOURCES[section];
-      const all = [];
-      for (const file of files) {
-        const res = await fetch(file, { cache: 'no-cache' });
-        if (!res.ok) throw new Error('فشل تحميل: ' + file);
-        const arr = await res.json();
-        all.push(...arr);
-      }
-      const ids = new Set();
-      for (const q of all) {
-        if (ids.has(q.id)) throw new Error('تكرار ID: ' + q.id);
-        ids.add(q.id);
-      }
-      return all;
+    let state = initialState();
+
+    const keyFor = (type) => `quiz-progress::${type || 'unknown'}`;
+
+    function show(area) {
+      [els.start, els.quiz, els.results].forEach(a => a.classList.add('hidden'));
+      area.classList.remove('hidden');
     }
 
-    function shuffledIndices(n) {
-      const a = [...Array(n).keys()];
-      for (let i = n - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
+    function toast(msg) {
+      els.toastText.textContent = msg;
+      els.toast.classList.add('show');
+      setTimeout(() => els.toast.classList.remove('show'), 1800);
     }
 
-    function saveProgress() {
-      const payload = {
-        section: state.section, order: state.order, index: state.index,
-        correct: state.correct, answered: state.answered
+    function save() {
+      if (!state.quizType) return;
+      state.updatedAt = Date.now();
+      const saveObj = {
+        mode: state.mode, quizType: state.quizType, file: state.file,
+        index: state.index, answers: state.answers, correct: state.correct, finished: state.finished,
+        updatedAt: state.updatedAt
       };
-      STORAGE.setItem(STORE_KEY, JSON.stringify(payload));
-    }
-    function hasProgress() { return !!STORAGE.getItem(STORE_KEY); }
-    function loadProgress() {
-      const raw = STORAGE.getItem(STORE_KEY);
-      if (!raw) return null;
-      try { return JSON.parse(raw); } catch { return null; }
-    }
-    function clearProgress() { STORAGE.removeItem(STORE_KEY); }
-
-    function showMenu() {
-      state.mode = 'menu';
-      $selectorArea.classList.remove('hidden');
-      $quizArea.classList.add('hidden');
-      $resultsArea.classList.add('hidden');
-      if (hasProgress()) $progressArea.classList.remove('hidden'); else $progressArea.classList.add('hidden');
+      localStorage.setItem(keyFor(state.quizType), JSON.stringify(saveObj));
     }
 
-    async function startQuiz(section) {
-      state.section = section;
-      state.questions = await loadSection(section);
-      const saved = loadProgress();
-      if (saved && saved.section === section && saved.order?.length === state.questions.length) {
-        state.order = saved.order;
+    function hasSaved(type) {
+      try {
+        const raw = localStorage.getItem(keyFor(type));
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (_) { return null; }
+    }
+
+    function clearSaved(type) {
+      localStorage.removeItem(keyFor(type));
+    }
+
+    /*** Data ***/
+    async function fetchData(file) {
+      const res = await fetch(file);
+      if (!res.ok) throw new Error(`Failed to load ${file}: ${res.status}`);
+      return res.json();
+    }
+
+    /*** Start Flow ***/
+    function renderStart() {
+      show(els.start);
+      // Resume banner: prefer most recent between both types
+      const g = hasSaved('Grammatik');
+      const v = hasSaved('Wortschatz');
+      let pick = null;
+      if (g && v) { pick = (g.updatedAt > v.updatedAt) ? g : v; }
+      else pick = g || v;
+
+      if (pick && !pick.finished) {
+        els.resumeBanner.classList.remove('hidden');
+        const t = new Date(pick.updatedAt);
+        const de = pick.quizType === 'Grammatik' ? 'Grammatik' : 'Wortschatz';
+        els.resumeMeta.innerHTML = `نوع: <b>${de}</b> • سؤال: <b>${pick.index + 1}</b> • آخر حفظ: <b class="ltr">${t.toLocaleString()}</b>`;
+        els.resumeBtn.onclick = () => resume(pick);
+        els.discardBtn.onclick = () => { clearSaved(pick.quizType); renderStart(); toast('تم تجاهل التقدم — Fortschritt verworfen'); };
       } else {
-        state.order = shuffledIndices(state.questions.length);
+        els.resumeBanner.classList.add('hidden');
       }
-      state.index = 0; state.correct = 0; state.answered = {};
-      saveProgress();
+    }
 
+    async function start(type) {
+      state = initialState();
       state.mode = 'quiz';
-      $selectorArea.classList.add('hidden');
-      $progressArea.classList.add('hidden');
-      $quizArea.classList.remove('hidden');
+      state.quizType = type;
+      state.file = DATA_FILES[type];
+      // preload from saved if exists
+      const saved = hasSaved(type);
+      if (saved && !saved.finished) {
+        state.index = saved.index || 0;
+        state.answers = saved.answers || [];
+        state.correct = saved.correct || 0;
+      }
+      // fetch questions, then render
+      state.questions = await fetchData(state.file);
+      if (!Array.isArray(state.answers) || state.answers.length !== state.questions.length) {
+        state.answers = Array(state.questions.length).fill(null);
+      }
+      save();
       renderQuestion();
+      show(els.quiz);
     }
 
-    function resumeQuiz() {
-      const saved = loadProgress(); if (!saved) return;
-      state.section = saved.section;
-      loadSection(state.section).then((qs) => {
-        state.questions = qs;
-        state.order = saved.order ?? shuffledIndices(qs.length);
-        state.index = saved.index ?? 0;
-        state.correct = saved.correct ?? 0;
-        state.answered = saved.answered ?? {};
-        state.mode = 'quiz';
-        $selectorArea.classList.add('hidden'); $progressArea.classList.add('hidden'); $quizArea.classList.remove('hidden');
-        renderQuestion();
-      }).catch((e) => alert('فشل الاستئناف: ' + e.message));
+    async function resume(saved) {
+      state = initialState();
+      state.mode = saved.mode || 'quiz';
+      state.quizType = saved.quizType;
+      state.file = saved.file;
+      state.index = saved.index || 0;
+      state.answers = saved.answers || [];
+      state.correct = saved.correct || 0;
+      state.finished = !!saved.finished;
+      // Re-fetch to hydrate questions
+      state.questions = await fetchData(state.file || DATA_FILES[state.quizType]);
+      if (!Array.isArray(state.answers) || state.answers.length !== state.questions.length) {
+        state.answers = Array(state.questions.length).fill(null);
+      }
+      if (state.finished) {
+        renderResults(); show(els.results);
+      } else {
+        renderQuestion(); show(els.quiz);
+      }
     }
 
-    function saveProgressAndShowSelector() { saveProgress(); showMenu(); }
-    function clearProgressAndShowSelector() { clearProgress(); showMenu(); }
-
-    function decorateLevel(level) {
-      const palette = { A1: { bg: '#1b3821', color: '#d1fae5', text: 'A1' }, A2: { bg: '#3b2f12', color: '#fef3c7', text: 'A2' }, B1: { bg: '#1d254a', color: '#e0e7ff', text: 'B1' } };
-      const p = palette[level] || palette.A1;
-      $levelTag.style.backgroundColor = p.bg; $levelTag.style.color = p.color; $levelTag.textContent = 'Niveau (المستوى): ' + p.text;
-    }
-
-    function getCorrectIndexes(q) {
-      if (Array.isArray(q.correctAnswerIndexes)) return q.correctAnswerIndexes;
-      return [q.correctAnswerIndex];
+    /*** Quiz Rendering ***/
+    function updateProgressUI() {
+      const total = state.questions.length;
+      const idx = Math.min(state.index, total - 1);
+      const pct = total ? Math.round((idx) / total * 100) : 0;
+      els.progressFill.style.width = pct + '%';
+      els.progressText.textContent = `${idx} / ${total}`;
     }
 
     function renderQuestion() {
-      $options.innerHTML = ''; $explain.classList.add('hidden'); $resultMsg.style.opacity = 0;
-      $nextBtn.disabled = true; $nextBtn.textContent = 'Nächste Frage (السؤال التالي)';
+      const q = state.questions[state.index];
+      if (!q) { return; }
 
-      const idx = state.order[state.index];
-      const q = state.questions[idx];
-      $questionText.textContent = q.question;
-      decorateLevel(q.level);
+      // Meta
+      els.topic.textContent = q.topic || '';
+      els.level.textContent = q.level || '';
+      els.translation.classList.add('hidden');
+      els.translation.innerHTML = '';
 
-      const total = state.questions.length;
-      $progressText.textContent = `سؤال ${state.index + 1} من ${total} — صحيح: ${state.correct}`;
-      const pct = Math.round(((state.index) / Math.max(total - 1, 1)) * 100);
-      $bar.style.width = pct + '%';
+      // Question + Options
+      els.question.innerHTML = `<span class="ltr"><strong>${q.question}</strong></span>`;
+      els.options.innerHTML = '';
 
       q.options.forEach((opt, i) => {
         const btn = document.createElement('button');
-        btn.className = 'option-button'; btn.textContent = opt;
-        btn.addEventListener('click', () => onAnswer(i));
-        btn.setAttribute('data-key', String(i + 1));
-        $options.appendChild(btn);
+        btn.type = 'button';
+        btn.className = 'option';
+        btn.innerHTML = `<span class="opt-index">${i + 1}.</span> <span class="ltr">${opt}</span>`;
+        btn.onclick = () => selectOption(i);
+        // If already answered, colorize
+        const chosen = state.answers[state.index];
+        if (chosen !== null) {
+          if (i === q.correctAnswerIndex) btn.classList.add('correct');
+          else if (i === chosen) btn.classList.add('wrong');
+        }
+        els.options.appendChild(btn);
       });
+
+      // Prev/Next buttons
+      els.prevBtn.disabled = state.index === 0;
+      els.nextBtn.textContent = (state.index === state.questions.length - 1) ? 'إنهاء • Beenden' : 'التالي • Weiter';
+      updateProgressUI();
+      save();
     }
 
-    function onAnswer(choice) {
-      const idx = state.order[state.index];
-      const q = state.questions[idx];
-      const correctIdxs = getCorrectIndexes(q);
-      const buttons = Array.from($options.children);
-      buttons.forEach((b, i) => {
-        b.disabled = true;
-        if (correctIdxs.includes(i)) b.classList.add('correct');
-        else if (i === choice) b.classList.add('incorrect');
-      });
-      const correct = correctIdxs.includes(choice);
-      state.answered[q.id] = correct; if (correct) state.correct++;
-      $resultMsg.textContent = correct ? 'Richtige Antwort ✅ (إجابة صحيحة)' : 'Falsche Antwort ❌ (إجابة خاطئة)';
-      $resultMsg.style.opacity = 1;
-      if (q.example || q.translation || q.topic) {
-        $explain.innerHTML = `<div style="font-weight:700;margin-bottom:6px">Erklärung (التوضيح):</div>
-        <div style="margin-bottom:4px"><span style="font-weight:700">Satz (DE) (الجملة):</span> ${q.example || '-'}</div>
-        <div style="margin-bottom:4px"><span style="font-weight:700">Bedeutung (AR) (الشرح):</span> ${q.translation || '-'}</div>
-        <div style="font-size:12px;opacity:.8"><span style="font-weight:700">Thema (الموضوع):</span> ${q.topic || '-'}</div>`;
-        $explain.classList.remove('hidden');
-      }
-      $nextBtn.disabled = false; saveProgress();
-    }
+    function selectOption(i) {
+      const q = state.questions[state.index];
+      const prev = state.answers[state.index];
 
-    function nextQuestion() {
-      if (state.index < state.questions.length - 1) {
-        state.index++; saveProgress(); renderQuestion();
+      state.answers[state.index] = i;
+      if (prev === null) {
+        if (i === q.correctAnswerIndex) state.correct += 1;
       } else {
-        state.mode = 'results';
-        const total = state.questions.length;
-        const score = Math.round((state.correct / total) * 100);
-        $resultsArea.classList.remove('hidden'); $quizArea.classList.add('hidden');
-        $finalScore.textContent = `${score} / 100`;
-        $scoreAnalysis.textContent = score >= 85 ? 'Ausgezeichnet! Bereit für B1. (ممتاز! جاهز للتحضير لـ B1)' : (score >= 70 ? 'Sehr gut. Wiederhole die Schwächen. (جيد جداً. كرّر على نقاط الضعف)' : 'Du musst A1/A2 noch mehr üben. (تحتاج مراجعة أكثر لمستوى A1/A2)');
-        saveProgress();
+        // Adjust scoring if user changes answer
+        const wasCorrect = (prev === q.correctAnswerIndex);
+        const nowCorrect = (i === q.correctAnswerIndex);
+        if (!wasCorrect && nowCorrect) state.correct += 1;
+        if (wasCorrect && !nowCorrect) state.correct -= 1;
+      }
+
+      // Update option colors
+      [...els.options.children].forEach((el, idx) => {
+        el.classList.remove('correct', 'wrong');
+        if (idx === q.correctAnswerIndex) el.classList.add('correct');
+        else if (idx === i) el.classList.add('wrong');
+      });
+
+      // Reveal translation / explanation if present
+      const parts = [];
+      if (q.translation) parts.push(`الترجمة: <b>${q.translation}</b>`);
+      if (q.example) parts.push(`مثال / Beispiel: <span class="ltr"><b>${q.example}</b></span>`);
+      if (parts.length) {
+        els.translation.innerHTML = parts.join('<br/>');
+        els.translation.classList.remove('hidden');
+      }
+      save();
+    }
+
+    function next() {
+      if (state.index < state.questions.length - 1) {
+        state.index += 1;
+        renderQuestion();
+      } else {
+        state.mode = 'results'; state.finished = true; save();
+        renderResults(); show(els.results);
+      }
+    }
+    function prev() {
+      if (state.index > 0) {
+        state.index -= 1;
+        renderQuestion();
       }
     }
 
-    document.addEventListener('keydown', (e) => {
-      if (state.mode !== 'quiz') return;
-      if (e.key >= '1' && e.key <= '4') {
-        const idx = Number(e.key) - 1;
-        const btn = $options.children[idx];
-        if (btn && !btn.disabled) btn.click();
-      } else if (e.key === 'Enter') {
-        if (!$nextBtn.disabled) nextQuestion();
+    /*** Results ***/
+    function renderResults() {
+      const total = state.questions.length || 0;
+      const right = state.correct;
+      const wrong = Math.max(0, total - right);
+      els.rightCount.textContent = right;
+      els.wrongCount.textContent = wrong;
+
+      const ratio = total ? right / total : 0;
+      let msg = '';
+      if (ratio === 1) { msg = 'ممتاز! جميع الإجابات صحيحة. — Ausgezeichnet! Alles richtig.'; }
+      else if (ratio >= .8) { msg = 'رائع! استمر. — Stark! Weiter so.'; }
+      else if (ratio >= .6) { msg = 'جيد، راجع الأخطاء. — Gut, Fehler bitte nacharbeiten.'; }
+      else { msg = 'تحتاج مزيداً من التدريب. — Mehr Übung nötig.'; }
+      els.scoreMsg.textContent = msg;
+
+      // Build review list for wrong answers
+      const list = [];
+      state.questions.forEach((q, idx) => {
+        const chosen = state.answers[idx];
+        if (chosen === null) return;
+        if (chosen !== q.correctAnswerIndex) {
+          list.push({ idx, q });
+        }
+      });
+      if (list.length) {
+        els.review.classList.remove('hidden');
+        els.reviewList.innerHTML = '';
+        list.forEach(item => {
+          const { idx, q } = item;
+          const chosen = state.answers[idx];
+          const el = document.createElement('div');
+          el.className = 'review-item';
+          el.innerHTML = `
+            <div class="review-q"><span class="muted">#${idx + 1}</span> — <span class="ltr"><b>${q.question}</b></span></div>
+            <div>✅ الصحيح / Richtig: <span class="ltr"><b>${q.options[q.correctAnswerIndex]}</b></span></div>
+            <div>❌ إجابتك / Deine Antwort: <span class="ltr"><b>${q.options[chosen] ?? '—'}</b></span></div>
+            ${q.translation ? `<div class="review-ex" style="margin-top:6px">الترجمة: ${q.translation}</div>` : ''}
+            ${q.example ? `<div class="review-ex">مثال / Beispiel: <span class="ltr">${q.example}</span></div>` : ''}
+          `;
+          els.reviewList.appendChild(el);
+        });
+      } else {
+        els.review.classList.add('hidden');
       }
-    });
+    }
 
-    window.startQuiz = startQuiz;
-    window.resumeQuiz = resumeQuiz;
-    window.clearProgressAndShowSelector = clearProgressAndShowSelector;
-    window.saveProgressAndShowSelector = saveProgressAndShowSelector;
-    window.nextQuestion = nextQuestion;
+    /*** Navigation helpers ***/
+    function goHome() {
+      state.mode = 'start'; save();
+      renderStart();
+      show(els.start);
+    }
+    function resetAll() {
+      if (confirm('سيتم حذف التقدم لهذا النوع من الاختبار فقط. هل أنت متأكد؟\\nFortschritt für diesen Typ wird gelöscht. Sicher?')) {
+        if (state.quizType) clearSaved(state.quizType);
+        state = initialState();
+        renderStart(); show(els.start);
+        toast('تمت إعادة التعيين — Zurückgesetzt');
+      }
+    }
 
-    document.addEventListener('DOMContentLoaded', showMenu);
+    /*** Wire up ***/
+    els.btnGrammar.onclick = () => start('Grammatik');
+    els.btnVocab.onclick = () => start('Wortschatz');
+
+    els.homeBtn.onclick = goHome;
+    els.homeBtn2.onclick = goHome;
+    els.resetBtn.onclick = resetAll;
+
+    els.nextBtn.onclick = next;
+    els.prevBtn.onclick = prev;
+
+    els.againBtn.onclick = () => {
+      const t = state.quizType || 'Grammatik';
+      clearSaved(t);
+      start(t);
+    };
+
+    // Initial
+    renderStart();
   </script>
 </body>
 

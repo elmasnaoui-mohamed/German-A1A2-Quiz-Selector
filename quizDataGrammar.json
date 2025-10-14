@@ -1,0 +1,1502 @@
+[
+    {
+        "level": "A1",
+        "question": "Ich ___ in Köln. (sein)",
+        "options": [
+            "bin",
+            "bist",
+            "sind",
+            "seid"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Ich bin in Berlin.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G001"
+    },
+    {
+        "level": "A1",
+        "question": "Du ___ in Leipzig. (sein)",
+        "options": [
+            "bin",
+            "bist",
+            "seid",
+            "sind"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Konjugation Präsens",
+        "example": "Du bist in Hamburg.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G002"
+    },
+    {
+        "level": "A1",
+        "question": "Er ___ in München. (sein)",
+        "options": [
+            "bist",
+            "ist",
+            "seid",
+            "bin"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Konjugation Präsens",
+        "example": "Er ist in Hamburg.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G003"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ in Leipzig. (sein)",
+        "options": [
+            "bist",
+            "seid",
+            "bin",
+            "ist"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Konjugation Präsens",
+        "example": "Sie ist in Hamburg.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G004"
+    },
+    {
+        "level": "A1",
+        "question": "Es ___ in Berlin. (sein)",
+        "options": [
+            "ist",
+            "bist",
+            "bin",
+            "seid"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Es ist in Berlin.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G005"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ in Köln. (sein)",
+        "options": [
+            "sind",
+            "ist",
+            "bin",
+            "bist"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Wir sind in Berlin.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G006"
+    },
+    {
+        "level": "A1",
+        "question": "Ihr ___ in Leipzig. (sein)",
+        "options": [
+            "sind",
+            "bist",
+            "seid",
+            "bin"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Konjugation Präsens",
+        "example": "Ihr seid in Hamburg.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G007"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ in München. (sein)",
+        "options": [
+            "sind",
+            "ist",
+            "bist",
+            "seid"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Sie sind in Hamburg.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G008"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ ein Buch. (lesen)",
+        "options": [
+            "lese",
+            "liest",
+            "lesen",
+            "liest"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Ich lese ein Buch.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G009"
+    },
+    {
+        "level": "A1",
+        "question": "Du ___ eine E-Mail. (schreiben)",
+        "options": [
+            "schreibst",
+            "schreiben",
+            "schreibt",
+            "schreibe"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Du schreibst eine E-Mail.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G010"
+    },
+    {
+        "level": "A1",
+        "question": "Er ___ Musik. (hören)",
+        "options": [
+            "hört",
+            "hören",
+            "hörst",
+            "höre"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Er hört Musik.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G011"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ einen Kaffee. (trinken)",
+        "options": [
+            "trinke",
+            "trinkst",
+            "trinken",
+            "trinkt"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Konjugation Präsens",
+        "example": "Sie trinkt einen Kaffee.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G012"
+    },
+    {
+        "level": "A1",
+        "question": "Es ___ gut. (schmecken)",
+        "options": [
+            "schmeckt",
+            "schmecken",
+            "schmeckst",
+            "schmecke"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Es schmeckt gut.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G013"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ nach Berlin. (fahren)",
+        "options": [
+            "fahren",
+            "fährst",
+            "fahrt",
+            "fahre"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Wir fahren nach Berlin.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G014"
+    },
+    {
+        "level": "A1",
+        "question": "Ihr ___ eine Pizza. (essen)",
+        "options": [
+            "esse",
+            "esst",
+            "isst",
+            "essen"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Konjugation Präsens",
+        "example": "Ihr esst eine Pizza.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G015"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ nach Hause. (gehen)",
+        "options": [
+            "gehe",
+            "geht",
+            "gehst",
+            "gehen"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Konjugation Präsens",
+        "example": "Sie gehen nach Hause.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G016"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ einen Apfel. (haben)",
+        "options": [
+            "habe",
+            "hast",
+            "hat",
+            "haben"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Ich habe einen Apfel.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G017"
+    },
+    {
+        "level": "A1",
+        "question": "Du ___ Zeit. (haben)",
+        "options": [
+            "haben",
+            "hast",
+            "hat",
+            "habe"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Konjugation Präsens",
+        "example": "Du hast Zeit.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G018"
+    },
+    {
+        "level": "A1",
+        "question": "Er ___ ein Auto. (haben)",
+        "options": [
+            "hat",
+            "hast",
+            "habe",
+            "haben"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Er hat ein Auto.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G019"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ einen Hund. (haben)",
+        "options": [
+            "habe",
+            "hat",
+            "haben",
+            "hast"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Konjugation Präsens",
+        "example": "Sie hat einen Hund.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G020"
+    },
+    {
+        "level": "A1",
+        "question": "Es ___ ein Fenster. (haben)",
+        "options": [
+            "hast",
+            "haben",
+            "hat",
+            "habe"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Konjugation Präsens",
+        "example": "Es hat ein Fenster.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G021"
+    },
+    {
+        "level": "A1",
+        "question": "Wir ___ einen Plan. (haben)",
+        "options": [
+            "habt",
+            "habe",
+            "haben",
+            "hat"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Konjugation Präsens",
+        "example": "Wir haben einen Plan.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G022"
+    },
+    {
+        "level": "A1",
+        "question": "Ihr ___ eine Frage. (haben)",
+        "options": [
+            "habt",
+            "hat",
+            "haben",
+            "habe"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Konjugation Präsens",
+        "example": "Ihr habt eine Frage.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G023"
+    },
+    {
+        "level": "A1",
+        "question": "Sie ___ viele Bücher. (haben)",
+        "options": [
+            "habe",
+            "hast",
+            "hat",
+            "haben"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Konjugation Präsens",
+        "example": "Sie haben viele Bücher.",
+        "translation": "تصريف فعل بالحاضر.",
+        "id": "G024"
+    },
+    {
+        "level": "A1",
+        "question": "Ich ___ ___ Auto.",
+        "options": [
+            "der",
+            "das",
+            "die",
+            "den"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe das Auto.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G025"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Apfel.",
+        "options": [
+            "der",
+            "die",
+            "den",
+            "das"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe den Apfel.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G026"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Stuhl.",
+        "options": [
+            "das",
+            "die",
+            "den",
+            "der"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe den Stuhl.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G027"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Tasche.",
+        "options": [
+            "der",
+            "die",
+            "das",
+            "den"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe die Tasche.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G028"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Zeitung.",
+        "options": [
+            "den",
+            "die",
+            "der",
+            "das"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe die Zeitung.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G029"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Zimmer.",
+        "options": [
+            "der",
+            "das",
+            "den",
+            "die"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe das Zimmer.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G030"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Auto.",
+        "options": [
+            "den",
+            "dem",
+            "der",
+            "das"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe dem Auto.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G031"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Apfel.",
+        "options": [
+            "dem",
+            "der",
+            "das",
+            "den"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe dem Apfel.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G032"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Stuhl.",
+        "options": [
+            "das",
+            "der",
+            "den",
+            "dem"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe dem Stuhl.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G033"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Tasche.",
+        "options": [
+            "der",
+            "dem",
+            "das",
+            "den"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe der Tasche.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G034"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Zeitung.",
+        "options": [
+            "der",
+            "dem",
+            "den",
+            "das"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe der Zeitung.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G035"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Zimmer.",
+        "options": [
+            "der",
+            "das",
+            "den",
+            "dem"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe dem Zimmer.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G036"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Kind.",
+        "options": [
+            "das",
+            "der",
+            "die",
+            "den"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe das Kind.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G037"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Kind.",
+        "options": [
+            "den",
+            "der",
+            "das",
+            "dem"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe dem Kind.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G038"
+    },
+    {
+        "level": "A1",
+        "question": "Ich gebe ___ Mann das Buch.",
+        "options": [
+            "den",
+            "dem",
+            "der",
+            "das"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich gebe dem Mann das Buch.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G039"
+    },
+    {
+        "level": "A1",
+        "question": "Ich gebe ___ Frau die Tasche.",
+        "options": [
+            "der",
+            "dem",
+            "den",
+            "die"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich gebe der Frau die Tasche.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G040"
+    },
+    {
+        "level": "A1",
+        "question": "Ich gebe ___ Kind das Spielzeug.",
+        "options": [
+            "dem",
+            "der",
+            "den",
+            "die"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich gebe dem Kind das Spielzeug.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G041"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Mann.",
+        "options": [
+            "der",
+            "den",
+            "dem",
+            "die"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe den Mann.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G042"
+    },
+    {
+        "level": "A1",
+        "question": "Ich sehe ___ Frau.",
+        "options": [
+            "die",
+            "der",
+            "das",
+            "den"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus",
+        "example": "Ich sehe die Frau.",
+        "translation": "اختر أداة التعريف في حالة النصب.",
+        "id": "G043"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Mann.",
+        "options": [
+            "der",
+            "dem",
+            "den",
+            "die"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe dem Mann.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G044"
+    },
+    {
+        "level": "A1",
+        "question": "Ich helfe ___ Frau.",
+        "options": [
+            "die",
+            "der",
+            "das",
+            "den"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus",
+        "example": "Ich helfe der Frau.",
+        "translation": "اختر أداة التعريف في حالة الجر (داتيف).",
+        "id": "G045"
+    },
+    {
+        "level": "A1",
+        "question": "Er trinkt ___ Wasser.",
+        "options": [
+            "ein",
+            "eine",
+            "einen",
+            "einer"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Er trinkt ein Wasser.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G046"
+    },
+    {
+        "level": "A1",
+        "question": "Er kauft ___ Auto.",
+        "options": [
+            "eine",
+            "einen",
+            "einer",
+            "ein"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Er kauft ein Auto.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G047"
+    },
+    {
+        "level": "A1",
+        "question": "Er kauft ___ Buch.",
+        "options": [
+            "ein",
+            "einen",
+            "eine",
+            "einer"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Er kauft ein Buch.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G048"
+    },
+    {
+        "level": "A1",
+        "question": "Wir sehen ___ Film.",
+        "options": [
+            "eine",
+            "einen",
+            "ein",
+            "einer"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Wir sehen einen Film.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G049"
+    },
+    {
+        "level": "A1",
+        "question": "Wir kaufen ___ Stuhl.",
+        "options": [
+            "ein",
+            "eine",
+            "einen",
+            "einer"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Wir kaufen einen Stuhl.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G050"
+    },
+    {
+        "level": "A1",
+        "question": "Wir kaufen ___ Lampe.",
+        "options": [
+            "ein",
+            "einen",
+            "eine",
+            "einer"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Wir kaufen eine Lampe.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G051"
+    },
+    {
+        "level": "A1",
+        "question": "Ich lerne ___ Mann kennen.",
+        "options": [
+            "ein",
+            "einen",
+            "eine",
+            "einer"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Artikel & Kasus (unbestimmt)",
+        "example": "Ich lerne einen Mann kennen.",
+        "translation": "اختر أداة النكرة في حالة النصب.",
+        "id": "G052"
+    },
+    {
+        "level": "A2",
+        "question": "Ich ___ gut Deutsch sprechen.",
+        "options": [
+            "kann",
+            "muss",
+            "darf",
+            "möchte"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Modalverben",
+        "example": "Ich kann gut Deutsch sprechen.",
+        "translation": "أستطيع التحدث باللغة الألمانية جيداً.",
+        "id": "G053"
+    },
+    {
+        "level": "A2",
+        "question": "Du ___ heute die Hausaufgaben machen.",
+        "options": [
+            "willst",
+            "kannst",
+            "musst",
+            "sollst"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Modalverben",
+        "example": "Du musst heute die Hausaufgaben machen.",
+        "translation": "يجب عليك أن تقوم بالواجبات اليوم.",
+        "id": "G054"
+    },
+    {
+        "level": "A2",
+        "question": "Er ___ zur Party kommen.",
+        "options": [
+            "will",
+            "soll",
+            "darf",
+            "muss"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Modalverben",
+        "example": "Er will zur Party kommen.",
+        "translation": "يريد أن يأتي إلى الحفلة.",
+        "id": "G055"
+    },
+    {
+        "level": "A2",
+        "question": "Sie ___ nicht rauchen.",
+        "options": [
+            "darf",
+            "will",
+            "muss",
+            "kann"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Modalverben",
+        "example": "Sie darf nicht rauchen.",
+        "translation": "غير مسموح لها أن تدخن.",
+        "id": "G056"
+    },
+    {
+        "level": "A2",
+        "question": "Es ___ regnen.",
+        "options": [
+            "muss",
+            "kann",
+            "soll",
+            "darf"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Modalverben",
+        "example": "Es kann regnen.",
+        "translation": "قد تمطر.",
+        "id": "G057"
+    },
+    {
+        "level": "A2",
+        "question": "Wir ___ morgen früh aufstehen.",
+        "options": [
+            "sollen",
+            "wollen",
+            "dürfen",
+            "können"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Modalverben",
+        "example": "Wir sollen morgen früh aufstehen.",
+        "translation": "يجب علينا أن نستيقظ غدًا باكرًا.",
+        "id": "G058"
+    },
+    {
+        "level": "A2",
+        "question": "Ihr ___ ins Bett gehen.",
+        "options": [
+            "müsst",
+            "könnt",
+            "wollt",
+            "sollt"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Modalverben",
+        "example": "Ihr müsst ins Bett gehen.",
+        "translation": "يجب عليكم أن تذهبوا إلى السرير.",
+        "id": "G059"
+    },
+    {
+        "level": "A2",
+        "question": "Wir ___ heute ins Kino gehen, aber wir haben keine Zeit.",
+        "options": [
+            "können",
+            "wollen",
+            "dürfen",
+            "sollen"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Modalverben",
+        "example": "Wir wollen heute ins Kino gehen, aber wir haben keine Zeit.",
+        "translation": "نريد الذهاب إلى السينما اليوم، لكن ليس لدينا وقت.",
+        "id": "G060"
+    },
+    {
+        "level": "A2",
+        "question": "Sie ___ im Park spielen.",
+        "options": [
+            "wollen",
+            "dürfen",
+            "können",
+            "müssen"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Modalverben",
+        "example": "Sie dürfen im Park spielen.",
+        "translation": "مسموح لهم أن يلعبوا في الحديقة.",
+        "id": "G061"
+    },
+    {
+        "level": "A2",
+        "question": "Ich ___ ein Eis essen.",
+        "options": [
+            "möchte",
+            "will",
+            "soll",
+            "muss"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Modalverben",
+        "example": "Ich möchte ein Eis essen.",
+        "translation": "أود أن آكل آيس كريم.",
+        "id": "G062"
+    },
+    {
+        "level": "A2",
+        "question": "Ich ___ mich über deinen Brief gefreut. (freuen)",
+        "options": [
+            "habe",
+            "bin",
+            "werde",
+            "habe mich"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (haben)",
+        "example": "Ich habe mich über deinen Brief gefreut.",
+        "translation": "لقد فرحت برسالتك.",
+        "id": "G063"
+    },
+    {
+        "level": "A2",
+        "question": "Er ___ nach Hause gegangen. (gehen)",
+        "options": [
+            "hat",
+            "ist",
+            "ist nach Hause",
+            "wird"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Perfekt (sein)",
+        "example": "Er ist nach Hause gegangen.",
+        "translation": "لقد ذهب إلى المنزل.",
+        "id": "G064"
+    },
+    {
+        "level": "A2",
+        "question": "Wir ___ das Haus gebaut. (bauen)",
+        "options": [
+            "sind",
+            "haben",
+            "haben das Haus",
+            "haben gebaut"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Perfekt (haben)",
+        "example": "Wir haben das Haus gebaut.",
+        "translation": "لقد بنينا المنزل.",
+        "id": "G065"
+    },
+    {
+        "level": "A2",
+        "question": "Sie ___ nach Deutschland geflogen. (fliegen)",
+        "options": [
+            "ist",
+            "hat",
+            "sind",
+            "hat geflogen"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (sein)",
+        "example": "Sie ist nach Deutschland geflogen.",
+        "translation": "لقد سافرت بالطائرة إلى ألمانيا.",
+        "id": "G066"
+    },
+    {
+        "level": "A2",
+        "question": "Ich ___ in den Sommerferien viel gereist. (reisen)",
+        "options": [
+            "bin",
+            "habe",
+            "habe gereist",
+            "bin gereist"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (sein)",
+        "example": "Ich bin in den Sommerferien viel gereist.",
+        "translation": "لقد سافرت كثيرا في العطلة الصيفية.",
+        "id": "G067"
+    },
+    {
+        "level": "A2",
+        "question": "Wir ___ die ganze Nacht gefeiert. (feiern)",
+        "options": [
+            "haben",
+            "sind",
+            "sind gefeiert",
+            "haben gefeiert"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (haben)",
+        "example": "Wir haben die ganze Nacht gefeiert.",
+        "translation": "لقد احتفلنا طوال الليل.",
+        "id": "G068"
+    },
+    {
+        "level": "A2",
+        "question": "Er ___ ein neues Auto gekauft. (kaufen)",
+        "options": [
+            "hat",
+            "ist",
+            "hat gekauft",
+            "ist gekauft"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (haben)",
+        "example": "Er hat ein neues Auto gekauft.",
+        "translation": "لقد اشترى سيارة جديدة.",
+        "id": "G069"
+    },
+    {
+        "level": "A2",
+        "question": "Ich ___ nach Hause gelaufen. (laufen)",
+        "options": [
+            "bin",
+            "habe",
+            "hat",
+            "ist gelaufen"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (sein)",
+        "example": "Ich bin nach Hause gelaufen.",
+        "translation": "لقد ركضت إلى المنزل.",
+        "id": "G070"
+    },
+    {
+        "level": "A2",
+        "question": "Die Kinder ___ im Park gespielt. (spielen)",
+        "options": [
+            "haben",
+            "sind",
+            "hat",
+            "ist"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (haben)",
+        "example": "Die Kinder haben im Park gespielt.",
+        "translation": "لقد لعب الأطفال في الحديقة.",
+        "id": "G071"
+    },
+    {
+        "level": "A2",
+        "question": "Ich habe einen Termin ___ 14:00 Uhr.",
+        "options": [
+            "um",
+            "an",
+            "in",
+            "auf"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Zeit)",
+        "example": "Ich habe einen Termin um 14:00 Uhr.",
+        "translation": "لدي موعد في الساعة 14:00.",
+        "id": "G072"
+    },
+    {
+        "level": "A2",
+        "question": "Der Schlüssel liegt ___ dem Tisch.",
+        "options": [
+            "in",
+            "auf",
+            "neben",
+            "hinter"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Präpositionen (Akkusativ/Dativ)",
+        "example": "Der Schlüssel liegt auf dem Tisch.",
+        "translation": "المفتاح ملقى على الطاولة.",
+        "id": "G073"
+    },
+    {
+        "level": "A2",
+        "question": "Ich hänge das Bild ___ die Wand.",
+        "options": [
+            "an",
+            "in",
+            "unter",
+            "über"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Akkusativ/Dativ)",
+        "example": "Ich hänge das Bild an die Wand.",
+        "translation": "أعلق الصورة على الحائط (حركة).",
+        "id": "G074"
+    },
+    {
+        "level": "A2",
+        "question": "Die Katze ist ___ dem Tisch.",
+        "options": [
+            "in",
+            "unter",
+            "auf",
+            "neben"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Präpositionen (Akkusativ/Dativ)",
+        "example": "Die Katze ist unter dem Tisch.",
+        "translation": "القطة تحت الطاولة.",
+        "id": "G075"
+    },
+    {
+        "level": "A2",
+        "question": "Ich lege das Buch ___ den Tisch.",
+        "options": [
+            "auf",
+            "in",
+            "unter",
+            "über"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Akkusativ/Dativ)",
+        "example": "Ich lege das Buch auf den Tisch.",
+        "translation": "أضع الكتاب على الطاولة (حركة).",
+        "id": "G076"
+    },
+    {
+        "level": "A2",
+        "question": "Das Auto steht ___ der Garage.",
+        "options": [
+            "in",
+            "neben",
+            "hinter",
+            "auf"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Akkusativ/Dativ)",
+        "example": "Das Auto steht in der Garage.",
+        "translation": "السيارة واقفة داخل المرآب.",
+        "id": "G077"
+    },
+    {
+        "level": "A2",
+        "question": "Wir gehen ___ die Stadt.",
+        "options": [
+            "in",
+            "nach",
+            "zu",
+            "auf"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Richtung)",
+        "example": "Wir gehen in die Stadt.",
+        "translation": "نذهب إلى المدينة.",
+        "id": "G078"
+    },
+    {
+        "level": "A2",
+        "question": "Er fährt ___ Hause.",
+        "options": [
+            "nach",
+            "in",
+            "zu",
+            "von"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Richtung)",
+        "example": "Er fährt nach Hause.",
+        "translation": "يقود إلى المنزل.",
+        "id": "G079"
+    },
+    {
+        "level": "A2",
+        "question": "Ich spreche ___ meinem Freund.",
+        "options": [
+            "mit",
+            "bei",
+            "von",
+            "aus"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Dativ)",
+        "example": "Ich spreche mit meinem Freund.",
+        "translation": "أتحدث مع صديقي.",
+        "id": "G080"
+    },
+    {
+        "level": "A2",
+        "question": "Er hat das Geschenk ___ seiner Schwester gegeben.",
+        "options": [
+            "von",
+            "aus",
+            "mit",
+            "zu"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Dativ)",
+        "example": "Er hat das Geschenk von seiner Schwester gegeben.",
+        "translation": "لقد أعطى الهدية لأخته.",
+        "id": "G081"
+    },
+    {
+        "level": "A2",
+        "question": "Der Hut ist ___ der Box.",
+        "options": [
+            "in",
+            "auf",
+            "an",
+            "hinter"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Dativ)",
+        "example": "Der Hut ist in der Box.",
+        "translation": "القبعة داخل الصندوق.",
+        "id": "G082"
+    },
+    {
+        "level": "A2",
+        "question": "Der Bahnhof ist ___ der Post.",
+        "options": [
+            "neben",
+            "aus",
+            "von",
+            "mit"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Präpositionen (Dativ)",
+        "example": "Der Bahnhof ist neben der Post.",
+        "translation": "محطة القطار بجانب البريد.",
+        "id": "G083"
+    },
+    {
+        "level": "A2",
+        "question": "Ich bin heute ___ Hause geblieben.",
+        "options": [
+            "nach",
+            "zu",
+            "in",
+            "an"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Präpositionen",
+        "example": "Ich bin heute zu Hause geblieben.",
+        "translation": "بقيت في المنزل اليوم.",
+        "id": "G084"
+    },
+    {
+        "level": "A2",
+        "question": "Hast du die Nachricht schon ___?",
+        "options": [
+            "liest",
+            "gelesen",
+            "lese",
+            "gelesen haben"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Perfekt (Partizip II)",
+        "example": "Hast du die Nachricht schon gelesen?",
+        "translation": "هل قرأت الرسالة بالفعل؟",
+        "id": "G085"
+    },
+    {
+        "level": "A2",
+        "question": "Gestern ___ ich ins Restaurant gegangen.",
+        "options": [
+            "bin",
+            "habe",
+            "war",
+            "ist"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (mit 'sein')",
+        "example": "Gestern bin ich ins Restaurant gegangen.",
+        "translation": "بالأمس ذهبت إلى المطعم.",
+        "id": "G086"
+    },
+    {
+        "level": "A2",
+        "question": "Er ___ die Tür geschlossen.",
+        "options": [
+            "hat",
+            "ist",
+            "hat geschlossen",
+            "geschlossen"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (Partizip II)",
+        "example": "Er hat die Tür geschlossen.",
+        "translation": "لقد أغلق الباب.",
+        "id": "G087"
+    },
+    {
+        "level": "A2",
+        "question": "Wir sind nach Deutschland ___.",
+        "options": [
+            "geflogen",
+            "fliegen",
+            "geflogt",
+            "fliegt"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Perfekt (Partizip II)",
+        "example": "Wir sind nach Deutschland geflogen.",
+        "translation": "لقد سافرنا بالطائرة إلى ألمانيا.",
+        "id": "G088"
+    },
+    {
+        "level": "A2",
+        "question": "Sie ___ gestern viel gelernt.",
+        "options": [
+            "hat",
+            "haben",
+            "ist",
+            "hat gelernt"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Perfekt (haben)",
+        "example": "Sie haben gestern viel gelernt.",
+        "translation": "لقد تعلموا الكثير بالأمس.",
+        "id": "G089"
+    },
+    {
+        "level": "A2",
+        "question": "Das Buch ist ___.",
+        "options": [
+            "interessant",
+            "interessanter",
+            "am interessantesten",
+            "interessantesten"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Adjektive",
+        "example": "Das Buch ist interessant.",
+        "translation": "الكتاب مثير للاهتمام.",
+        "id": "G090"
+    },
+    {
+        "level": "A2",
+        "question": "Das Wetter heute ist ___ als gestern.",
+        "options": [
+            "schön",
+            "schöner",
+            "am schönsten",
+            "schönste"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Komparativ/Superlativ",
+        "example": "Das Wetter heute ist schöner als gestern.",
+        "translation": "الطقس اليوم أجمل من أمس.",
+        "id": "G091"
+    },
+    {
+        "level": "A2",
+        "question": "Er ist ___ Schüler der Klasse.",
+        "options": [
+            "fleißig",
+            "fleißiger",
+            "am fleißigsten",
+            "der fleißigste"
+        ],
+        "correctAnswerIndex": 2,
+        "topic": "Komparativ/Superlativ",
+        "example": "Er ist am fleißigsten.",
+        "translation": "هو الأكثر اجتهادًا في الصف.",
+        "id": "G092"
+    },
+    {
+        "level": "A2",
+        "question": "Sie singt ___ als ihr Bruder.",
+        "options": [
+            "gut",
+            "besser",
+            "am besten",
+            "beste"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Komparativ/Superlativ",
+        "example": "Sie singt besser als ihr Bruder.",
+        "translation": "هي تغني أفضل من أخيها.",
+        "id": "G093"
+    },
+    {
+        "level": "A2",
+        "question": "Das ist das ___ Buch, das ich je gelesen habe.",
+        "options": [
+            "gut",
+            "besser",
+            "am besten",
+            "beste"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Komparativ/Superlativ",
+        "example": "Das ist das beste Buch, das ich je gelesen habe.",
+        "translation": "هذا هو أفضل كتاب قرأته في حياتي.",
+        "id": "G094"
+    },
+    {
+        "level": "A2",
+        "question": "Die Sonne ist ___ als der Mond.",
+        "options": [
+            "größer",
+            "groß",
+            "am größten",
+            "kleiner"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Komparativ/Superlativ",
+        "example": "Die Sonne ist größer als der Mond.",
+        "translation": "الشمس أكبر من القمر.",
+        "id": "G095"
+    },
+    {
+        "level": "A2",
+        "question": "Er arbeitet ___.",
+        "options": [
+            "schnell",
+            "schneller",
+            "am schnellsten",
+            "schnellste"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Adjektive",
+        "example": "Er arbeitet schnell.",
+        "translation": "هو يعمل بسرعة.",
+        "id": "G096"
+    },
+    {
+        "level": "A2",
+        "question": "Er fährt Auto, ___ er müde ist.",
+        "options": [
+            "obwohl",
+            "wenn",
+            "dass",
+            "weil"
+        ],
+        "correctAnswerIndex": 0,
+        "topic": "Nebensätze",
+        "example": "Er fährt Auto, obwohl er müde ist.",
+        "translation": "يقود السيارة على الرغم من أنه متعب.",
+        "id": "G097"
+    },
+    {
+        "level": "A2",
+        "question": "Er geht spazieren, ___ es kalt ist.",
+        "options": [
+            "weil",
+            "wenn",
+            "dass",
+            "obwohl"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Nebensätze",
+        "example": "Er geht spazieren, obwohl es kalt ist.",
+        "translation": "على الرغم من أن الجو بارد.",
+        "id": "G098"
+    },
+    {
+        "level": "A2",
+        "question": "Ich bleibe zu Hause, ___ ich müde bin.",
+        "options": [
+            "obwohl",
+            "wenn",
+            "dass",
+            "weil"
+        ],
+        "correctAnswerIndex": 3,
+        "topic": "Nebensätze",
+        "example": "Ich bleibe zu Hause, weil ich müde bin.",
+        "translation": "لأنّني متعب.",
+        "id": "G099"
+    },
+    {
+        "level": "A2",
+        "question": "Ich denke, ___ er kommt.",
+        "options": [
+            "wenn",
+            "dass",
+            "obwohl",
+            "weil"
+        ],
+        "correctAnswerIndex": 1,
+        "topic": "Nebensätze",
+        "example": "Ich denke, dass er kommt.",
+        "translation": "أعتقد أنّه سيأتي.",
+        "id": "G100"
+    }
+]
