@@ -217,11 +217,9 @@
       margin-top: 12px
     }
 
-    /* Visibility fix: brighten option background & text */
     .option {
       border: 1px solid #24527a;
       background: #1a2944;
-      /* lighter navy for contrast */
       color: #eaf6ff;
       border-radius: 12px;
       padding: 12px;
@@ -295,7 +293,6 @@
       display: none !important
     }
 
-    /* Results */
     .results-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -343,7 +340,6 @@
       color: #b5cce3
     }
 
-    /* Resume banner */
     .resume {
       display: flex;
       align-items: center;
@@ -355,7 +351,6 @@
       border-radius: 12px
     }
 
-    /* Toast */
     .toast {
       position: fixed;
       bottom: 18px;
@@ -377,7 +372,6 @@
       display: block
     }
 
-    /* --- Mobile tweaks --- */
     @media (max-width: 480px) {
       .btn {
         font-size: 13px;
@@ -423,21 +417,19 @@
 <body>
 
   <main class="container" id="app">
-    <!-- Topbar -->
     <div class="topbar">
       <div class="title">
         <span class="flag" aria-hidden="true">🇩🇪</span>
         <span>Deutsch <span class="muted">/ عربي</span></span>
       </div>
       <div class="top-actions">
-        <!-- Localized buttons -->
-        <button id="resetBtn" class="btn warn" title="إعادة التعيين — Zurücksetzen">🔄 إعادة • Zurücksetzen</button>
-        <button id="homeBtn" class="btn ghost" title="العودة إلى الصفحة الرئيسية — Startseite">🏠 الرئيسية •
+        <button id="resetBtn" class="btn warn hidden" title="إعادة التعيين — Zurücksetzen">🔄 إعادة •
+          Zurücksetzen</button>
+        <button id="homeBtn" class="btn ghost hidden" title="العودة إلى الصفحة الرئيسية — Startseite">🏠 الرئيسية •
           Startseite</button>
       </div>
     </div>
 
-    <!-- START AREA -->
     <section id="start" class="content stack">
       <div id="resumeBanner" class="resume hidden">
         <div>
@@ -466,7 +458,6 @@
       </div>
     </section>
 
-    <!-- QUIZ AREA -->
     <section id="quiz" class="content hidden">
       <div class="stack">
         <div class="card">
@@ -485,8 +476,8 @@
 
           <div class="footer-actions">
             <div class="left-actions">
-              <button id="prevBtn" class="btn ghost">← السابق • Zurück</button>
               <button id="nextBtn" class="btn">التالي • Weiter</button>
+              <button id="prevBtn" class="btn ghost">← السابق • Zurück</button>
             </div>
             <div class="muted" id="progressText">0 / 0</div>
           </div>
@@ -496,7 +487,6 @@
       </div>
     </section>
 
-    <!-- RESULTS AREA -->
     <section id="results" class="content hidden">
       <div class="stack">
         <div class="card center">
@@ -525,7 +515,6 @@
   </div>
 
   <script>
-    /*** State & Persistence ***/
     const $ = (id) => document.getElementById(id);
     const els = {
       start: $('start'), quiz: $('quiz'), results: $('results'),
@@ -546,12 +535,12 @@
     };
 
     const initialState = () => ({
-      mode: 'start',                // 'start' | 'quiz' | 'results'
-      quizType: null,               // 'Grammatik' | 'Wortschatz'
-      file: null,                   // data filename
-      questions: [],                // loaded questions
+      mode: 'start',
+      quizType: null,
+      file: null,
+      questions: [],
       index: 0,
-      answers: [],                  // per index: selected option or null
+      answers: [],
       correct: 0,
       finished: false,
       updatedAt: Date.now()
@@ -581,6 +570,7 @@
         updatedAt: state.updatedAt
       };
       localStorage.setItem(keyFor(state.quizType), JSON.stringify(saveObj));
+      updateTopbarButtons();
     }
 
     function hasSaved(type) {
@@ -593,19 +583,30 @@
 
     function clearSaved(type) {
       localStorage.removeItem(keyFor(type));
+      updateTopbarButtons();
     }
 
-    /*** Data ***/
     async function fetchData(file) {
       const res = await fetch(file);
       if (!res.ok) throw new Error(`Failed to load ${file}: ${res.status}`);
       return res.json();
     }
 
-    /*** Start Flow ***/
+    function updateTopbarButtons() {
+      const inCategory = state.mode === 'quiz' || state.mode === 'results';
+      const anySaved = !!hasSaved('Grammatik') || !!hasSaved('Wortschatz');
+      const currentSaved = state.quizType ? !!hasSaved(state.quizType) : false;
+
+      if (inCategory) { els.homeBtn.classList.remove('hidden'); }
+      else { els.homeBtn.classList.add('hidden'); }
+
+      const shouldShowReset = inCategory ? currentSaved : anySaved;
+      if (shouldShowReset) { els.resetBtn.classList.remove('hidden'); }
+      else { els.resetBtn.classList.add('hidden'); }
+    }
+
     function renderStart() {
       show(els.start);
-      // Resume banner: prefer most recent between both types
       const g = hasSaved('Grammatik');
       const v = hasSaved('Wortschatz');
       let pick = null;
@@ -622,6 +623,7 @@
       } else {
         els.resumeBanner.classList.add('hidden');
       }
+      updateTopbarButtons();
     }
 
     async function start(type) {
@@ -629,14 +631,12 @@
       state.mode = 'quiz';
       state.quizType = type;
       state.file = DATA_FILES[type];
-      // preload from saved if exists
       const saved = hasSaved(type);
       if (saved && !saved.finished) {
         state.index = saved.index || 0;
         state.answers = saved.answers || [];
         state.correct = saved.correct || 0;
       }
-      // fetch questions, then render
       state.questions = await fetchData(state.file);
       if (!Array.isArray(state.answers) || state.answers.length !== state.questions.length) {
         state.answers = Array(state.questions.length).fill(null);
@@ -644,6 +644,7 @@
       save();
       renderQuestion();
       show(els.quiz);
+      updateTopbarButtons();
     }
 
     async function resume(saved) {
@@ -655,7 +656,6 @@
       state.answers = saved.answers || [];
       state.correct = saved.correct || 0;
       state.finished = !!saved.finished;
-      // Re-fetch to hydrate questions
       state.questions = await fetchData(state.file || DATA_FILES[state.quizType]);
       if (!Array.isArray(state.answers) || state.answers.length !== state.questions.length) {
         state.answers = Array(state.questions.length).fill(null);
@@ -665,9 +665,9 @@
       } else {
         renderQuestion(); show(els.quiz);
       }
+      updateTopbarButtons();
     }
 
-    /*** Quiz Rendering ***/
     function updateProgressUI() {
       const total = state.questions.length;
       const idx = Math.min(state.index, total - 1);
@@ -679,14 +679,11 @@
     function renderQuestion() {
       const q = state.questions[state.index];
       if (!q) { return; }
-
-      // Meta
       els.topic.textContent = q.topic || '';
       els.level.textContent = q.level || '';
       els.translation.classList.add('hidden');
       els.translation.innerHTML = '';
 
-      // Question + Options
       els.question.innerHTML = `<span class="ltr"><strong>${q.question}</strong></span>`;
       els.options.innerHTML = '';
 
@@ -696,7 +693,6 @@
         btn.className = 'option';
         btn.innerHTML = `<span class="opt-index">${i + 1}.</span> <span class="ltr">${opt}</span>`;
         btn.onclick = () => selectOption(i);
-        // If already answered, colorize
         const chosen = state.answers[state.index];
         if (chosen !== null) {
           if (i === q.correctAnswerIndex) btn.classList.add('correct');
@@ -705,11 +701,12 @@
         els.options.appendChild(btn);
       });
 
-      // Prev/Next buttons
       els.prevBtn.disabled = state.index === 0;
       els.nextBtn.textContent = (state.index === state.questions.length - 1) ? 'إنهاء • Beenden' : 'التالي • Weiter';
+
       updateProgressUI();
       save();
+      updateTopbarButtons();
     }
 
     function selectOption(i) {
@@ -720,21 +717,18 @@
       if (prev === null) {
         if (i === q.correctAnswerIndex) state.correct += 1;
       } else {
-        // Adjust scoring if user changes answer
         const wasCorrect = (prev === q.correctAnswerIndex);
         const nowCorrect = (i === q.correctAnswerIndex);
         if (!wasCorrect && nowCorrect) state.correct += 1;
         if (wasCorrect && !nowCorrect) state.correct -= 1;
       }
 
-      // Update option colors
       [...els.options.children].forEach((el, idx) => {
         el.classList.remove('correct', 'wrong');
         if (idx === q.correctAnswerIndex) el.classList.add('correct');
         else if (idx === i) el.classList.add('wrong');
       });
 
-      // Reveal translation / explanation if present
       const parts = [];
       if (q.translation) parts.push(`الترجمة: <b>${q.translation}</b>`);
       if (q.example) parts.push(`مثال / Beispiel: <span class="ltr"><b>${q.example}</b></span>`);
@@ -761,7 +755,6 @@
       }
     }
 
-    /*** Results ***/
     function renderResults() {
       const total = state.questions.length || 0;
       const right = state.correct;
@@ -777,7 +770,6 @@
       else { msg = 'تحتاج مزيداً من التدريب. — Mehr Übung nötig.'; }
       els.scoreMsg.textContent = msg;
 
-      // Build review list for wrong answers
       const list = [];
       state.questions.forEach((q, idx) => {
         const chosen = state.answers[idx];
@@ -806,9 +798,9 @@
       } else {
         els.review.classList.add('hidden');
       }
+      updateTopbarButtons();
     }
 
-    /*** Navigation helpers ***/
     function goHome() {
       state.mode = 'start'; save();
       renderStart();
@@ -823,7 +815,6 @@
       }
     }
 
-    /*** Wire up ***/
     els.btnGrammar.onclick = () => start('Grammatik');
     els.btnVocab.onclick = () => start('Wortschatz');
 
@@ -840,7 +831,6 @@
       start(t);
     };
 
-    // Initial
     renderStart();
   </script>
 </body>
